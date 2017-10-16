@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { NavLink, Link } from 'react-router-dom';
 
+// redux stuff
+import { connect } from 'react-redux';
+import { createTrip } from '../actions';
+
 class FormInputs extends Component{
   constructor(props) {
     super(props);
     this.state = {
       destination: "",
-      selectBudget: ""
+      selectBudget: null,
     }
   }
   handleDestination(event) {
@@ -17,17 +21,37 @@ class FormInputs extends Component{
 
   handleSelectBudget(event) {
     this.setState({
-      selectBudget: event.target.value,
-    });
+      selectBudget: parseInt(event.target.value),
+    }, () => console.log(typeof(this.state.selectBudget)));
   }
 
-  // Handle Submit
-  handleAddItem() {
-    this.props.add(this.state.destination, this.state.selectBudget)
-    this.setState({
-      "destination": '',
-      "selectBudget": ''
-    })
+    // if both fields are filled out (validating the form)
+    if (this.state.destination !== "" && this.state.selectBudget !== null) {
+      // give that info to Chris
+      fetch('https://hip-trip.herokuapp.com/newTrip', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            budget: this.state.selectBudget,
+            destination: this.state.destination
+        }),
+      })
+        // turn the response into JSON so we can get the ID
+        .then( resp => resp.json())
+        // fetch the response by the ID
+        // return the entire trip object
+        .then( resp => {
+          // console.log(resp.id)
+          this.props.newTrip(resp.id)
+          // fetch('https://hip-trip.herokuapp.com/trip/details/' + resp.id)
+          // .then( resp => resp.json())
+          // .then( resp => console.log(resp))
+      })
+    }
+
   }
 
   render(){
@@ -44,10 +68,12 @@ class FormInputs extends Component{
             <select className="form-control"
               onChange={event => this.handleSelectBudget(event)}>
               <option selected="" value="">Budget</option>
-              <option>$</option>
-              <option>$$</option>
-              <option>$$$</option>
-              <option>$$$$</option>
+
+              <option value="1" >$</option>
+              <option value="2" >$$</option>
+              <option value="3" >$$$</option>
+              <option value="4" >$$$$</option>
+
             </select>
           </div>
         </div>
@@ -60,4 +86,27 @@ class FormInputs extends Component{
   }
 }
 
-export default FormInputs;
+// import state
+function mapS2P(state) {
+  return {
+    currentTrip: state.currentTrip,
+    trips: state.trips,
+  }
+}
+
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    newTrip: function (id) {
+      fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
+        .then( resp => resp.json())
+        .then( newTrip =>{
+          dispatch(createTrip(newTrip))
+        })
+        .then(console.log('I think I did it right'))
+    }
+  }
+}
+
+export default connect(mapS2P, mapD2P)(FormInputs);

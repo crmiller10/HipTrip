@@ -17,6 +17,21 @@ import TripDetails from './components/views/TripDetails';
 import Navbar from './components/Navbar';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      trip: {
+        destination: "",
+        budget: "",
+        dates: {
+          checkIn: "",
+          checkOut: "",
+        }
+      }
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,5 +55,3 @@ withRouter() is a function included in react-router-dom that AFAIK passes the
 this.props.history will be undefined.
 */
 export default withRouter(App);
-
-
