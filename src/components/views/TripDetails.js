@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+
 import NavTabs from "../NavTabs";
+import TripDates from '../TripDates';
+import TripGuests from '../TripGuests';
+import HotelDetails from '../HotelDetails';
 
 
 class TripDetails extends Component {
@@ -18,8 +22,11 @@ class TripDetails extends Component {
         </div>
         <NavTabs />
         <div className="page-content">
-          <h2>Trip Details</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, deserunt, quasi obcaecati maiores, corrupti cupiditate culpa earum error quo ab, ipsa eligendi iste adipisci tempore blanditiis voluptatem beatae deleniti incidunt.</p>
+        <h1>Destination</h1>
+        <h1>Budget</h1>
+        <TripDates />
+        <TripGuests />
+        <HotelDetails />
         </div>
 
       </div>

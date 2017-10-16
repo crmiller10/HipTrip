@@ -25,6 +25,7 @@ class HomeForm extends Component {
     let updatedList = this.state.formList.slice();
     updatedList.push(item);
     this.setState({
+      text: "",
       formList: updatedList
     });
   }
