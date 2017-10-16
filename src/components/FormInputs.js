@@ -40,12 +40,16 @@ class FormInputs extends Component{
             destination: this.state.destination
         }),
       })
+        // turn the response into JSON so we can get the ID
         .then( resp => resp.json())
+        // fetch the response by the ID
+        // return the entire trip object
         .then( resp => {
-          console.log(resp.id)
-          fetch('https://hip-trip.herokuapp.com/trip/details/' + resp.id)
-          .then( resp => resp.json())
-          .then( resp => console.log(resp))
+          // console.log(resp.id)
+          this.props.newTrip(resp.id)
+          // fetch('https://hip-trip.herokuapp.com/trip/details/' + resp.id)
+          // .then( resp => resp.json())
+          // .then( resp => console.log(resp))
       })
     }
   }
@@ -88,9 +92,18 @@ function mapS2P(state) {
   }
 }
 
+// do all of the API/updating stuff here
 function mapD2P(dispatch) {
   return {
     // need to do the get request here
+    newTrip: function (id) {
+      fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
+        .then( resp => resp.json())
+        .then( newTrip =>{
+          dispatch(createTrip(newTrip))
+        })
+        .then(console.log('I think I did it right'))
+    }
   }
 }
 
