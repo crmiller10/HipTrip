@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 //import from Redux
 import { Provider } from 'react-redux';
 //import store
-import store from './store';
+import {store} from './store';
 
 
 ReactDOM.render(

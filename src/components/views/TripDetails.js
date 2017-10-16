@@ -22,11 +22,9 @@ class TripDetails extends Component {
         </div>
         <NavTabs />
         <div className="page-content">
-        <h1>Destination</h1>
-        <h1>Budget</h1>
-        <TripDates />
-        <TripGuests />
-        <HotelDetails />
+          <TripDates />
+          <TripGuests />
+          <HotelDetails />
         </div>
 
       </div>

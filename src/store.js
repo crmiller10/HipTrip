@@ -1,11 +1,13 @@
 import { createStore } from 'redux';
 
-function reducer(){
+function reducer(state, action){
+
+  return state;
 }
 
-export default createStore(reducer, {
-
-  },
+export const store = createStore(reducer, {
+  trip: {},
+},
 
   // usage notes for devtools extension:
   // https://github.com/zalmoxisus/redux-devtools-extension#usage
