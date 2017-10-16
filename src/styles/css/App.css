@@ -1,0 +1,213 @@
+@charset "UTF-8";
+/* Custom Variables
+––––––––––––––––––––––––––––––––––– */
+html {
+  height: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  padding-top: 60px;
+  height: 100%;
+  background: #fff; }
+
+main {
+  padding-top: 60px; }
+
+/* Logos
+––––––––––––––––––––––––––––––––––– */
+.logo {
+  height: 30px;
+  border-radius: 1px; }
+
+.logo-lg {
+  height: 100px;
+  border-radius: 1px; }
+
+/* Navbar
+––––––––––––––––––––––––––––––––––– */
+.navbar {
+  padding: 0;
+  height: 60px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #FFF; }
+
+/* Top Bar
+––––––––––––––––––––––––––––––––––– */
+.top-bar {
+  margin-bottom: 40px; }
+  .top-bar .title {
+    margin-bottom: 0px; }
+
+/* Tagline
+––––––––––––––––––––––––––––––––––– */
+/* Form
+––––––––––––––––––––––––––––––––––– */
+form {
+  background: #fff; }
+
+/* Button
+––––––––––––––––––––––––––––––––––– */
+.btn,
+button {
+  cursor: pointer;
+  border-radius: 3px; }
+
+select {
+  cursor: pointer; }
+
+/* Helpers
+––––––––––––––––––––––––––––––––––– */
+.shadow {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+/* Model
+––––––––––––––––––––––––––––––––––– */
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.window {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #222;
+  max-width: 500px;
+  min-height: 300px;
+  padding: 20px; }
+
+.window {
+  background-color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 2px 2px 2px #222;
+  box-shadow: 0px 4px 6px rgba(34, 34, 34, 0.25);
+  max-width: 400px;
+  min-height: 300px;
+  padding: 20px;
+  border: 1px solid #fff;
+  width: 40%; }
+
+.open-modal,
+.close {
+  font-size: 1em;
+  cursor: pointer; }
+
+.close,
+button.close {
+  margin-bottom: 20px;
+  padding: 0;
+  border: 0;
+  -webkit-appearance: none;
+  background-color: #E53D00;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-shadow: none;
+  opacity: 1;
+  color: #fff; }
+  .close:focus, .close:hover,
+  button.close:focus,
+  button.close:hover {
+    background-color: #ca3600;
+    color: #fff;
+    text-decoration: none;
+    outline: none; }
+
+.close:focus,
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  opacity: 1;
+  outline: none; }
+
+.modal {
+  display: block;
+  z-index: 3000;
+  height: 80%;
+  width: 70%;
+  vertical-align: middle;
+  top: 10%;
+  z-index: 3100; }
+  .modal button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: inline-block; }
+
+.btn-info.focus,
+.btn-info:focus {
+  box-shadow: none; }
+
+@media (min-width: 992px) {
+  .form-group {
+    margin-bottom: 0; } }
+
+.cards {
+  text-transform: capitalize; }
+
+/* Nav Tabs
+––––––––––––––––––––––––––––––––––– */
+.nav-link {
+  display: block;
+  padding: .8rem 1.5rem; }
+
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: .1rem;
+  border-top-right-radius: .1rem;
+  background-color: #fafafa;
+  color: #888;
+  border-left: 0;
+  border-right: 0;
+  border: 1px solid #efefef; }
+  .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-bottom-color: transparent;
+    background-color: #efefef; }
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #555;
+  background-color: #fff;
+  border-color: #ddd;
+  border-top: 2px solid #2196F3; }
+
+.page-content {
+  padding: 30px 15px; }
+
+/* Card
+––––––––––––––––––––––––––––––––––– */
+.card-text {
+  margin-bottom: 0; }
+  .card-text.price {
+    font-size: 18px; }
+  .card-text.rating {
+    font-weight: 600; }
+  .card-text.phone {
+    font-size: 14px; }
+  .card-text.title {
+    font-size: 16px;
+    font-weight: 400;
+    font-weight: 600; }
+
+.card-footer {
+  padding: .75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #fff; }
+
+.img {
+  height: 160px;
+  overflow: hidden; }
+
+.img img {
+  width: 100%;
+  height: 100%; }
+
+/*# sourceMappingURL=App.css.map */
