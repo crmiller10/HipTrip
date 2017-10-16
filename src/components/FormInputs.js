@@ -25,6 +25,9 @@ class FormInputs extends Component{
     }, () => console.log(typeof(this.state.selectBudget)));
   }
 
+  // Handle Submit
+  handleAddItem() {
+
     // if both fields are filled out (validating the form)
     if (this.state.destination !== "" && this.state.selectBudget !== null) {
       // give that info to Chris
@@ -73,13 +76,18 @@ class FormInputs extends Component{
               <option value="2" >$$</option>
               <option value="3" >$$$</option>
               <option value="4" >$$$$</option>
-
             </select>
           </div>
         </div>
         <div className="col-lg-4">
-          <button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()}> Submit </button>
-          <NavLink className="btn btn-success" to="/trip-details">Trip Details</NavLink>
+          {/*<button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()}> Submit </button> */}
+
+          {/*<NavLink to="/trip-details">
+            <button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()}> Submit </button>
+          </NavLink>*/}
+
+          <NavLink className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()} to="/trip-details">Submit</NavLink>
+
         </div>
       </div>
     )
