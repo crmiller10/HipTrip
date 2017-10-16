@@ -1,12 +1,22 @@
 import { createStore } from 'redux';
 
+import { createTrip } from './actions'
+
 function reducer(state, action){
+
+  if (action.type === 'CREATE_TRIP') {
+    return {
+      currentTrip: action.payload,
+      trips: state.trips.concat(action.payload),
+    }
+  }
 
   return state;
 }
 
 export const store = createStore(reducer, {
-  trip: {},
+  currentTrip: {},
+  trips: [],
 },
 
   // usage notes for devtools extension:

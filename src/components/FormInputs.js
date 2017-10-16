@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { NavLink, Link } from 'react-router-dom';
 
+// redux stuff
+import { connect } from 'react-redux';
+import { createTrip } from '../actions';
+
 class FormInputs extends Component{
   constructor(props) {
     super(props);
@@ -21,19 +25,9 @@ class FormInputs extends Component{
     }, () => console.log(typeof(this.state.selectBudget)));
   }
 
-  // handleAddItem() {
-  //   if (this.state.destination !== "" && this.state.selectBudget !== "") {
-  //     this.props.add(this.state.destination, this.state.selectBudget)
-  //     this.setState({
-  //       "destination": "",
-  //       "selectBudget": ""
-  //     })
-  //   }
-  // }
-
   handleAddItem() {
     // if both fields are filled out (validating the form)
-    if (this.state.destination !== "" && this.state.selectBudget !== "") {
+    if (this.state.destination !== "" && this.state.selectBudget !== null) {
       // give that info to Chris
       fetch('https://hip-trip.herokuapp.com/newTrip', {
         method: 'POST',
@@ -45,15 +39,14 @@ class FormInputs extends Component{
             budget: this.state.selectBudget,
             destination: this.state.destination
         }),
-      }).then(
-        function () {
-          console.log('success!')
-        }
-      ).catch(
-        function () {
-          console.log('error')
-        }
-      )
+      })
+        .then( resp => resp.json())
+        .then( resp => {
+          console.log(resp.id)
+          fetch('https://hip-trip.herokuapp.com/trip/details/' + resp.id)
+          .then( resp => resp.json())
+          .then( resp => console.log(resp))
+      })
     }
   }
 
@@ -87,4 +80,18 @@ class FormInputs extends Component{
   }
 }
 
-export default FormInputs;
+// import state
+function mapS2P(state) {
+  return {
+    currentTrip: state.currentTrip,
+    trips: state.trips,
+  }
+}
+
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+  }
+}
+
+export default connect(mapS2P, mapD2P)(FormInputs);
