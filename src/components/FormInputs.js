@@ -21,11 +21,12 @@ class FormInputs extends Component{
     });
   }
 
+  // Handle Submit
   handleAddItem() {
     this.props.add(this.state.destination, this.state.selectBudget)
     this.setState({
-      "destination": "",
-      "selectBudget": ""
+      "destination": '',
+      "selectBudget": ''
     })
   }
 
@@ -43,17 +44,10 @@ class FormInputs extends Component{
             <select className="form-control"
               onChange={event => this.handleSelectBudget(event)}>
               <option selected="" value="">Budget</option>
-              <option>$100 - $500</option>
-              <option>$500 - $1000</option>
-              <option>$1000 - $1500</option>
-              <option>$1500 - $2000</option>
-              <option>$2000 - $2500</option>
-              <option>$2500 - $3000</option>
-              <option>$3000 - $3500</option>
-              <option>$3500 - $4000</option>
-              <option>$4000 - $4500</option>
-              <option>$4500 - $5000</option>
-              <option>$5000 - $5500</option>
+              <option>$</option>
+              <option>$$</option>
+              <option>$$$</option>
+              <option>$$$$</option>
             </select>
           </div>
         </div>
