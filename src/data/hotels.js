@@ -1,3 +1,8 @@
+
+const businesses = [{
+
+}]
+
 const hotels = [{
     "id": "omni-san-francisco-hotel-san-francisco",
     "name": "Omni San Francisco Hotel",
