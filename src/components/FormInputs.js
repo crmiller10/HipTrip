@@ -108,12 +108,7 @@ function mapD2P(dispatch) {
   return {
     // need to do the get request here
     newTrip: function (trip) {
-      // fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
-      //   .then( resp => resp.json())
-      //   .then( newTrip =>{
           dispatch(createTrip(trip))
-        // })
-        // .then(console.log('trip created'))
     }
   }
 }
