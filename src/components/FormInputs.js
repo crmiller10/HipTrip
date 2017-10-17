@@ -71,7 +71,6 @@ class FormInputs extends Component{
             <select className="form-control"
               onChange={event => this.handleSelectBudget(event)}>
               <option selected="" value="">Budget</option>
-
               <option value="1" >$</option>
               <option value="2" >$$</option>
               <option value="3" >$$$</option>
