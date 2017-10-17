@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 // redux stuff
 import { connect } from 'react-redux';
-import { createTrip } from '../actions';
+import { createTrip, updateTrip } from '../actions';
 
 class FormInputs extends Component{
   constructor(props) {
@@ -102,7 +102,7 @@ function mapD2P(dispatch) {
         .then( newTrip =>{
           dispatch(createTrip(newTrip))
         })
-        .then(console.log('I think I did it right'))
+        .then(console.log('trip created'))
     }
   }
 }
