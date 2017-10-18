@@ -3,7 +3,10 @@ import DatePicker from 'react-date-picker';
 
 //import redux stuff
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { createTrip, updateTrip } from '../actions';
+=======
+>>>>>>> e9c2a3f1d9a3c5c82dea8b3b254e26c43ac5d53b
 
 class TripDates extends Component {
   constructor(props){
@@ -52,11 +55,32 @@ class TripDates extends Component {
         tripEndDate: this.state.checkOutDate.toString(),
       }),
     })
+<<<<<<< HEAD
       .then( resp => resp.json())
       .then( resp => {
         console.log(resp)
         this.props.fixTrip(resp)
       })
+=======
+
+    console.log(this.props.currentTrip.id)
+    let id = this.props.currentTrip.id
+    //need to do the put request here
+    fetch('https://hip-trip.herokuapp.com/trip/details/' + id, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        // yourinfo: 'your info goes here'
+        tripStartDate: this.state.checkInDate.toString(),
+        tripEndDate: this.state.checkOutDate.toString(),
+      }),
+    })
+      .then( () => console.log('success'))
+      .catch( () => console.log('something went wrong'))
+>>>>>>> e9c2a3f1d9a3c5c82dea8b3b254e26c43ac5d53b
   }
 
   // function to edit the dates
@@ -145,12 +169,16 @@ function mapS2P(state) {
 
 // do all of the API/updating stuff here
 function mapD2P(dispatch) {
+<<<<<<< HEAD
   return {
     // need to do the get request here
     fixTrip: function (trip) {
           dispatch(updateTrip(trip))
     }
   }
+=======
+  // thinking I need to update redux with the new info here??
+>>>>>>> e9c2a3f1d9a3c5c82dea8b3b254e26c43ac5d53b
 }
 
 export default connect(mapS2P, mapD2P)(TripDates);
