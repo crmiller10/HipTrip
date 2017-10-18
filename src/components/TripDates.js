@@ -12,7 +12,7 @@ class TripDates extends Component {
     this.state = {
       checkInDate: undefined,
       checkOutDate: undefined,
-      datesSubmitted: false,
+      edit: false,
     }
   }
 
@@ -34,7 +34,7 @@ class TripDates extends Component {
   // will eventually be used to send to database
   updateTripDates() {
     this.setState({
-      datesSubmitted: true,
+      edit: false,
     })
 
     console.log(this.props.currentTrip.id)
@@ -62,10 +62,10 @@ class TripDates extends Component {
   // function to edit the dates
   editDates() {
     this.setState({
-      datesSubmitted: false,
+      edit: true,
     })
     console.log('BUTTON WAS CLICKED')
-    console.log(this.state.datesSubmitted)
+    console.log(this.state.edit)
   }
 
   render() {
@@ -74,7 +74,7 @@ class TripDates extends Component {
     // if the form has not been submitted yet, keep the form visible
     // if the form is being edited, keep the form visible
     // if (this.state.checkInDate === null || this.state.checkOutDate === null || this.state.datesSubmitted === false) {
-    if (this.props.currentTrip.tripStartDate === null || this.props.currentTrip.tripEndDate === null) {
+    if (this.state.edit === true || this.props.currentTrip.tripStartDate === null || this.props.currentTrip.tripEndDate === null) {
       return(
         <div>
           <h3>Dates:</h3>
