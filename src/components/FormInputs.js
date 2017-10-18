@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // redux stuff
 import { connect } from 'react-redux';
@@ -48,7 +49,8 @@ class FormInputs extends Component{
         // return the entire trip object
         .then( resp => {
           // console.log(resp.id)
-          this.props.newTrip(resp.id)
+          this.props.newTrip(resp)
+          this.props.history.push('/trip-details/' + resp.id)
           // fetch('https://hip-trip.herokuapp.com/trip/details/' + resp.id)
           // .then( resp => resp.json())
           // .then( resp => console.log(resp))
@@ -85,7 +87,7 @@ class FormInputs extends Component{
             <button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()}> Submit </button>
           </NavLink>*/}
 
-          <NavLink className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()} to="/trip-details">Submit</NavLink>
+          <button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()} to="/trip-details">Submit</button>
 
         </div>
       </div>
@@ -105,15 +107,15 @@ function mapS2P(state) {
 function mapD2P(dispatch) {
   return {
     // need to do the get request here
-    newTrip: function (id) {
-      fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
-        .then( resp => resp.json())
-        .then( newTrip =>{
-          dispatch(createTrip(newTrip))
-        })
-        .then(console.log('trip created'))
+    newTrip: function (trip) {
+      // fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
+      //   .then( resp => resp.json())
+      //   .then( newTrip =>{
+          dispatch(createTrip(trip))
+        // })
+        // .then(console.log('trip created'))
     }
   }
 }
 
-export default connect(mapS2P, mapD2P)(FormInputs);
+export default withRouter(connect(mapS2P, mapD2P)(FormInputs));
