@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
-import { createTrip } from './actions'
+
+import { createTrip, updateTrip } from './actions'
 
 function reducer(state, action){
 
@@ -7,6 +8,13 @@ function reducer(state, action){
     return {
       currentTrip: action.payload,
       trips: state.trips.concat(action.payload),
+    }
+  }
+
+  if (action.type === 'UPDATE_TRIP') {
+    return {
+      currentTrip: action.payload,
+      trips: state.trips,
     }
   }
 
