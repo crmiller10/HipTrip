@@ -35,13 +35,6 @@ class TripGuests extends Component {
     this.setState({
       guestsSubmitted: true,
     }, () => console.log('there are ' + this.state.childGuests + ' kids on the trip and ' + this.state.adultGuests + ' adults on the trip'))
-  }
-
-  // function to edit the number of guests
-  editGuests() {
-    this.setState({
-      guestsSubmitted: false,
-    })
 
     console.log(this.props.currentTrip.id)
     let id = this.props.currentTrip.id
@@ -63,6 +56,13 @@ class TripGuests extends Component {
         console.log(resp)
         this.props.fixTrip(resp)
       })
+  }
+
+  // function to edit the number of guests
+  editGuests() {
+    this.setState({
+      guestsSubmitted: false,
+    })
   }
 
   render() {

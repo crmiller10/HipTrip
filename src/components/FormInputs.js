@@ -6,10 +6,6 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createTrip, updateTrip } from '../actions';
 
-// redux stuff
-import { connect } from 'react-redux';
-import { createTrip, updateTrip } from '../actions';
-
 class FormInputs extends Component{
   constructor(props) {
     super(props);
