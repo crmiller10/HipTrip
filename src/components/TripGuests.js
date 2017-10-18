@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+//import redux stuff
+import { connect } from 'react-redux';
+import { createTrip, updateTrip } from '../actions';
+
 class TripGuests extends Component {
   constructor(props) {
     super(props);
@@ -38,12 +42,34 @@ class TripGuests extends Component {
     this.setState({
       guestsSubmitted: false,
     })
+
+    console.log(this.props.currentTrip.id)
+    let id = this.props.currentTrip.id
+    //need to do the put request here
+    fetch('https://hip-trip.herokuapp.com/trip/details/' + id, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        // yourinfo: 'your info goes here'
+        childCount: this.state.childGuests,
+        adultCount: this.state.adultGuests,
+      }),
+    })
+      .then( resp => resp.json())
+      .then( resp => {
+        console.log(resp)
+        this.props.fixTrip(resp)
+      })
   }
 
   render() {
 
     // if this.state.guestsSubmitted is false
     // meaning that no guest data has been submitted
+
     if (this.state.guestsSubmitted === false) {
       return(
         <div>
@@ -75,4 +101,24 @@ class TripGuests extends Component {
   }
 }
 
-export default TripGuests;
+// import state
+function mapS2P(state) {
+  return {
+    currentTrip: state.currentTrip,
+    trips: state.trips,
+  }
+}
+
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    fixTrip: function (trip) {
+          dispatch(updateTrip(trip))
+    }
+  }
+}
+
+export default connect(mapS2P, mapD2P)(TripGuests);
+
+// export default TripGuests;
