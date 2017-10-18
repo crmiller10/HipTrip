@@ -13,12 +13,17 @@ body {
   font-family: sans-serif;
   padding-top: $navbar-height;
   height: 100%;
-  // background:#fff;
-  background: #F3F3F3;
+  background:#fff;
+  // background: #F3F3F3;
+}
+
+#root {
+  background:#efefef;
 }
 
 main {
   padding-top: $navbar-height;
+  padding-bottom: $navbar-height;
 }
 
 /* Logos
@@ -62,7 +67,7 @@ main {
 ––––––––––––––––––––––––––––––––––– */
 
 .tagline {
-  // padding: 20px 0 10px 0;
+  padding: 0 0 10px 0;
 }
 
 /* Form

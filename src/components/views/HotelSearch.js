@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import HotelList from "../HotelList";
 import NavTabs from "../NavTabs";
 
@@ -18,13 +17,12 @@ class HotelSearch extends Component {
           </div>
         </div>
         <NavTabs />
-        <div className="page-content tab-content">
+        <div className="tab-content">
           <div className="map-container py-4">
           {/* JSX Comment
           //   <img className="img-fluid" src="https://developers.google.com/maps/solutions/images/storelocator_clothing.png"></img>*/}
           </div>
-            <p>Hotels</p>
-            <HotelList />
+          <HotelList />
         </div>
       </div>
     );

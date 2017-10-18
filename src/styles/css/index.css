@@ -10,10 +10,14 @@ body {
   font-family: sans-serif;
   padding-top: 60px;
   height: 100%;
-  background: #F3F3F3; }
+  background: #fff; }
+
+#root {
+  background: #efefef; }
 
 main {
-  padding-top: 60px; }
+  padding-top: 60px;
+  padding-bottom: 60px; }
 
 /* Logos
 ––––––––––––––––––––––––––––––––––– */
@@ -42,6 +46,9 @@ main {
 
 /* Tagline
 ––––––––––––––––––––––––––––––––––– */
+.tagline {
+  padding: 0 0 10px 0; }
+
 /* Form
 ––––––––––––––––––––––––––––––––––– */
 form {
