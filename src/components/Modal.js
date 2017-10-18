@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
   render() {
@@ -14,7 +13,6 @@ class Modal extends React.Component {
       bottom: 0,
       left: 0,
       right: 0,
-      // backgroundColor: 'rgba(0,0,0,0.3)',
       backgroundColor: 'rgba(0, 0, 0, 0.71)',
       padding: 50,
       zIndex: 3000
@@ -34,7 +32,6 @@ class Modal extends React.Component {
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
           {this.props.children}
-
           <div className="footer">
             <button className="btn btn-primary" onClick={this.props.onClose}>Close</button>
           </div>
@@ -46,15 +43,3 @@ class Modal extends React.Component {
 
 export default Modal;
 
-
-
-// fetch('https://lotbot3000.herokuapp.com/lots/<lotid>/<spotid>', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Accept': 'application/json',
-//                     'Content-Type': 'application/json'
-//                 },
-//                 body: JSON.stringify({
-//                     yourinfo: 'your info goes here'
-//                 }),
-//             })

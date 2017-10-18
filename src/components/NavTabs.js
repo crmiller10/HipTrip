@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 class NavTabs extends Component {
@@ -14,9 +12,6 @@ class NavTabs extends Component {
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/hotel-search">Find Hotels</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="#">Home</NavLink>
           </li>
         </ul>
       </nav>

@@ -1,5 +1,4 @@
 import { createStore } from 'redux';
-
 import { createTrip } from './actions'
 
 function reducer(state, action){

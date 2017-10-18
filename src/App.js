@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-//import redux stuff
-import { connect } from 'react-redux';
-//import actions
-import { actions } from './actions';
-
-import logo from './images/logo.svg';
-
 // Views
 import Home from './components/views/Home';
 import HotelSearch from './components/views/HotelSearch';

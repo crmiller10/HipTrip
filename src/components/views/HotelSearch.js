@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import HotelList from "../HotelList";
-import HotelListTest from "../HotelListTest";
-
 import NavTabs from "../NavTabs";
 
 class HotelSearch extends Component {
@@ -25,10 +23,8 @@ class HotelSearch extends Component {
           {/* JSX Comment
           //   <img className="img-fluid" src="https://developers.google.com/maps/solutions/images/storelocator_clothing.png"></img>*/}
           </div>
-          <p>Hotels</p>
-          <div>
-            <HotelListTest />
-          </div>
+            <p>Hotels</p>
+            <HotelList />
         </div>
       </div>
     );

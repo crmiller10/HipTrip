@@ -58,7 +58,7 @@ class Hotel extends Component {
 
   render(){
      let cardMargin = {
-      // marginBottom: "60px",
+      marginBottom: "60px",
     }
     return(
       <div className="col-md-6 col-lg-4">
@@ -154,7 +154,7 @@ class HotelListTest extends Component {
 
       console.log("hotel", this.state.businesses);
       return (
-        <div className="div">
+        <div className="row">
           {hotels}
         </div>
       );
