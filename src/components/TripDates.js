@@ -48,19 +48,24 @@ class TripDates extends Component {
     // if the form is being edited, keep the form visible
     if (this.state.checkInDate === null || this.state.checkOutDate === null || this.state.datesSubmitted === false) {
       return(
-        <div>
-          <h3>Dates:</h3>
-          <div>
-            <div>
-              <p>Check In:</p>
-              <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
+        <div className="mb-4">
+          <h4>Dates:</h4>
+          <div className='row'>
+            <div className='col-md-4'>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Check In:</label>
+                <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
+              </div>
             </div>
-            <p> - </p>
-            <div>
-              <p>Check Out:</p>
-              <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
+            <div className='col-md-4'>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Check Out:</label>
+                <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
+              </div>
             </div>
-            <button onClick={() => this.updateTripDates()}>Submit</button>
+            <div className='col-md-2 d-flex'>
+              <button className="btn btn-info align-self-end" onClick={() => this.updateTripDates()}>Submit</button>
+            </div>
           </div>
         </div>
       )
@@ -71,32 +76,37 @@ class TripDates extends Component {
         let checkOut = this.state.checkOutDate.toString().split(' ', 4).join(' ');
 
         return(
-          <div>
-            <h3>Dates:</h3>
-            <div>
-              <p>Check In: <span>{checkIn}</span> - Check Out: <span>{checkOut}</span></p>
-              <button onClick={() => this.editDates()}>Edit</button>
-            </div>
-          </div>
+          <div className="div">
+          <h4>Dates:</h4>
+          <div className="">
+            <p>Check In: <span>{checkIn}</span> <br></br> Check Out: <span>{checkOut}</span></p>
+            <button className="btn btn-info align-self-end" onClick={() => this.editDates()}>Edit</button>
+
+        </div>
+        </div>
         )
       } else {
         return(
-          <div>
-          <h3>Dates:</h3>
-          <div>
-            <p>Error: Check Out Date must come after Check In Date</p>
-            <div>
-              <p>Check In:</p>
-              <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
-            </div>
-            <p> - </p>
-            <div>
-              <p>Check Out:</p>
-              <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
-            </div>
-            <button onClick={() => this.updateTripDates()}>Submit</button>
+        <div className="mb-4">
+          <h4>Dates</h4>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error:</strong> Check Out Date must come after Check In Date
           </div>
+            <div className='row'>
+              <div className='col-md-5'>
+                <label for="exampleInputEmail1">Check In</label>
+                <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
+              </div>
+              <div className='col-md-5'>
+                <label htmlFor="">Check Out</label>
+                <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
+              </div>
+
+            <div className="col-md-2 d-flex">
+              <button className='btn btn-info align-self-end' onClick={() => this.updateTripDates()}>Submit</button>
+            </div>
           </div>
+        </div>
         )
       }
     }

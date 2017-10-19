@@ -51,13 +51,14 @@ class HotelList extends Component {
           price={hotel.price}
           image={hotel.image_url}
           url={hotel.url}
+          category={hotel.category}
           display_phone={hotel.display_phone}
           />
           );
         }
       );
 
-      console.log("hotel", this.state.businesses);
+      console.log("hotels", this.state.businesses);
       return (
         <div className="row">
           {hotels}

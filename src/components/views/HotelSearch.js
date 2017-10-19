@@ -9,18 +9,16 @@ class HotelSearch extends Component {
         <div className="top-bar">
           <div className="row">
             <div className="col-sm-6">
-              <h3 className="title">Destination</h3>
+              <h3 className="title">Seattle, WA</h3>
             </div>
             <div className="col-sm-6">
-             <div className="text-right"><h2>$$$$$</h2></div>
+              <div className="text-right"><h2>$$$</h2></div>
             </div>
           </div>
         </div>
         <NavTabs />
-        <div className="tab-content">
+        <div className="page-content">
           <div className="map-container py-4">
-          {/* JSX Comment
-          //   <img className="img-fluid" src="https://developers.google.com/maps/solutions/images/storelocator_clothing.png"></img>*/}
           </div>
           <HotelList />
         </div>
@@ -30,3 +28,4 @@ class HotelSearch extends Component {
 }
 
 export default HotelSearch;
+
