@@ -29,7 +29,6 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-
         <main>
           <Switch>
             <Route path="/hotel-search" component={HotelSearch} />

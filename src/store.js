@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-
 import { createTrip, updateTrip } from './actions'
+
 
 function reducer(state, action){
 
@@ -8,6 +8,7 @@ function reducer(state, action){
     return {
       currentTrip: action.payload,
       trips: state.trips.concat(action.payload),
+      places: state.places
     }
   }
 
@@ -15,7 +16,16 @@ function reducer(state, action){
     return {
       currentTrip: action.payload,
       trips: state.trips,
+      places: state.places
     }
+  }
+
+  if (action.type === 'ADD_PLACE') {
+      return {
+          trips: state.trips,
+          currentTrip: state.currentTrip,
+          places: state.places.concat([action.payload]),
+      };
   }
 
   return state;
@@ -24,6 +34,7 @@ function reducer(state, action){
 export const store = createStore(reducer, {
   currentTrip: {},
   trips: [],
+  places: [],
 },
 
   // usage notes for devtools extension:

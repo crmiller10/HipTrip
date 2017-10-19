@@ -72,29 +72,34 @@ class TripGuests extends Component {
 
     if (this.state.guestsSubmitted === false) {
       return(
-        <div>
-          <h3>Guests:</h3>
-          <div>
-            <div>
-              <input type="text" placeholder="0" onChange={ (kids) => this.updateKids(kids)}/>
-              <p> children </p>
+        <div className="mt-4 mb-4">
+          <h4>Guests:</h4>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="form-group">
+                <p>Adults</p>
+                <input className="form-control" type="text" placeholder={this.state.adultGuests} onChange={ (adults) => this.updateAdults(adults)}/>
+              </div>
             </div>
-            <div>
-              <input type="text" placeholder={this.state.adultGuests} onChange={ (adults) => this.updateAdults(adults)}/>
-              <p> adults </p>
+
+            <div className="col-md-4">
+              <div className="form-group">
+                <p>Children</p>
+                <input className="form-control" type="text" placeholder="0" onChange={ (kids) => this.updateKids(kids)}/>
+              </div>
             </div>
-            <button onClick={ () => this.updateGuests() }>Submit</button>
+            <div className="col-md-2 d-flex">
+              <button className="btn btn-info align-self-end" onClick={ () => this.updateGuests() }>Submit</button>
+            </div>
           </div>
         </div>
       )
     } else {
       return(
-        <div>
-          <h3>Guests:</h3>
-          <div>
-            <p>Children: <span>{this.state.childGuests}</span>, Adults: <span>{this.state.adultGuests}</span></p>
-          </div>
-          <button onClick={ () => this.editGuests() }>Edit</button>
+        <div className="mt-4 mb-4">
+          <h4>Guests:</h4>
+          <div><p>Children: <span>{this.state.childGuests}</span>, Adults: <span>{this.state.adultGuests}</span></p></div>
+          <button className="btn btn-info align-self-end" onClick={ () => this.editGuests() }>Edit</button>
         </div>
       )
     }

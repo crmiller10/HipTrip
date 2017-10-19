@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+// import Map from "./Map";
+
 import Modal from './Modal';
 
 class Hotel extends Component {
@@ -22,27 +24,28 @@ class Hotel extends Component {
       <div className="col-md-6 col-lg-4">
         <div className="card" style={cardMargin}>
             <a href={this.props.url} className="">
-            <div className="img">
+            <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={this.props.image} alt="" />
               </div>
             </a>
           <div className="card-body">
-            <p className="card-text price">{this.props.price}</p>
-            <p className="card-text rating">{this.props.rating} Stars</p>
-            <p className="card-text title">{this.props.title}</p>
-            <p className="card-text phone">{this.props.display_phone}</p>
+            <p className="card-text">{this.props.price}</p>
+            <p className="card-text">{this.props.rating} Stars</p>
+            <p className="card-text">{this.props.title}</p>
+            <p className="card-text">{this.props.display_phone}</p>
+            <p className="card-text">{this.props.category}</p>
           </div>
           <div className="card-footer clearfix">
             <a href={this.props.url} className="btn btn-secondary btn-block">Visit Site</a>
             <button className="btn btn-secondary btn-block">Add</button>
             <div>
-              <button className="btn btn-link btn-block" onClick={this.toggleModal}>
-                Open the modal
+              <button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
+                Modal
               </button>
 
               <Modal show={this.state.isOpen}
                 onClose={this.toggleModal}>
-                Here's some content for the modal
+                Text
               </Modal>
             </div>
           </div>

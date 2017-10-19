@@ -20,13 +20,13 @@ class Navbar extends Component {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/home">Home</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">Plan Trip</NavLink>
+              </li>
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/trip-details">Trip Details</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/hotel-search">Hotel Search</NavLink>
+                <NavLink className="nav-link" to="#">Account <i className="fa fa-angle-down"></i></NavLink>
               </li>
             </ul>
           </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import HomeFormList from './HomeFormList';
+// import HomeFormList from './HomeFormList';
 import FormInputs from './FormInputs';
 
 class HomeForm extends Component {
@@ -40,15 +40,8 @@ class HomeForm extends Component {
         <div className="row">
           <div className="col-md-12">
             <div className="card card-body">
-              <FormInputs formList={HomeFormListItem} add={(destination, selectBudget) => this.addNewItem(destination, selectBudget)} />
+              <FormInputs add={(destination, selectBudget) => this.addNewItem(destination, selectBudget)} />
             </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12">
-
-            <HomeFormList items={HomeFormListItem} toggleFavorite={index => this.toggleFavorite(index)} updateSearch={event => this.updateSearch(event)} />
-
           </div>
         </div>
       </div>

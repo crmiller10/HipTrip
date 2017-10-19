@@ -28,7 +28,6 @@ class FormInputs extends Component{
 
   // Handle Submit
   handleAddItem() {
-
     // if both fields are filled out (validating the form)
     if (this.state.destination !== "" && this.state.selectBudget !== null) {
       // give that info to Chris
@@ -56,7 +55,6 @@ class FormInputs extends Component{
           // .then( resp => console.log(resp))
       })
     }
-
   }
 
   render(){
@@ -106,7 +104,7 @@ function mapS2P(state) {
 // do all of the API/updating stuff here
 function mapD2P(dispatch) {
   return {
-    // need to do the get request here
+
     newTrip: function (trip) {
           dispatch(createTrip(trip))
     }

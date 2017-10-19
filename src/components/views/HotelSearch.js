@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import HotelList from "../HotelList";
 import NavTabs from "../NavTabs";
+import Map from "../Map";
+
+// import { addPlace } from '../../actions';
 
 class HotelSearch extends Component {
   render() {
@@ -17,10 +20,9 @@ class HotelSearch extends Component {
           </div>
         </div>
         <NavTabs />
-        <div className="tab-content">
+        <div className="page-content">
           <div className="map-container py-4">
-          {/* JSX Comment
-          //   <img className="img-fluid" src="https://developers.google.com/maps/solutions/images/storelocator_clothing.png"></img>*/}
+            <Map />
           </div>
           <HotelList />
         </div>
@@ -30,3 +32,4 @@ class HotelSearch extends Component {
 }
 
 export default HotelSearch;
+

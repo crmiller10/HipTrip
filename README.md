@@ -7,6 +7,11 @@ or
 
 * npm start && npm run sass
 
+## Google Places API
+* AIzaSyAYvL90ufVaJt-JvlncNFYrAjNcc4SB_tM
+
+## Google Maps JavaScript API
+* AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
