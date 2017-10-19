@@ -3,15 +3,16 @@ import DatePicker from 'react-date-picker';
 
 //import redux stuff
 import { connect } from 'react-redux';
+import { createTrip, updateTrip } from '../actions';
 
 class TripDates extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      checkInDate: null,
-      checkOutDate: null,
-      datesSubmitted: false,
+      checkInDate: undefined,
+      checkOutDate: undefined,
+      edit: false,
     }
   }
 
@@ -33,7 +34,7 @@ class TripDates extends Component {
   // will eventually be used to send to database
   updateTripDates() {
     this.setState({
-      datesSubmitted: true,
+      edit: false,
     })
 
     console.log(this.props.currentTrip.id)
@@ -51,15 +52,21 @@ class TripDates extends Component {
         tripEndDate: this.state.checkOutDate.toString(),
       }),
     })
-      .then( () => console.log('success'))
-      .catch( () => console.log('something went wrong'))
+
+    .then( resp => resp.json())
+    .then( resp => {
+      console.log(resp)
+      this.props.fixTrip(resp)
+    })
   }
 
   // function to edit the dates
   editDates() {
     this.setState({
-      datesSubmitted: false,
+      edit: true,
     })
+    console.log('BUTTON WAS CLICKED')
+    console.log(this.state.edit)
   }
 
   render() {
@@ -67,7 +74,8 @@ class TripDates extends Component {
     // if both dates aren't set, render the form to set dates
     // if the form has not been submitted yet, keep the form visible
     // if the form is being edited, keep the form visible
-    if (this.state.checkInDate === null || this.state.checkOutDate === null || this.state.datesSubmitted === false) {
+    // if (this.state.checkInDate === null || this.state.checkOutDate === null || this.state.datesSubmitted === false) {
+    if (this.state.edit === true || this.props.currentTrip.tripStartDate === null || this.props.currentTrip.tripEndDate === null) {
       return(
         <div className="mb-4">
           <h4>Dates:</h4>
@@ -91,10 +99,14 @@ class TripDates extends Component {
         </div>
       )
   // else render the dates of the trip
-  } else {
-      if (this.state.checkInDate < this.state.checkOutDate) {
-        let checkIn = this.state.checkInDate.toString().split(' ', 4).join(' ');
-        let checkOut = this.state.checkOutDate.toString().split(' ', 4).join(' ');
+} else {
+      // if (this.state.checkInDate < this.state.checkOutDate) {
+      if (this.props.currentTrip.tripStartDate < this.props.currentTrip.tripEndDate) {
+        // let checkIn = this.state.checkInDate.toString().split(' ', 4).join(' ');
+        // let checkOut = this.state.checkOutDate.toString().split(' ', 4).join(' ');
+
+        let checkIn = this.props.currentTrip.tripStartDate.split(' ', 4).join(' ');
+        let checkOut = this.props.currentTrip.tripEndDate.split(' ', 4).join(' ');
 
         return(
           <div className="div">
@@ -144,6 +156,12 @@ function mapS2P(state) {
 
 // do all of the API/updating stuff here
 function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    fixTrip: function (trip) {
+          dispatch(updateTrip(trip))
+    }
+  }
   // thinking I need to update redux with the new info here??
 }
 

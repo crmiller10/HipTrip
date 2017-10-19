@@ -5,6 +5,7 @@ export function createTrip(newTrip) {
     payload: newTrip,
   }
 }
+
 // update an existing trip
 export function updateTrip(tripDeets) {
   return {
