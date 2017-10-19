@@ -1,61 +1,6 @@
 import React, {Component} from 'react';
 import Modal from './Modal';
 
-// class Card extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isOpen: false
-//     };
-//   }
-//   toggleModal = () => {
-//     this.setState({
-//       isOpen: !this.state.isOpen
-//     });
-//   }
-
-
-//   render(){
-
-//      let cardMargin = {
-//       // marginBottom: "30px",
-//     }
-//     const hotel = this.props;
-//     return(
-//       <div className="col-md-6 col-lg-4">
-//         <div className="card" style={cardMargin}>
-//             <a href={hotel.url} className="">
-//             <div className="card-img-wrap">
-//               <img className="card-img-top img-fluid" src={hotel.image} alt="" />
-//               </div>
-//             </a>
-//           <div className="card-body">
-//             <p className="card-text price">{hotel.price}</p>
-//             <p className="card-text rating">{hotel.rating} Stars</p>
-//             <p className="card-text title">{hotel.title}</p>
-//             <p className="card-text phone">{hotel.display_phone}</p>
-//           </div>
-//           <div className="card-footer clearfix">
-//             <a href={hotel.url} className="btn btn-secondary btn-block">Visit Site</a>
-//             <button className="btn btn-secondary btn-block">Add</button>
-//             <div>
-//               <button className="btn btn-link btn-block" onClick={this.toggleModal}>
-//                 Open the modal
-//               </button>
-
-//               <Modal show={this.state.isOpen}
-//                 onClose={this.toggleModal}>
-//                 Here's some content for the modal
-//               </Modal>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-// export default Card;
-
 class Card extends Component {
 
   render(){

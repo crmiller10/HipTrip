@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
+import { createTrip } from './actions'
 
-import { createTrip, updateTrip } from './actions'
+import { updateTrip } from './actions'
 
 function reducer(state, action){
 
