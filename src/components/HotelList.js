@@ -15,7 +15,7 @@ class HotelList extends Component {
 
     componentDidMount() {
       console.log(this.props.currentTrip)
-      fetch('https://hip-trip.herokuapp.com/search/hotels/', {
+      fetch('https://hip-trip.herokuapp.com/search/hotel', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -76,7 +76,3 @@ class HotelList extends Component {
   }
 
 export default connect(mapS2P, null)(HotelList);
-
-
-
-
