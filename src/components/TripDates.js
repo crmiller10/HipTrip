@@ -52,12 +52,11 @@ class TripDates extends Component {
         tripEndDate: this.state.checkOutDate.toString(),
       }),
     })
-
-    .then( resp => resp.json())
-    .then( resp => {
-      console.log(resp)
-      this.props.fixTrip(resp)
-    })
+      .then( resp => resp.json())
+      .then( resp => {
+        console.log(resp)
+        this.props.fixTrip(resp)
+      })
   }
 
   // function to edit the dates
@@ -65,8 +64,6 @@ class TripDates extends Component {
     this.setState({
       edit: true,
     })
-    console.log('BUTTON WAS CLICKED')
-    console.log(this.state.edit)
   }
 
   render() {
@@ -100,8 +97,11 @@ class TripDates extends Component {
       )
   // else render the dates of the trip
 } else {
+    const start = Date.parse(this.props.currentTrip.tripStartDate)
+    const end = Date.parse(this.props.currentTrip.tripEndDate)
+
       // if (this.state.checkInDate < this.state.checkOutDate) {
-      if (this.props.currentTrip.tripStartDate < this.props.currentTrip.tripEndDate) {
+      if (start < end) {
         // let checkIn = this.state.checkInDate.toString().split(' ', 4).join(' ');
         // let checkOut = this.state.checkOutDate.toString().split(' ', 4).join(' ');
 

@@ -157,6 +157,8 @@ button.close {
   display: block;
   padding: .8rem 1.5rem; }
 
+.nav-tabs button:active, .nav-tabs button:focus {
+  outline: none; }
 .nav-tabs .nav-link {
   border: 1px solid transparent;
   border-top-left-radius: .1rem;

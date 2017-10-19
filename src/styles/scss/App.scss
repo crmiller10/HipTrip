@@ -195,22 +195,28 @@ button.close {
   padding: .8rem 1.5rem;
 }
 .nav-tabs {
-  // border-bottom: 0;
-}
 
-.nav-tabs .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: .1rem;
-  border-top-right-radius: .1rem;
-  background-color: #fafafa;
-  color: #888;
-  border-left: 0;
-  border-right: 0;
-  border: 1px solid #efefef;
-  &:focus,
-  &:hover {
-    border-bottom-color: transparent;
-    background-color: #efefef;
+  button {
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .1rem;
+    border-top-right-radius: .1rem;
+    background-color: #fafafa;
+    color: #888;
+    border-left: 0;
+    border-right: 0;
+    border: 1px solid #efefef;
+    &:focus,
+    &:hover {
+      border-bottom-color: transparent;
+      background-color: #efefef;
+    }
   }
 }
 
