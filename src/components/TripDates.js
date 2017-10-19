@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
 
+//import redux stuff
+import { connect } from 'react-redux';
+
 class TripDates extends Component {
   constructor(props){
     super(props);
@@ -32,6 +35,24 @@ class TripDates extends Component {
     this.setState({
       datesSubmitted: true,
     })
+
+    console.log(this.props.currentTrip.id)
+    let id = this.props.currentTrip.id
+    //need to do the put request here
+    fetch('https://hip-trip.herokuapp.com/trip/details/' + id, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        // yourinfo: 'your info goes here'
+        tripStartDate: this.state.checkInDate.toString(),
+        tripEndDate: this.state.checkOutDate.toString(),
+      }),
+    })
+      .then( () => console.log('success'))
+      .catch( () => console.log('something went wrong'))
   }
 
   // function to edit the dates
@@ -113,4 +134,19 @@ class TripDates extends Component {
   }
 }
 
-export default TripDates;
+// import state
+function mapS2P(state) {
+  return {
+    currentTrip: state.currentTrip,
+    trips: state.trips,
+  }
+}
+
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  // thinking I need to update redux with the new info here??
+}
+
+export default connect(mapS2P, mapD2P)(TripDates);
+
+// export default TripDates;

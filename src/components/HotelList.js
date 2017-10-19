@@ -14,7 +14,7 @@ class HotelList extends Component {
 
     componentDidMount() {
       console.log(this.props.currentTrip)
-      fetch('https://hip-trip.herokuapp.com/search/hotels/', {
+      fetch('https://hip-trip.herokuapp.com/search/hotels', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

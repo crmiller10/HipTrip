@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
 // redux stuff
+// import { connect } from 'react-redux';
+// import { createTrip } from '../actions';
+
+// redux stuff
 import { connect } from 'react-redux';
-import { createTrip } from '../actions';
+import { createTrip, updateTrip } from '../actions';
 
 class FormInputs extends Component{
   constructor(props) {
@@ -27,7 +31,6 @@ class FormInputs extends Component{
 
   // Handle Submit
   handleAddItem() {
-
     // if both fields are filled out (validating the form)
     if (this.state.destination !== "" && this.state.selectBudget !== null) {
       // give that info to Chris
@@ -54,7 +57,6 @@ class FormInputs extends Component{
           // .then( resp => console.log(resp))
       })
     }
-
   }
 
   render(){
@@ -71,7 +73,6 @@ class FormInputs extends Component{
             <select className="form-control"
               onChange={event => this.handleSelectBudget(event)}>
               <option selected="" value="">Budget</option>
-
               <option value="1" >$</option>
               <option value="2" >$$</option>
               <option value="3" >$$$</option>
@@ -112,7 +113,8 @@ function mapD2P(dispatch) {
         .then( newTrip =>{
           dispatch(createTrip(newTrip))
         })
-        .then(console.log('I think I did it right'))
+
+        .then(console.log('trip created'))
     }
   }
 }
