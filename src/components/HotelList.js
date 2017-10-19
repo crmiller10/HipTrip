@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Hotel from './Hotel';
+// import Map from './Map';
 
 /*----------  Subsection comment block  ----------*/
 class HotelList extends Component {

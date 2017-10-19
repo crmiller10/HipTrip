@@ -226,12 +226,6 @@ button.close {
   padding: 30px 15px;
 }
 
-// #map-canvas{
-//   height: 500px;
-//   width: 500px;
-//   border: 3px solid black;
-// }
-
 .tab-content {
   // box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
@@ -282,8 +276,9 @@ p.card-text {
 }
 
 #map {
-  height: 460px;
+  height: 400px;
   width: 100%;
+  border: 2px solid #fff;
  }
 
 /*=============================================

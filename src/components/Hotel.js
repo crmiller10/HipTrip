@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+// import Map from "./Map";
+
 import Modal from './Modal';
 
 class Hotel extends Component {
@@ -43,7 +45,7 @@ class Hotel extends Component {
 
               <Modal show={this.state.isOpen}
                 onClose={this.toggleModal}>
-                Here's some content for the modal
+                Text
               </Modal>
             </div>
           </div>

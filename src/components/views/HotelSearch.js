@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import HotelList from "../HotelList";
 import NavTabs from "../NavTabs";
+import Map from "../Map";
+
+// import { addPlace } from '../../actions';
 
 class HotelSearch extends Component {
   render() {
@@ -19,6 +22,7 @@ class HotelSearch extends Component {
         <NavTabs />
         <div className="page-content">
           <div className="map-container py-4">
+            <Map />
           </div>
           <HotelList />
         </div>

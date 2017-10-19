@@ -19,12 +19,19 @@ function reducer(state, action){
     }
   }
 
+  if (action.type === 'ADD_PLACE') {
+      return {
+          places: state.places.concat([action.payload]),
+      };
+  }
+
   return state;
 }
 
 export const store = createStore(reducer, {
   currentTrip: {},
   trips: [],
+  places: [],
 },
 
   // usage notes for devtools extension:
