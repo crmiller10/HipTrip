@@ -42,9 +42,9 @@ class HotelList extends Component {
     //   console.log(this.state.businesses)
     //   return('<div></div>')
     // }
-      const hotels = this.state.businesses.map((hotel, id) => {
+      const hotels = this.state.businesses.map((hotel, index) => {
         return(
-          <Hotel key={id}
+          <Hotel key={index}
           id={hotel.id}
           title={hotel.name}
           rating={hotel.rating}
