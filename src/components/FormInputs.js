@@ -113,7 +113,6 @@ function mapD2P(dispatch) {
         .then( newTrip =>{
           dispatch(createTrip(newTrip))
         })
-
         .then(console.log('trip created'))
     }
   }

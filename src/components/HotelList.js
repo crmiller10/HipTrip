@@ -14,7 +14,7 @@ class HotelList extends Component {
 
     componentDidMount() {
       console.log(this.props.currentTrip)
-      fetch('https://hip-trip.herokuapp.com/search/hotels', {
+      fetch('https://hip-trip.herokuapp.com/search/hotels/', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -42,9 +42,9 @@ class HotelList extends Component {
     //   console.log(this.state.businesses)
     //   return('<div></div>')
     // }
-      const hotels = this.state.businesses.map((hotel, index) => {
+      const hotels = this.state.businesses.map((hotel, id) => {
         return(
-          <Hotel key={index}
+          <Hotel key={id}
           id={hotel.id}
           title={hotel.name}
           rating={hotel.rating}
