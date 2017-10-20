@@ -78,6 +78,7 @@ class HotelList extends Component {
     }
   }
 
+
 export default connect(mapS2P, null)(HotelList);
 
 

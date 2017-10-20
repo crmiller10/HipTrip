@@ -6,7 +6,7 @@ import NavTabs from "../NavTabs";
 import Map from "../Map";
 
 
-import { addPlace } from '../../actions';
+// import { addPlace } from '../../actions';
 
 class HotelSearch extends Component {
   render() {
@@ -45,7 +45,7 @@ function mapS2P(state) {
 function mapD2P(dispatch) {
 }
 
-export default connect(mapS2P, mapD2P)(HotelSearch);
+export default connect(mapS2P, null)(HotelSearch);
 
 
 
