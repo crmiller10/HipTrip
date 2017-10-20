@@ -48,7 +48,7 @@ class Map extends Component {
         file, which doesn't exist. window.google means look at the global variables for the whole
         page for one called 'google', which does exist once the script loads. */
     const map = new window.google.maps.Map(document.querySelector('#map'), {
-      zoom: 0,
+      zoom: 11,
       center: {lat: 35.194, lng: -80.849}
     });
 

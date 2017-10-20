@@ -6,7 +6,7 @@ import NavTabs from "../NavTabs";
 import Map from "../Map";
 
 
-// import { addPlace } from '../../actions';
+import { addPlace } from '../../actions';
 
 class HotelSearch extends Component {
   render() {
