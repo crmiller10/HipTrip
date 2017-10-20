@@ -14,6 +14,14 @@ export function updateTrip(tripDeets) {
   }
 }
 
+// // add a hotel to the trip
+// export function updateHotel(hotel) {
+//   return {
+//     type: 'UPDATE_HOTEL',
+//     payload: hotel,
+//   }
+// }
+
 export function addPlace(place) {
     return {
         type: 'ADD_PLACE',

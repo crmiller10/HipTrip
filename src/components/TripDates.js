@@ -102,8 +102,6 @@ class TripDates extends Component {
 
       // if (this.state.checkInDate < this.state.checkOutDate) {
       if (start < end) {
-        // let checkIn = this.state.checkInDate.toString().split(' ', 4).join(' ');
-        // let checkOut = this.state.checkOutDate.toString().split(' ', 4).join(' ');
 
         let checkIn = this.props.currentTrip.tripStartDate.split(' ', 4).join(' ');
         let checkOut = this.props.currentTrip.tripEndDate.split(' ', 4).join(' ');

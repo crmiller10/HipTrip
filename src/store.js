@@ -4,6 +4,7 @@ import { createTrip, updateTrip } from './actions'
 
 function reducer(state, action){
 
+  // create a new trip
   if (action.type === 'CREATE_TRIP') {
     return {
       currentTrip: action.payload,
@@ -12,6 +13,7 @@ function reducer(state, action){
     }
   }
 
+  // update the trip with dates and/or guests
   if (action.type === 'UPDATE_TRIP') {
     return {
       currentTrip: action.payload,
@@ -20,13 +22,22 @@ function reducer(state, action){
     }
   }
 
-  if (action.type === 'ADD_PLACE') {
-      return {
-          trips: state.trips,
-          currentTrip: state.currentTrip,
-          places: state.places.concat([action.payload]),
-      };
+  // add a new hotel to the trip
+  if (action.type === 'UPDATE_HOTEL') {
+    return{
+      currentTrip: action.payload,
+      trips: state.trips,
+      places: state.places
+    }
   }
+
+  // if (action.type === 'ADD_PLACE') {
+  //     return {
+  //         trips: state.trips,
+  //         currentTrip: state.currentTrip,
+  //         places: state.places.concat([action.payload]),
+  //     };
+  // }
 
   return state;
 }
