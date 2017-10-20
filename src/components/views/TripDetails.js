@@ -47,11 +47,7 @@ function mapS2P(state) {
   }
 }
 
-// do all of the API/updating stuff here
-function mapD2P(dispatch) {
-}
-
-export default connect(mapS2P, mapD2P)(TripDetails);
+export default connect(mapS2P, null)(TripDetails);
 
 
 // export default TripDetails;

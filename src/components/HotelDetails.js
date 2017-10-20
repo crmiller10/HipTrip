@@ -8,7 +8,8 @@ import { createTrip, updateTrip } from '../actions';
 class HotelDetails extends Component {
 
   handleHotelSearch() {
-    console.log(this.props.currentTrip.id)
+    console.log(this.props.currentTrip)
+
     let id = this.props.currentTrip.id;
 
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
@@ -17,6 +18,7 @@ class HotelDetails extends Component {
   }
 
   render() {
+
     return(
       <div>
         <h3>Hotel Details:</h3>
@@ -33,7 +35,6 @@ function mapS2P(state) {
     trips: state.trips,
   }
 }
-
 
 export default withRouter(connect(mapS2P, null)(HotelDetails));
 

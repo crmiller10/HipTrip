@@ -29,7 +29,7 @@ class HotelList extends Component {
       .then(results => results.json())
       .then(responseData => {
         this.setState({
-          businesses: responseData.businesses
+          businesses: responseData.businesses ? responseData.businesses : [],
       });
       })
       .catch((error) => {
@@ -40,20 +40,13 @@ class HotelList extends Component {
 
     render() {
 
-    //   console.log(this.state.businesses)
+      console.log(this.state.businesses)
     //   return('<div></div>')
     // }
       const hotels = this.state.businesses.map((hotel, index) => {
         return(
           <Hotel key={index}
-          id={hotel.id}
-          title={hotel.name}
-          rating={hotel.rating}
-          price={hotel.price}
-          image={hotel.image_url}
-          url={hotel.url}
-          category={hotel.category}
-          display_phone={hotel.display_phone}
+          hotel={hotel}
           />
           );
         }
