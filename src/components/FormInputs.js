@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 // redux stuff
@@ -59,35 +59,37 @@ class FormInputs extends Component{
 
   render(){
     return(
-      <div className="row">
-        <div className="col-lg-5">
-          <div className="form-group">
-            <input className="form-control" type="text" placeholder="Destination" value={this.state.Destination}
-            onChange={event => this.handleDestination(event)}/>
+      <div className="row justify-content-lg-center">
+        <div className="col-md-12 col-lg-9 card card-body">
+
+        <div className="row justify-content-sm-center">
+          <div className="col-md-6 col-lg-6">
+            <div className="form-group">
+              <input className="form-control" type="text" placeholder="Destination" value={this.state.Destination}
+              onChange={event => this.handleDestination(event)}/>
+            </div>
           </div>
-        </div>
-        <div className="col-lg-3">
-          <div className="form-group">
-            <select className="form-control"
-              onChange={event => this.handleSelectBudget(event)}>
-              <option selected="" value="">Budget</option>
-              <option value="1" >$</option>
-              <option value="2" >$$</option>
-              <option value="3" >$$$</option>
-              <option value="4" >$$$$</option>
-            </select>
+
+          <div className="col-md-4 col-lg-4">
+            <div className="form-group">
+              <select className="form-control"
+                onChange={event => this.handleSelectBudget(event)}>
+                <option value="">Budget</option>
+                <option value="1" >$</option>
+                <option value="2" >$$</option>
+                <option value="3" >$$$</option>
+                <option value="4" >$$$$</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div className="col-lg-4">
-          {/*<button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()}> Submit </button> */}
 
-          {/*<NavLink to="/trip-details">
-            <button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()}> Submit </button>
-          </NavLink>*/}
-
-          <button className="btn btn-primary w-50 mr-2" onClick={() => this.handleAddItem()} to="/trip-details">Submit</button>
+          <div className="col-md-2 col-lg-2">
+            <button className="btn btn-primary w-100 mr-2" onClick={() => this.handleAddItem()} to="/trip-details">Submit</button>
+          </div>
 
         </div>
+        </div>
+
       </div>
     )
   }

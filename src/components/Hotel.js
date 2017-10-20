@@ -23,7 +23,7 @@ class Hotel extends Component {
     return(
       <div className="col-md-6 col-lg-4">
         <div className="card" style={cardMargin}>
-            <a href={this.props.url} className="">
+            <a href={this.props.url}>
             <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={this.props.image} alt="" />
               </div>

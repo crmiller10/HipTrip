@@ -48,7 +48,7 @@ class Map extends Component {
         file, which doesn't exist. window.google means look at the global variables for the whole
         page for one called 'google', which does exist once the script loads. */
     const map = new window.google.maps.Map(document.querySelector('#map'), {
-      zoom: 12,
+      zoom: 0,
       center: {lat: 35.194, lng: -80.849}
     });
 
@@ -87,13 +87,13 @@ class Map extends Component {
   }
 }
 
-function stateToProps(state) {
+function mapS2P(state) {
   return {
     places: state.places, // so we can render all of the markers
   };
 }
 
-function dispatchToProps(dispatch) {
+function mapD2P(dispatch) {
   return {
     newPlace: function (place) {
       dispatch(addPlace(place));  // import addPlace @ the top
@@ -101,4 +101,4 @@ function dispatchToProps(dispatch) {
   };
 }
 
-export default connect(stateToProps, dispatchToProps)(Map); // import connect from react-redux
+export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux

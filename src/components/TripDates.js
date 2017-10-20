@@ -79,13 +79,13 @@ class TripDates extends Component {
           <div className='row'>
             <div className='col-md-4'>
               <div class="form-group">
-                <label for="exampleInputEmail1">Check In:</label>
+                <label>Check In:</label>
                 <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
               </div>
             </div>
             <div className='col-md-4'>
               <div class="form-group">
-                <label for="exampleInputEmail1">Check Out:</label>
+                <label>Check Out:</label>
                 <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
               </div>
             </div>

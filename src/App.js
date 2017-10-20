@@ -14,6 +14,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      places: "",
       trip: {
         destination: "",
         budget: "",

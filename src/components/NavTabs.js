@@ -9,6 +9,18 @@ import { createTrip, updateTrip } from '../actions';
 
 class NavTabs extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = ({
+      active: false
+    })
+  }
+  handleActiveTab = () => {
+    this.setState({
+      active: !this.state.active
+    });
+  }
+
   handleDetailsRoute() {
     console.log(this.props.currentTrip.id)
     let id = this.props.currentTrip.id;
@@ -19,6 +31,9 @@ class NavTabs extends Component {
   }
 
   render(){
+    //  let TabStyles = {
+
+    // }
     return(
       <nav className="nav-tabs navbar-light">
         <ul className="nav nav-tabs">
@@ -41,6 +56,5 @@ function mapS2P(state) {
     trips: state.trips,
   }
 }
-
 
 export default withRouter(connect(mapS2P, null)(NavTabs));

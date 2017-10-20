@@ -11,11 +11,14 @@ class HotelList extends Component {
       this.state = {
         businesses: []
       }
+      if(!this.state) {
+        return null;
+      }
     }
 
     componentDidMount() {
       console.log(this.props.currentTrip)
-      fetch('https://hip-trip.herokuapp.com/search/hotels/', {
+      fetch('https://hip-trip.herokuapp.com/search/hotel', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -30,7 +33,7 @@ class HotelList extends Component {
       .then(responseData => {
         this.setState({
           businesses: responseData.businesses
-      });
+        })
       })
       .catch((error) => {
         console.log("Error with Fetching : ", error);
