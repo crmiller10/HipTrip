@@ -87,13 +87,13 @@ class Map extends Component {
   }
 }
 
-function mapS2P(state) {
+function stateToProps(state) {
   return {
     places: state.places, // so we can render all of the markers
   };
 }
 
-function mapD2P(dispatch) {
+function dispatchToProps(dispatch) {
   return {
     newPlace: function (place) {
       dispatch(addPlace(place));  // import addPlace @ the top
@@ -101,4 +101,4 @@ function mapD2P(dispatch) {
   };
 }
 
-export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux
+export default connect(stateToProps, dispatchToProps)(Map); // import connect from react-redux

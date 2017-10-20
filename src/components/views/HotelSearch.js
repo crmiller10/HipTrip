@@ -28,6 +28,7 @@ class HotelSearch extends Component {
           <div className="map-container py-4">
             <Map />
           </div>
+
           <HotelList />
         </div>
       </div>
