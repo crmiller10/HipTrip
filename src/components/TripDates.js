@@ -78,13 +78,13 @@ class TripDates extends Component {
           <h4>Dates:</h4>
           <div className='row'>
             <div className='col-md-4'>
-              <div class="form-group">
+              <div className="form-group">
                 <label>Check In:</label>
                 <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
               </div>
             </div>
             <div className='col-md-4'>
-              <div class="form-group">
+              <div className="form-group">
                 <label>Check Out:</label>
                 <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
               </div>
@@ -120,7 +120,7 @@ class TripDates extends Component {
         return(
         <div className="mb-4">
           <h4>Dates</h4>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Error:</strong> Check Out Date must come after Check In Date
           </div>
             <div className='row'>

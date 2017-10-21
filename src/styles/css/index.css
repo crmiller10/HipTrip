@@ -214,8 +214,7 @@ p.card-text {
 
 #map {
   height: 400px;
-  width: 100%;
-  border: 2px solid #fff; }
+  width: 100%; }
 
 /*=============================================
 =            React Date Picker                =

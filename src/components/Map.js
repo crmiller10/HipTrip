@@ -14,13 +14,16 @@ import { addPlace } from '../actions';
  */
 
 class Map extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
       text: '',
       map: null,
+      destination: '',
     };
+    // console.log('mapTrip', this.props.currentTrip.destination);
   }
 
   handleText(event) {
@@ -28,7 +31,7 @@ class Map extends Component {
   }
 
   handleSubmit() {
-    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyA7VNg5ejtL4czB1-p9-h96EYuaVa_5b-E&address=" + this.state.text;
+    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4=" + this.state.text;
     // const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCfAl1doEqzhrXLUsog78OiWvR9w4Pw09c&address=" + this.state.text;
     // const url = "https://maps.googleapis.com/maps/api/geocode/AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4&address=" + this.state.text;
     fetch(url)
@@ -61,7 +64,9 @@ class Map extends Component {
   }
 
   render() {
+    const destination = this.props.currentTrip.destination;
     const places = this.props.places;
+    console.log(destination)
 
     // Loop over all of the places in the store, adding a marker for each.
     for (let i = 0; i < places.length; i++) {
@@ -81,7 +86,9 @@ class Map extends Component {
         <header className="px-3 pt-3 form-group row">
           <input type="text" className="form-control col-sm-3" value={this.state.text} onChange={ev => this.handleText(ev)} placeholder="I've been..." />
           <button className="btn btn-info col-sm-1 ml-2" onClick={() => this.handleSubmit()}>Add</button>
+          <h5>{destination}</h5>
         </header>
+        <hr/>
       </div>
     );
   }
@@ -89,6 +96,8 @@ class Map extends Component {
 
 function mapS2P(state) {
   return {
+    currentTrip: state.currentTrip,
+    trips: state.trips,
     places: state.places, // so we can render all of the markers
   };
 }
