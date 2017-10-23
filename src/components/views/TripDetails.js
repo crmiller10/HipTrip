@@ -7,6 +7,7 @@ import NavTabs from "../NavTabs";
 import TripDates from '../TripDates';
 import TripGuests from '../TripGuests';
 import HotelDetails from '../HotelDetails';
+import RestaurantDetails from '../RestaurantDetails';
 
 
 class TripDetails extends Component {
@@ -32,6 +33,7 @@ class TripDetails extends Component {
           <TripDates />
           <TripGuests />
           <HotelDetails />
+          <RestaurantDetails />
         </div>
 
       </div>

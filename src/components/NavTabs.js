@@ -27,6 +27,15 @@ class NavTabs extends Component {
       .then( resp => this.props.history.push('/hotel-search/' + resp.id) )
   }
 
+  handleRestaurantSearch() {
+    console.log(this.props.currentTrip.id)
+    let id = this.props.currentTrip.id;
+
+    fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
+      .then( resp => resp.json())
+      .then( resp => this.props.history.push('/restaurant-search/' + resp.id) )
+  }
+
   render(){
     return(
       <nav className="nav-tabs navbar-light">
@@ -36,6 +45,9 @@ class NavTabs extends Component {
           </li>
           <li className="nav-item">
             <button onClick={ () => this.handleHotelSearch() } className="nav-link" to="/hotel-search">Find Hotels</button>
+          </li>
+          <li className="nav-item">
+            <button onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search">Find Restaurants</button>
           </li>
         </ul>
       </nav>

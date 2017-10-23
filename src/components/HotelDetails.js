@@ -48,7 +48,7 @@ class HotelDetails extends Component {
 
       return (
         <div>
-          <h3>Hotel Details</h3>
+          <h3>Hotel Details:</h3>
           {hotels}
         </div>
       )
