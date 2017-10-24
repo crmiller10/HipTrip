@@ -19,12 +19,40 @@ class HotelDetails extends Component {
 
   render() {
 
-    return(
-      <div>
-        <h3>Hotel Details:</h3>
-        <button onClick={ () => this.handleHotelSearch() } >Find Hotels</button>
-      </div>
-    )
+    if (this.props.currentTrip.hotels.length === 0) {
+      return(
+        <div>
+          <h3>Hotel Details:</h3>
+          <button onClick={ () => this.handleHotelSearch() } >Find Hotels</button>
+        </div>
+      )
+    } else {
+
+      const hotels = this.props.currentTrip.hotels.map( (hotel, index) => {
+        return(
+          <a href={hotel.url}>
+            <div>
+              <img src={hotel.image_url} alt="" />
+              <p>{hotel.price}</p>
+              <p>{hotel.rating}</p>
+            </div>
+            <div>
+              <p>{hotel.name}</p>
+              <p>{hotel.display_phone}</p>
+              <p>{hotel.address1}</p>
+              <p>{hotel.city}, {hotel.state} {hotel.zip_code}</p>
+            </div>
+          </a>
+        )
+      })
+
+      return (
+        <div>
+          <h3>Hotel Details:</h3>
+          {hotels}
+        </div>
+      )
+    }
   }
 }
 

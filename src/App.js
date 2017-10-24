@@ -5,6 +5,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import Home from './components/views/Home';
 import HotelSearch from './components/views/HotelSearch';
 import TripDetails from './components/views/TripDetails';
+import RestaurantSearch from './components/views/RestaurantSearch';
 
 // Components
 import Navbar from './components/Navbar';
@@ -34,6 +35,7 @@ class App extends Component {
           <Switch>
             <Route path="/hotel-search/:id" component={HotelSearch} />
             <Route path="/trip-details/:id" component={TripDetails} />
+            <Route path="/restaurant-search/:id" component={RestaurantSearch} />
             <Route path="/" component={Home} />
           </Switch>
         </main>
