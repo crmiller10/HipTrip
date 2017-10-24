@@ -17,6 +17,12 @@ main {
   padding-top: 60px;
   padding-bottom: 100px; }
 
+@media (min-width: 576px) {
+  .container {
+    max-width: 90%; } }
+@media (min-width: 768px) {
+  .container {
+    max-width: 90%; } }
 /* Logos
 ––––––––––––––––––––––––––––––––––– */
 .logo {

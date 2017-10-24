@@ -52,8 +52,9 @@ class HotelList extends Component {
         }
       );
 
-      // console.log("hotels", this.state.businesses);
+      console.log("hotels", this.state.businesses);
       return (
+
         <div className="row">
           {hotels}
         </div>

@@ -31,13 +31,13 @@ function reducer(state, action){
     }
   }
 
-  // if (action.type === 'ADD_PLACE') {
-  //     return {
-  //         trips: state.trips,
-  //         currentTrip: state.currentTrip,
-  //         places: state.places.concat([action.payload]),
-  //     };
-  // }
+  if (action.type === 'ADD_PLACE') {
+      return {
+          trips: state.trips,
+          currentTrip: state.currentTrip,
+          places: state.places.concat([action.payload]),
+      };
+  }
 
   return state;
 }

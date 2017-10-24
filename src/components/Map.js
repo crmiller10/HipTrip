@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
-import PropTypes from 'react';
-// import logo from './logo.svg';
-// import './App.css';
 
+//import redux stuff
 import { connect } from 'react-redux';
-import { addPlace } from '../actions';
+import { createTrip, updateTrip, addPlace } from '../actions';
 
-/**
- * 1. Create a text box for people to type in places.
- * 2. Use Google geocoding API to get a latlong for that place.
- * 3. Add place to redux.
- * 4. Try to display place on map (this might be hard).
- */
+import Hotel from './Hotel'
+import HotelList from './HotelList'
+
 
 class Map extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       text: '',
-      map: null,
       destination: '',
+      map: null,
+      hotels: [],
+      businesses: []
     };
-    // console.log('mapTrip', this.props.currentTrip.destination);
   }
+
 
   handleText(event) {
     this.setState({ text: event.target.value });
   }
 
   handleSubmit() {
-    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4=" + this.state.text;
-    // const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCfAl1doEqzhrXLUsog78OiWvR9w4Pw09c&address=" + this.state.text;
-    // const url = "https://maps.googleapis.com/maps/api/geocode/AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4&address=" + this.state.text;
+    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4&address=" + this.state.text;
     fetch(url)
       .then(resp => resp.json())
       .then(resp => {
@@ -47,6 +41,27 @@ class Map extends Component {
   }
 
   initMap() {
+    fetch('https://hip-trip.herokuapp.com/search/hotel', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          budget: this.props.currentTrip.budget,
+          destination: this.props.currentTrip.destination
+      }),
+    })
+    .then(results => results.json())
+    .then(responseData => {
+      this.setState({
+        businesses: responseData.businesses ? responseData.businesses : [],
+      });
+    })
+    .catch((error) => {
+      console.log("Error with Fetching : ", error);
+    });
+
     /* 'google not defined' because it was looking for a variable called 'google' in this
         file, which doesn't exist. window.google means look at the global variables for the whole
         page for one called 'google', which does exist once the script loads. */
@@ -66,19 +81,25 @@ class Map extends Component {
   render() {
     const destination = this.props.currentTrip.destination;
     const places = this.props.places;
-    console.log(destination)
+    console.log("Destination:", destination);
+
+    // const hotels = this.props.hotels;
+    const hotels = this.state.businesses;
+    // console.log(this.props.hotel);
+    console.log("hotels", this.state.businesses);
+    // const hotels = this.state.businesses;
+    // console.log({hotels});
 
     // Loop over all of the places in the store, adding a marker for each.
-    for (let i = 0; i < places.length; i++) {
+    for (let i = 0; i < hotels.length; i++) {
       new window.google.maps.Marker({
         position: {               // coordinates from geocoding
-          lat: places[i].lat,
-          lng: places[i].long,
+          lat: hotels[i].coordinates.latitude,
+          lng: hotels[i].coordinates.longitude,
         },
         map: this.state.map,      // map object we created in initMap
       });
     }
-
     return (
       <div className="map">
         {/* Display our map */}
@@ -87,8 +108,8 @@ class Map extends Component {
           <input type="text" className="form-control col-sm-3" value={this.state.text} onChange={ev => this.handleText(ev)} placeholder="I've been..." />
           <button className="btn btn-info col-sm-1 ml-2" onClick={() => this.handleSubmit()}>Add</button>
           <h5>{destination}</h5>
+          <hr/>
         </header>
-        <hr/>
       </div>
     );
   }
@@ -111,3 +132,120 @@ function mapD2P(dispatch) {
 }
 
 export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux
+
+
+
+
+// import React, { Component } from 'react';
+// import PropTypes from 'react';
+// // import logo from './logo.svg';
+// // import './App.css';
+
+// import { connect } from 'react-redux';
+// import { addPlace } from '../actions';
+
+// /**
+//  * 1. Create a text box for people to type in places.
+//  * 2. Use Google geocoding API to get a latlong for that place.
+//  * 3. Add place to redux.
+//  * 4. Try to display place on map (this might be hard).
+//  */
+
+// class Map extends Component {
+
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       text: '',
+//       map: null,
+//       destination: '',
+//     };
+//     // console.log('mapTrip', this.props.currentTrip.destination);
+//   }
+
+//   handleText(event) {
+//     this.setState({ text: event.target.value });
+//   }
+
+//   handleSubmit() {
+//     const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4=" + this.state.text;
+//     // const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCfAl1doEqzhrXLUsog78OiWvR9w4Pw09c&address=" + this.state.text;
+//     // const url = "https://maps.googleapis.com/maps/api/geocode/AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4&address=" + this.state.text;
+//     fetch(url)
+//       .then(resp => resp.json())
+//       .then(resp => {
+//         // Thinking through the object we'll actually want to store.
+//         this.props.newPlace({
+//           name: this.state.text,
+//           lat: resp.results[0].geometry.location.lat,
+//           long: resp.results[0].geometry.location.lng,
+//         });
+//       });
+//   }
+
+//   initMap() {
+//      'google not defined' because it was looking for a variable called 'google' in this
+//         file, which doesn't exist. window.google means look at the global variables for the whole
+//         page for one called 'google', which does exist once the script loads.
+//     const map = new window.google.maps.Map(document.querySelector('#map'), {
+//       zoom: 11,
+//       center: {lat: 35.194, lng: -80.849}
+//     });
+
+//     this.setState({ map: map });
+//   }
+
+//   /* Wait until the component mounts, otherwise #map won't exist in the DOM yet */
+//   componentDidMount() {
+//     this.initMap();
+//   }
+
+//   render() {
+//     const destination = this.props.currentTrip.destination;
+//     const places = this.props.places;
+//     console.log(destination)
+
+//     // Loop over all of the places in the store, adding a marker for each.
+//     for (let i = 0; i < places.length; i++) {
+//       new window.google.maps.Marker({
+//         position: {               // coordinates from geocoding
+//           lat: places[i].lat,
+//           lng: places[i].long,
+//         },
+//         map: this.state.map,      // map object we created in initMap
+//       });
+//     }
+
+//     return (
+//       <div className="map">
+//         {/* Display our map */}
+//         <div id="map"></div>
+//         <header className="px-3 pt-3 form-group row">
+//           <input type="text" className="form-control col-sm-3" value={this.state.text} onChange={ev => this.handleText(ev)} placeholder="I've been..." />
+//           <button className="btn btn-info col-sm-1 ml-2" onClick={() => this.handleSubmit()}>Add</button>
+//           <h5>{destination}</h5>
+//         </header>
+//         <hr/>
+//       </div>
+//     );
+//   }
+// }
+
+// function mapS2P(state) {
+//   return {
+//     currentTrip: state.currentTrip,
+//     trips: state.trips,
+//     places: state.places, // so we can render all of the markers
+//   };
+// }
+
+// function mapD2P(dispatch) {
+//   return {
+//     newPlace: function (place) {
+//       dispatch(addPlace(place));  // import addPlace @ the top
+//     }
+//   };
+// }
+
+// export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux
