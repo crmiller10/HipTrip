@@ -44,10 +44,10 @@ class NavTabs extends Component {
             <button onClick={ () => this.handleDetailsRoute() } className="nav-link" to="/trip-details">Trip Details</button>
           </li>
           <li className="nav-item">
-            <button onClick={ () => this.handleHotelSearch() } className="nav-link" to="/hotel-search">Find Hotels</button>
+            <button onClick={ () => this.handleHotelSearch() } className="nav-link" to="/hotel-search">Hotels</button>
           </li>
           <li className="nav-item">
-            <button onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search">Find Restaurants</button>
+            <button onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search">Restaurants</button>
           </li>
         </ul>
       </nav>
