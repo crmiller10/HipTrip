@@ -21,25 +21,6 @@ class Map extends Component {
     };
   }
 
-
-  // handleText(event) {
-  //   this.setState({ text: event.target.value });
-  // }
-
-  // handleSubmit() {
-  //   const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4&address=" + this.state.text;
-  //   fetch(url)
-  //     .then(resp => resp.json())
-  //     .then(resp => {
-  //       // Thinking through the object we'll actually want to store.
-  //       this.props.newPlace({
-  //         name: this.state.text,
-  //         lat: resp.results[0].geometry.location.lat,
-  //         long: resp.results[0].geometry.location.lng,
-  //       });
-  //     });
-  // }
-
   initMap() {
     fetch('https://hip-trip.herokuapp.com/search/hotel', {
       method: 'POST',
@@ -57,23 +38,26 @@ class Map extends Component {
       this.setState({
         businesses: responseData.businesses ? responseData.businesses : [],
       });
+
+      const hotels = this.state.businesses;
+      console.log(this.state.businesses);
+      const map = new window.google.maps.Map(document.querySelector('#map'), {
+        zoom: 12,
+        center: new window.google.maps.LatLng(hotels[0].coordinates.latitude, hotels[0].coordinates.longitude)
+      });
+      this.setState({ map: map });
     })
     .catch((error) => {
       console.log("Error with Fetching : ", error);
     });
 
-    /* 'google not defined' because it was looking for a variable called 'google' in this
-        file, which doesn't exist. window.google means look at the global variables for the whole
-        page for one called 'google', which does exist once the script loads. */
+
     const map = new window.google.maps.Map(document.querySelector('#map'), {
       zoom: 11,
-      // center: {lat: 35.194, lng: -80.849}
       center: new window.google.maps.LatLng(35.194, -80.849)
     });
-
     this.setState({ map: map });
   }
-
   /* Wait until the component mounts, otherwise #map won't exist in the DOM yet */
   componentDidMount() {
     this.initMap();
@@ -81,21 +65,15 @@ class Map extends Component {
 
   render() {
     const destination = this.props.currentTrip.destination;
-    const places = this.props.places;
     console.log("Destination:", destination);
 
-    // const hotels = this.props.hotels;
     const hotels = this.state.businesses;
-    // console.log(this.props.hotel);
     console.log("MapHotels", this.state.businesses);
-    // const hotels = this.state.businesses;
-    // console.log({hotels});
 
     // Loop over all of the places in the store, adding a marker for each.
-    for (let i = 0; i < hotels.length; i++) {
+    for (let i = 0; i < hotels.length ; i++) {
       new window.google.maps.Marker({
-        // center: new window.google.maps.LatLng(hotels[1].coordinates.latitude, hotels[2].coordinates.longitude)
-        position: {               // coordinates from geocoding
+        position: {
           lat: hotels[i].coordinates.latitude,
           lng: hotels[i].coordinates.longitude,
         },
@@ -135,3 +113,17 @@ function mapD2P(dispatch) {
 
 export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux
 
+
+
+
+
+
+// const destination = this.props.currentTrip.destination;
+// console.log("Destination:", destination);
+// // const places = this.props.places;
+// // const hotels = this.props.hotels;
+// // console.log(this.props.hotel);
+// const hotels = this.state.businesses;
+// console.log("MapHotels", this.state.businesses);
+// // const hotels = this.state.businesses;
+// // console.log({hotels});

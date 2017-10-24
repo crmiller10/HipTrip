@@ -180,7 +180,7 @@ button.close {
   border-top: 2px solid #2196F3; }
 
 .page-content {
-  padding: 30px 15px; }
+  padding: 0; }
 
 /* Card
 ––––––––––––––––––––––––––––––––––– */
@@ -213,7 +213,7 @@ p.card-text {
     min-height: 180px; }
 
 #map {
-  height: 400px;
+  height: 300px;
   width: 100%; }
 
 /*=============================================

@@ -33,7 +33,7 @@ class RestaurantDetails extends Component {
         return(
           <a href={restaurant.url}>
             <div>
-              <img src={restaurant.image_url} alt="" />
+              <img className="img-fluid" src={restaurant.image_url} alt="" />
               <p>{restaurant.price}</p>
               <p>{restaurant.rating}</p>
             </div>
