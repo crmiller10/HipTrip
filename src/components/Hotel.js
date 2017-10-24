@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import Map from "./Map";
+
 
 import Modal from './Modal';
 
@@ -59,7 +59,7 @@ class Hotel extends Component {
     return(
       <div className="col-md-6 col-lg-4">
         <div className="card" style={cardMargin}>
-            <a href={hotel.url} className="">
+          <a href={hotel.url} className="">
             <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={hotel.image_url} alt="" />
               </div>

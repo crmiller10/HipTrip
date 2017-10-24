@@ -8,13 +8,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
-  padding-top: 60px;
+  padding-top: 50px;
   height: 100%;
   background: #fff;
   background: #F3F3F3; }
 
 main {
-  padding-top: 60px;
+  padding-top: 50px;
   padding-bottom: 100px; }
 
 /* Logos
@@ -31,7 +31,7 @@ main {
 ––––––––––––––––––––––––––––––––––– */
 .navbar {
   padding: 0;
-  height: 60px;
+  height: 50px;
   border-bottom: 1px solid #e5e5e5;
   background: #FFF; }
 
@@ -214,8 +214,7 @@ p.card-text {
 
 #map {
   height: 400px;
-  width: 100%;
-  border: 2px solid #fff; }
+  width: 100%; }
 
 /*=============================================
 =            React Date Picker                =
@@ -245,7 +244,7 @@ p.card-text {
     text-align: right; }
   .react-date-picker .react-date-picker__button__icon {
     border: 0;
-    background: transparent;
+    background: #fff;
     padding: 4px 6px;
     width: 100%;
     right: 0;
@@ -276,6 +275,8 @@ p.card-text {
   border: 0;
   background-color: transparent;
   -moz-appearance: textfield; }
+  .react-date-picker__button__input input:invalid {
+    background: transparent !important; }
 
 .react-date-picker__calendar {
   width: 100%;

@@ -9,6 +9,18 @@ import { createTrip, updateTrip } from '../actions';
 
 class NavTabs extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = ({
+      active: false
+    })
+  }
+  handleActiveTab = () => {
+    this.setState({
+      active: !this.state.active
+    });
+  }
+
   handleDetailsRoute() {
     console.log(this.props.currentTrip.id)
     let id = this.props.currentTrip.id;
@@ -37,6 +49,9 @@ class NavTabs extends Component {
   }
 
   render(){
+    //  let TabStyles = {
+
+    // }
     return(
       <nav className="nav-tabs navbar-light">
         <ul className="nav nav-tabs">
@@ -48,6 +63,9 @@ class NavTabs extends Component {
           </li>
           <li className="nav-item">
             <button onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search">Restaurants</button>
+          </li>
+          <li className="nav-item">
+            <button onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search">Find Restaurants</button>
           </li>
         </ul>
       </nav>
@@ -62,6 +80,5 @@ function mapS2P(state) {
     trips: state.trips,
   }
 }
-
 
 export default withRouter(connect(mapS2P, null)(NavTabs));

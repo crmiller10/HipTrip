@@ -36,14 +36,8 @@ class HomeForm extends Component {
       .map(items => items);
 
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="card card-body">
-              <FormInputs add={(destination, selectBudget) => this.addNewItem(destination, selectBudget)} />
-            </div>
-          </div>
-        </div>
+      <div>
+          <FormInputs add={(destination, selectBudget) => this.addNewItem(destination, selectBudget)} />
       </div>
     )
   }

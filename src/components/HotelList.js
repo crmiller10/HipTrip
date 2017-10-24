@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Hotel from './Hotel';
-// import Map from './Map';
 
 /*----------  Subsection comment block  ----------*/
 class HotelList extends Component {
@@ -10,6 +9,9 @@ class HotelList extends Component {
       super(props);
       this.state = {
         businesses: []
+      }
+      if(!this.state) {
+        return null;
       }
     }
 
@@ -40,20 +42,19 @@ class HotelList extends Component {
 
     render() {
 
-      console.log(this.state.businesses)
+      // console.log(this.state.businesses)
     //   return('<div></div>')
     // }
       const hotels = this.state.businesses.map((hotel, index) => {
         return(
-          <Hotel key={index}
-          hotel={hotel}
-          />
+          <Hotel key={index} hotel={hotel}/>
           );
         }
       );
 
       console.log("hotels", this.state.businesses);
       return (
+
         <div className="row">
           {hotels}
         </div>
@@ -67,5 +68,6 @@ class HotelList extends Component {
       trips: state.trips,
     }
   }
+
 
 export default connect(mapS2P, null)(HotelList);
