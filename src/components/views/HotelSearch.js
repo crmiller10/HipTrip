@@ -10,7 +10,7 @@ import Map from "../Map";
 
 class HotelSearch extends Component {
   render() {
-    console.log('getTrip', this.props.currentTrip)
+    // console.log('getTrip', this.props.currentTrip)
     return (
       <div className="container">
         <div className="top-bar">
@@ -25,10 +25,7 @@ class HotelSearch extends Component {
         </div>
         <NavTabs />
         <div className="page-content">
-          <div className="map-container py-4">
-            <Map />
-          </div>
-
+          <Map />
           <HotelList />
         </div>
       </div>
@@ -46,7 +43,8 @@ function mapS2P(state) {
 function mapD2P(dispatch) {
 }
 
-export default connect(mapS2P, mapD2P)(HotelSearch);
+
+export default connect(mapS2P, null)(HotelSearch);
 
 
 

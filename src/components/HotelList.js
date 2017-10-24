@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Hotel from './Hotel';
-// import Map from './Map';
 
 /*----------  Subsection comment block  ----------*/
 class HotelList extends Component {
@@ -32,8 +31,8 @@ class HotelList extends Component {
       .then(results => results.json())
       .then(responseData => {
         this.setState({
-          businesses: responseData.businesses
-        })
+          businesses: responseData.businesses ? responseData.businesses : [],
+      });
       })
       .catch((error) => {
         console.log("Error with Fetching : ", error);
@@ -43,27 +42,19 @@ class HotelList extends Component {
 
     render() {
 
-    //   console.log(this.state.businesses)
+      // console.log(this.state.businesses)
     //   return('<div></div>')
     // }
       const hotels = this.state.businesses.map((hotel, index) => {
         return(
-          <Hotel key={index}
-          id={hotel.id}
-          title={hotel.name}
-          rating={hotel.rating}
-          price={hotel.price}
-          image={hotel.image_url}
-          url={hotel.url}
-          category={hotel.category}
-          display_phone={hotel.display_phone}
-          />
+          <Hotel key={index} hotel={hotel}/>
           );
         }
       );
 
       console.log("hotels", this.state.businesses);
       return (
+
         <div className="row">
           {hotels}
         </div>
@@ -78,8 +69,5 @@ class HotelList extends Component {
     }
   }
 
+
 export default connect(mapS2P, null)(HotelList);
-
-
-
-

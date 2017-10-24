@@ -119,7 +119,7 @@ function mapD2P(dispatch) {
   return {
     // need to do the get request here
     fixTrip: function (trip) {
-          dispatch(updateTrip(trip))
+      dispatch(updateTrip(trip))
     }
   }
 }
