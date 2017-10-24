@@ -1,3 +1,5 @@
+/* COMPONENT TO DISPLAY INDIVIDUAL RESTAURANT RESULT */
+
 import React, {Component} from 'react';
 // import Map from "./Map";
 

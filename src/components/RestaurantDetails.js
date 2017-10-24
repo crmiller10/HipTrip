@@ -1,3 +1,5 @@
+/* COMPONENT TO VIEW RESTAURANTS THAT HAVE BEEN FAVORITED */
+
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -19,8 +21,7 @@ class RestaurantDetails extends Component {
 
   render() {
 
-    // might need to talk to Chris about this?
-    if (this.props.currentTrip.restaurants === null) {
+    if (this.props.currentTrip.restaurants === null || this.props.currentTrip.restaurants.length === 0) {
       return(
         <div>
           <h3>Restaurant Details:</h3>
@@ -49,7 +50,7 @@ class RestaurantDetails extends Component {
 
       return (
         <div>
-          <h3>Restuarant Details:</h3>
+          <h3>Restaurant Details:</h3>
           {restaurants}
         </div>
       )

@@ -1,3 +1,5 @@
+/* COMPONENT TO DISPLAY RESTAURANT SEARCH RESULTS */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -40,8 +42,7 @@ class RestaurantList extends Component {
     render() {
 
       console.log(this.state.businesses)
-    //   return('<div></div>')
-    // }
+
       const restaurants = this.state.businesses.map((restaurant, index) => {
         return(
           <Restaurant key={index}
@@ -59,6 +60,8 @@ class RestaurantList extends Component {
       );
     }
   }
+
+
   // import state
   function mapS2P(state) {
     return {

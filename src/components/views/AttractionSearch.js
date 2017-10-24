@@ -1,14 +1,13 @@
-/* PAGE TO DISPLAY RESTAURANT SEARCH RESULTS */
+/* PAGE TO DISPLAY ATTRACTION SEARCH RESULTS */
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RestaurantList from "../RestaurantList";
+import AttractionList from "../AttractionList";
 import NavTabs from "../NavTabs";
-import Map from "../Map";
 
-class RestaurantSearch extends Component {
+class AttractionSearch extends Component {
   render() {
-    return (
+    return(
       <div className="container">
         <div className="top-bar">
           <div className="row">
@@ -22,13 +21,24 @@ class RestaurantSearch extends Component {
         </div>
         <NavTabs />
         <div className="page-content">
-          <div className="map-container py-4">
-            <Map />
+          <div>
+            <select>
+              <option value="1">$</option>
+              <option value="2">$$</option>
+              <option value="3">$$$</option>
+              <option value="4">$$$$</option>
+              <option selected>Select Budget</option>
+            </select>
+            <button>Amusement Parks</button>
+            <button>Aquariums</button>
+            <button>Bike Rentals</button>
+            <button>Fitness</button>
+            <button>Kids Activities</button>
           </div>
-          <RestaurantList />
+          <AttractionList />
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -40,4 +50,4 @@ function mapS2P(state) {
   }
 }
 
-export default connect(mapS2P, null)(RestaurantSearch);
+export default connect(mapS2P, null)(AttractionSearch);
