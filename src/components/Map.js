@@ -101,15 +101,15 @@ class Map extends Component {
       });
     }
     return (
-      <div className="map">
+      <div className="map pb-4">
         {/* Display our map */}
         <div id="map"></div>
-        <header className="px-3 pt-3 form-group row">
+        {/* <header className="px-3 pt-3 form-group row">
           <input type="text" className="form-control col-sm-3" value={this.state.text} onChange={ev => this.handleText(ev)} placeholder="I've been..." />
           <button className="btn btn-info col-sm-1 ml-2" onClick={() => this.handleSubmit()}>Add</button>
           <h5>{destination}</h5>
           <hr/>
-        </header>
+        </header> */}
       </div>
     );
   }
