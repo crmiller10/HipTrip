@@ -22,23 +22,23 @@ class Map extends Component {
   }
 
 
-  handleText(event) {
-    this.setState({ text: event.target.value });
-  }
+  // handleText(event) {
+  //   this.setState({ text: event.target.value });
+  // }
 
-  handleSubmit() {
-    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4&address=" + this.state.text;
-    fetch(url)
-      .then(resp => resp.json())
-      .then(resp => {
-        // Thinking through the object we'll actually want to store.
-        this.props.newPlace({
-          name: this.state.text,
-          lat: resp.results[0].geometry.location.lat,
-          long: resp.results[0].geometry.location.lng,
-        });
-      });
-  }
+  // handleSubmit() {
+  //   const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBEq2exLrINEtrahRI7S8Y5E46D6asUQZ4&address=" + this.state.text;
+  //   fetch(url)
+  //     .then(resp => resp.json())
+  //     .then(resp => {
+  //       // Thinking through the object we'll actually want to store.
+  //       this.props.newPlace({
+  //         name: this.state.text,
+  //         lat: resp.results[0].geometry.location.lat,
+  //         long: resp.results[0].geometry.location.lng,
+  //       });
+  //     });
+  // }
 
   initMap() {
     fetch('https://hip-trip.herokuapp.com/search/hotel', {
@@ -67,7 +67,8 @@ class Map extends Component {
         page for one called 'google', which does exist once the script loads. */
     const map = new window.google.maps.Map(document.querySelector('#map'), {
       zoom: 11,
-      center: {lat: 35.194, lng: -80.849}
+      // center: {lat: 35.194, lng: -80.849}
+      center: new window.google.maps.LatLng(35.194, -80.849)
     });
 
     this.setState({ map: map });
@@ -93,6 +94,7 @@ class Map extends Component {
     // Loop over all of the places in the store, adding a marker for each.
     for (let i = 0; i < hotels.length; i++) {
       new window.google.maps.Marker({
+        // center: new window.google.maps.LatLng(hotels[1].coordinates.latitude, hotels[2].coordinates.longitude)
         position: {               // coordinates from geocoding
           lat: hotels[i].coordinates.latitude,
           lng: hotels[i].coordinates.longitude,

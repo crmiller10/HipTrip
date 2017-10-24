@@ -1,6 +1,6 @@
 /* Custom Variables
 ––––––––––––––––––––––––––––––––––– */
-$navbar-height: 60px;
+$navbar-height: 50px;
 
 
 html {
@@ -27,18 +27,18 @@ main {
   padding-bottom: 100px;
 }
 
-@media (min-width: 576px){
-  .container {
-    // max-width: 540px;
-    max-width: 90%;
-  }
-}
-@media (min-width: 768px){
-  .container {
-    // max-width: 720px;
-    max-width: 90%;
-  }
-}
+// @media (min-width: 576px){
+//   .container {
+//     // max-width: 540px;
+//     max-width: 90%;
+//   }
+// }
+// @media (min-width: 768px){
+//   .container {
+//     // max-width: 720px;
+//     max-width: 90%;
+//   }
+// }
 
 
 
@@ -338,7 +338,8 @@ p.card-text {
 
   .react-date-picker__button__icon {
     border: 0;
-    background: transparent;
+    // background: transparent;
+    background: #fff;
     padding: 4px 6px;
     width: 100%;
     right: 0;
@@ -376,6 +377,10 @@ p.card-text {
   border: 0;
   background-color: transparent;
   -moz-appearance: textfield;
+
+  &:invalid {
+    background: transparent !important;
+  }
 }
 
 .react-date-picker__calendar {
@@ -398,22 +403,9 @@ p.card-text {
     background:#fff;
     transition: .25s;
   }
-
-  .react-date-picker__button__input input:invalid {
-    // background: rgba(255, 0, 0, 0.1);
-    // background: #efefef;
-  }
-
 }
 
 /*----------  Subsection comment block  ----------*/
-.align-bottom {
-  // position: absolute;
-  // vertical-align: bottom;
-  // bottom: 0;
-  // width: 80%;
-  // width: 100%;
-}
 
 @media (min-width: 768px) {
   .form-group {
