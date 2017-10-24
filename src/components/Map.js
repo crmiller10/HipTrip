@@ -86,7 +86,7 @@ class Map extends Component {
     // const hotels = this.props.hotels;
     const hotels = this.state.businesses;
     // console.log(this.props.hotel);
-    console.log("hotels", this.state.businesses);
+    console.log("MapHotels", this.state.businesses);
     // const hotels = this.state.businesses;
     // console.log({hotels});
 
