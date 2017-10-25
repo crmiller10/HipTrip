@@ -57,7 +57,7 @@ class RestaurantList extends Component {
         <div className="row">
           {restaurants}
         </div>
-      );
+      )
     }
   }
 

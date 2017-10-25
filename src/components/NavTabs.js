@@ -53,10 +53,10 @@ class NavTabs extends Component {
     console.log(this.props.currentTrip.id)
     let id = this.props.currentTrip.id;
 
-    // fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
-    //   .then( resp => resp.json())
-    //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
-    this.props.history.push('/ae-search/' + id)
+    fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
+      .then( resp => resp.json())
+      .then( resp => this.props.history.push('/art-search/' + resp.id) )
+    // this.props.history.push('/art-search/' + id)
   }
 
   handleShoppingSearch() {
@@ -116,7 +116,7 @@ class NavTabs extends Component {
             <button onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search">Restaurants</button>
           </li>
           <li className="nav-item">
-            <button onClick={ () => this.handleAESearch() } className="nav-link" to="/ae-search">Arts & Entertainment</button>
+            <button onClick={ () => this.handleAESearch() } className="nav-link" to="/art-search">Arts & Entertainment</button>
           </li>
           <li className="nav-item">
             <button onClick={ () => this.handleShoppingSearch() } className="nav-link" to="/shopping-search">Shopping</button>

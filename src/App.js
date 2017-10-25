@@ -41,7 +41,7 @@ class App extends Component {
             <Route path="/hotel-search/:id" component={HotelSearch} />
             <Route path="/trip-details/:id" component={TripDetails} />
             <Route path="/restaurant-search/:id" component={RestaurantSearch} />
-            <Route path="/ae-search/:id" component={AESearch} />
+            <Route path="/art-search/:id" component={AESearch} />
             <Route path="/attraction-search/:id" component={AttractionSearch} />
             <Route path="/shopping-search/:id" component={ShoppingSearch} />
             <Route path="/nightlife-search/:id" component={NightlifeSearch} />

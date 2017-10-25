@@ -45,6 +45,9 @@ class HotelList extends Component {
       // console.log(this.state.businesses)
     //   return('<div></div>')
     // }
+
+    console.log(this.props.currentTrip);
+
       const hotels = this.state.businesses.map((hotel, index) => {
         return(
           <Hotel key={index} hotel={hotel}/>
@@ -52,6 +55,7 @@ class HotelList extends Component {
         }
       );
 
+      console.log(this.props.currentTrip);
       console.log("hotels", this.state.businesses);
       return (
 

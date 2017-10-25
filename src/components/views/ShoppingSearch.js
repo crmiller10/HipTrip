@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import StoreList from "../ShoppingList";
+import StoreList from "../StoreList";
 import NavTabs from "../NavTabs";
 
 class ShoppingSearch extends Component {

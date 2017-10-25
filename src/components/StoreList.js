@@ -1,12 +1,12 @@
-/* COMPONENT TO DISPLAY ARTS & ENTERTAINMENT SEARCH RESULTS */
+/* COMPONENT TO DISPLAY SHOPPING SEARCH RESULTS */
 
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import AE from './AE';
+import Store from './Store';
 
-class AEList extends Component {
+class StoreList extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -16,7 +16,7 @@ class AEList extends Component {
 
     componentDidMount() {
       console.log(this.props.currentTrip)
-      fetch('https://hip-trip.herokuapp.com/search/art', {
+      fetch('https://hip-trip.herokuapp.com/search/shopping', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -43,10 +43,10 @@ class AEList extends Component {
 
       console.log(this.state.businesses)
 
-      const arts = this.state.businesses.map((art, index) => {
+      const shops = this.state.businesses.map((shop, index) => {
         return(
-          <AE key={index}
-          art={art}
+          <Store key={index}
+          shop={shop}
           />
           );
         }
@@ -54,7 +54,7 @@ class AEList extends Component {
 
       return (
         <div className="row">
-          {arts}
+          {shops}
         </div>
       )
   }
@@ -68,4 +68,4 @@ function mapS2P(state) {
   }
 }
 
-export default connect(mapS2P, null)(AEList);
+export default connect(mapS2P, null)(StoreList);

@@ -9,6 +9,7 @@ import { createTrip, updateTrip } from '../actions';
 
 class RestaurantDetails extends Component {
 
+  // get request to bring in the trip id
   handleRestaurantSearch() {
     console.log(this.props.currentTrip)
 
@@ -24,7 +25,7 @@ class RestaurantDetails extends Component {
     if (this.props.currentTrip.restaurants === null || this.props.currentTrip.restaurants.length === 0) {
       return(
         <div>
-          <h3>Restaurant Details:</h3>
+          <h3>Restaurants:</h3>
           <button onClick={ () => this.handleRestaurantSearch() } >Find Restaurants</button>
         </div>
       )

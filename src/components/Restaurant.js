@@ -27,7 +27,7 @@ class Restaurant extends Component {
     let restaurant = this.props.restaurant
 
     // put request to send hotel info to Chris
-    fetch('https://hip-trip.herokuapp.com/restaurant/save', {
+    fetch('https://hip-trip.herokuapp.com/save/restaurant', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
