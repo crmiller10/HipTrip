@@ -216,6 +216,18 @@ p.card-text {
   height: 400px;
   width: 100%; }
 
+.info-window {
+  width: 100%;
+  max-width: 300px;
+  min-width: 250px; }
+
+.info-window p,
+.info-window h6 {
+  margin-bottom: 0; }
+.info-window img {
+  width: 100%;
+  height: 100px; }
+
 /*=============================================
 =            React Date Picker                =
 =============================================*/

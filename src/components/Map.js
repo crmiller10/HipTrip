@@ -43,7 +43,7 @@ class Map extends Component {
 
       const hotels = responseData.businesses;
       const map = new window.google.maps.Map(document.querySelector('#map'), {
-        zoom: 9,
+        zoom: 11,
         center: new window.google.maps.LatLng(hotels[0].coordinates.latitude, hotels[0].coordinates.longitude)
       });
       for (let i = 0; i < hotels.length ; i++) {
@@ -55,26 +55,55 @@ class Map extends Component {
           map: map, // map object we created in initMap
 
         });
-        marker.addListener('click', function() {
-        var infowindow = new window.google.maps.InfoWindow({
-          position: {
-            lat: hotels[i].coordinates.latitude + .01,
-            lng: hotels[i].coordinates.longitude,
-          },
-          content: `
-            <img class="img-fluid" src=${hotels[i].image_url} alt="" height="42" width="42" />
-            <p>${hotels[i].price}</p>
-            <p>${hotels[i].rating} Stars </p>
-            <h6>${hotels[i].name}</h6>
-            <p>${hotels[i].display_phone}</p>
-            <p>${hotels[i].location.address1}</p>
-            <p>${hotels[i].location.city}, ${hotels[i].location.state}, ${hotels[i].location.zip_code}</p>
-            <p><a href=${hotels[i].url}>Visit Site</a></p>
-            `,
-          map: map, // map object we created in initMap
-        });
+        // var marker, i;
+           new window.google.maps.event.addListener(marker, 'click', function() {
+             var infowindow = new window.google.maps.InfoWindow({
+                   content: `
+                    <div class="info-window row">
+                      <div class="col-sm-4">
+                        <img class="img-fluid" src=${hotels[i].image_url} alt="" height="84" />
+                       </div>
+                       <div class="col-sm-8">
+                        <span>${hotels[i].price}</span>
+                        <span>${hotels[i].rating} Stars </span>
+                        <h6>${hotels[i].name}</h6>
+                        <p>${hotels[i].display_phone}</p>
+                        <p>${hotels[i].location.address1}</p>
+                        <p>${hotels[i].location.city}, ${hotels[i].location.state}, ${hotels[i].location.zip_code}</p>
+                        <p>
+                          <a href=${hotels[i].url}>Visit Site</a>
+                        </p>
+                      </div>
+                    </div>
+                  `,
+               });
+               infowindow.open(map, this);
+           });
 
-        });
+          // var infowindow = new window.google.maps.InfoWindow({
+
+          //   position: {
+          //     lat: hotels[i].coordinates.latitude,
+          //     lng: hotels[i].coordinates.longitude,
+          //   },
+
+          //   // map: map,
+          //   // new google.maps.Marker({position: {lat: -34, lng: 151}, map: map});
+          //   // content: `
+          //   //   <img class="img-fluid" src=${hotels[i].image_url} alt="" height="42" width="42" />
+          //   //   <p>${hotels[i].price}</p>
+          //   //   <p>${hotels[i].rating} Stars </p>
+          //   //   <h6>${hotels[i].name}</h6>
+          //   //   <p>${hotels[i].display_phone}</p>
+          //   //   <p>${hotels[i].location.address1}</p>
+          //   //   <p>${hotels[i].location.city}, ${hotels[i].location.state}, ${hotels[i].location.zip_code}</p>
+          //   //   <p><a href=${hotels[i].url}>Visit Site</a></p>
+          //   //   `,
+          //   map: map, // map object we created in initMap
+          // });
+
+
+        // });
       }
       this.setState({ map: map });
     })
