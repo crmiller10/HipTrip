@@ -180,7 +180,7 @@ button.close {
   border-top: 2px solid #2196F3; }
 
 .page-content {
-  padding: 30px 15px; }
+  padding: 0; }
 
 /* Card
 ––––––––––––––––––––––––––––––––––– */
@@ -215,6 +215,18 @@ p.card-text {
 #map {
   height: 400px;
   width: 100%; }
+
+.info-window {
+  width: 100%;
+  max-width: 300px;
+  min-width: 250px; }
+
+.info-window p,
+.info-window h6 {
+  margin-bottom: 0; }
+.info-window img {
+  width: 100%;
+  height: 100px; }
 
 /*=============================================
 =            React Date Picker                =

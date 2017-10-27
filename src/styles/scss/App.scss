@@ -244,7 +244,8 @@ button.close {
 }
 
 .page-content {
-  padding: 30px 15px;
+  // padding: 30px 15px;
+  padding: 0;
 }
 
 .tab-content {
@@ -301,7 +302,21 @@ p.card-text {
   width: 100%;
   // border: 2px solid #fff;
  }
-
+ .info-window {
+  width: 100%;
+  max-width: 300px;
+  min-width: 250px;
+ }
+.info-window {
+  p,
+  h6 {
+    margin-bottom: 0;
+  }
+  img {
+    width: 100%;
+    height: 100px;
+  }
+}
 /*=============================================
 =            React Date Picker                =
 =============================================*/

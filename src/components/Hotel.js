@@ -76,11 +76,11 @@ class Hotel extends Component {
           </div>
           <div className="card-footer clearfix">
             <a href={hotel.url} className="btn btn-secondary btn-block">Visit Site</a>
-            <button className="btn btn-secondary btn-block" onClick={ () => this.handleHotelAdd() }>Add</button>
+            <button className="btn btn-secondary" onClick={ () => this.handleHotelAdd() }>Add</button>
             <div>
-              <button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
+              {/*<button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
                 Modal
-              </button>
+              </button>*/}
 
               <Modal show={this.state.isOpen}
                 onClose={this.toggleModal}>
