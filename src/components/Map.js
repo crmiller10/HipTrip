@@ -24,7 +24,7 @@ class Map extends Component {
 
 // ============= Map Init ===========
   initMap() {
-    fetch('https://hip-trip.herokuapp.com/search/hotel', {
+    fetch('https://hip-trip.herokuapp.com/search/hotel',  {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -42,10 +42,12 @@ class Map extends Component {
       });
 
       const hotels = responseData.businesses;
+      const restaurants = responseData.businesses;
       const map = new window.google.maps.Map(document.querySelector('#map'), {
         zoom: 11,
         center: new window.google.maps.LatLng(hotels[0].coordinates.latitude, hotels[0].coordinates.longitude)
       });
+
       for (let i = 0; i < hotels.length ; i++) {
         var marker = new window.google.maps.Marker({
           position: {
@@ -58,6 +60,8 @@ class Map extends Component {
         // var marker, i;
            new window.google.maps.event.addListener(marker, 'click', function() {
              var infowindow = new window.google.maps.InfoWindow({
+                // map: map,
+                  // position: new window.google.maps.LatLng(hotels[i].coordinates.latitude, hotels[i].coordinates.longitude),
                    content: `
                     <div class="info-window row">
                       <div class="col-sm-4">
@@ -79,43 +83,12 @@ class Map extends Component {
                });
                infowindow.open(map, this);
            });
-
-          // var infowindow = new window.google.maps.InfoWindow({
-
-          //   position: {
-          //     lat: hotels[i].coordinates.latitude,
-          //     lng: hotels[i].coordinates.longitude,
-          //   },
-
-          //   // map: map,
-          //   // new google.maps.Marker({position: {lat: -34, lng: 151}, map: map});
-          //   // content: `
-          //   //   <img class="img-fluid" src=${hotels[i].image_url} alt="" height="42" width="42" />
-          //   //   <p>${hotels[i].price}</p>
-          //   //   <p>${hotels[i].rating} Stars </p>
-          //   //   <h6>${hotels[i].name}</h6>
-          //   //   <p>${hotels[i].display_phone}</p>
-          //   //   <p>${hotels[i].location.address1}</p>
-          //   //   <p>${hotels[i].location.city}, ${hotels[i].location.state}, ${hotels[i].location.zip_code}</p>
-          //   //   <p><a href=${hotels[i].url}>Visit Site</a></p>
-          //   //   `,
-          //   map: map, // map object we created in initMap
-          // });
-
-
-        // });
       }
       this.setState({ map: map });
     })
     .catch((error) => {
       console.log("Error with Fetching : ", error);
     });
-    // const map = new window.google.maps.Map(document.querySelector('#map'), {
-    //   zoom: 11,
-    //   center: new window.google.maps.LatLng(35.194, -80.849),
-    // });
-
-    // this.setState({ map: map });
   }
 
 
@@ -197,21 +170,9 @@ class Map extends Component {
 
     // const hotels = this.state.businesses;
     // console.log("MapHotels", this.state.businesses);
-
-
-
     return (
       <div className="map pb-4">
-        {/* Display our map */}
-        <div id="map">
-
-        </div>
-        {/* <header className="px-3 pt-3 form-group row">
-          <input type="text" className="form-control col-sm-3" value={this.state.text} onChange={ev => this.handleText(ev)} placeholder="I've been..." />
-          <button className="btn btn-info col-sm-1 ml-2" onClick={() => this.handleSubmit()}>Add</button>
-          <h5>{destination}</h5>
-          <hr/>
-        </header> */}
+        <div id="map"></div>
       </div>
     );
   }
@@ -234,18 +195,3 @@ function mapD2P(dispatch) {
 }
 
 export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux
-
-
-
-
-
-
-// const destination = this.props.currentTrip.destination;
-// console.log("Destination:", destination);
-// // const places = this.props.places;
-// // const hotels = this.props.hotels;
-// // console.log(this.props.hotel);
-// const hotels = this.state.businesses;
-// console.log("MapHotels", this.state.businesses);
-// // const hotels = this.state.businesses;
-// // console.log({hotels});

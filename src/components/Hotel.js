@@ -75,7 +75,7 @@ class Hotel extends Component {
             </div>
           </div>
           <div className="card-footer clearfix">
-            <a href={hotel.url} className="btn btn-secondary">Visit Site</a>
+            <a href={hotel.url} className="btn btn-secondary btn-block">Visit Site</a>
             <button className="btn btn-secondary" onClick={ () => this.handleHotelAdd() }>Add</button>
             <div>
               {/*<button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
