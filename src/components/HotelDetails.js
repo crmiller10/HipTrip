@@ -17,6 +17,26 @@ class HotelDetails extends Component {
       .then( resp => this.props.history.push('/hotel-search/' + resp.id) )
   }
 
+  deleteHotel(id) {
+    console.log(id);
+
+    fetch('https://hip-trip.herokuapp.com/hotel/' + id, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.props.currentTrip),
+    })
+      .then( resp => resp.json())
+      .then( resp => {
+        console.log('success')
+        console.log(resp)
+        this.props.fixTrip(resp)
+      })
+      .catch( () => console.log('error'))
+  }
+
   render() {
 
     if (this.props.currentTrip.hotels.length === 0) {
@@ -30,7 +50,7 @@ class HotelDetails extends Component {
 
       const hotels = this.props.currentTrip.hotels.map( (hotel, index) => {
         return(
-          <a href={hotel.url}>
+          <div>
             <div>
               <img src={hotel.image_url} alt="" />
               <p>{hotel.price}</p>
@@ -41,8 +61,9 @@ class HotelDetails extends Component {
               <p>{hotel.display_phone}</p>
               <p>{hotel.address1}</p>
               <p>{hotel.city}, {hotel.state} {hotel.zip_code}</p>
+              <button onClick={ () => this.deleteHotel(index) }>Delete</button>
             </div>
-          </a>
+          </div>
         )
       })
 
@@ -64,6 +85,16 @@ function mapS2P(state) {
   }
 }
 
-export default withRouter(connect(mapS2P, null)(HotelDetails));
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    fixTrip: function (trip) {
+      dispatch(updateTrip(trip))
+    }
+  }
+}
+
+export default withRouter(connect(mapS2P, mapD2P)(HotelDetails));
 
 // export default withRouter(HotelDetails);

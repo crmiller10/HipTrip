@@ -20,6 +20,26 @@ class AEDetails extends Component {
       .then( resp => this.props.history.push('/art-search/' + resp.id) )
     }
 
+    deleteArt(id) {
+      console.log(id);
+
+      fetch('https://hip-trip.herokuapp.com/arts/' + id, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.props.currentTrip),
+      })
+        .then( resp => resp.json())
+        .then( resp => {
+          console.log('success')
+          console.log(resp)
+          this.props.fixTrip(resp)
+        })
+        .catch( () => console.log('error'))
+    }
+
     render() {
 
       if (this.props.currentTrip.arts === null || this.props.currentTrip.arts.length === 0) {
@@ -33,7 +53,7 @@ class AEDetails extends Component {
 
         const arts = this.props.currentTrip.arts.map( (art, index) => {
           return(
-            <a href={art.url}>
+            <div>
               <div>
                 <img src={art.image_url} alt="" />
                 <p>{art.price}</p>
@@ -44,8 +64,9 @@ class AEDetails extends Component {
                 <p>{art.display_phone}</p>
                 <p>{art.address1}</p>
                 <p>{art.city}, {art.state} {art.zip_code}</p>
+                <button onClick={ () => this.deleteArt(index) }>Delete</button>
               </div>
-            </a>
+            </div>
           )
         })
 
@@ -67,4 +88,14 @@ function mapS2P(state) {
   }
 }
 
-export default withRouter(connect(mapS2P, null)(AEDetails));
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    fixTrip: function (trip) {
+      dispatch(updateTrip(trip))
+    }
+  }
+}
+
+export default withRouter(connect(mapS2P, mapD2P)(AEDetails));

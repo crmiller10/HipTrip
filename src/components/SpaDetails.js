@@ -19,6 +19,26 @@ class SpaDetails extends Component {
       .then( resp => this.props.history.push('/spa-search/' + resp.id) )
     }
 
+    deleteSpa(id) {
+      console.log(id);
+
+      fetch('https://hip-trip.herokuapp.com/spa/' + id, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.props.currentTrip),
+      })
+        .then( resp => resp.json())
+        .then( resp => {
+          console.log('success')
+          console.log(resp)
+          this.props.fixTrip(resp)
+        })
+        .catch( () => console.log('error'))
+    }
+
     render() {
 
       if (this.props.currentTrip.spas === null || this.props.currentTrip.spas.length === 0) {
@@ -32,7 +52,7 @@ class SpaDetails extends Component {
 
         const spas = this.props.currentTrip.spas.map( (spa, index) => {
           return(
-            <a href={spa.url}>
+            <div>
               <div>
                 <img src={spa.image_url} alt="" />
                 <p>{spa.price}</p>
@@ -43,8 +63,9 @@ class SpaDetails extends Component {
                 <p>{spa.display_phone}</p>
                 <p>{spa.address1}</p>
                 <p>{spa.city}, {spa.state} {spa.zip_code}</p>
+                <button onClick={ () => this.deleteSpa(index) }>Delete</button>
               </div>
-            </a>
+            </div>
           )
         })
 
@@ -66,4 +87,14 @@ function mapS2P(state) {
   }
 }
 
-export default withRouter(connect(mapS2P, null)(SpaDetails));
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    fixTrip: function (trip) {
+      dispatch(updateTrip(trip))
+    }
+  }
+}
+
+export default withRouter(connect(mapS2P, mapD2P)(SpaDetails));

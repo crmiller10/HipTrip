@@ -19,6 +19,26 @@ class ShoppingDetails extends Component {
       .then( resp => this.props.history.push('/shopping-search/' + resp.id) )
     }
 
+    deleteShopping(id) {
+      console.log(id);
+
+      fetch('https://hip-trip.herokuapp.com/shopping/' + id, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.props.currentTrip),
+      })
+        .then( resp => resp.json())
+        .then( resp => {
+          console.log('success')
+          console.log(resp)
+          this.props.fixTrip(resp)
+        })
+        .catch( () => console.log('error'))
+    }
+
     render() {
 
       if (this.props.currentTrip.shopping === null || this.props.currentTrip.shopping.length === 0) {
@@ -32,7 +52,7 @@ class ShoppingDetails extends Component {
 
         const shops = this.props.currentTrip.shopping.map( (shop, index) => {
           return(
-            <a href={shop.url}>
+            <div>
               <div>
                 <img src={shop.image_url} alt="" />
                 <p>{shop.price}</p>
@@ -43,8 +63,9 @@ class ShoppingDetails extends Component {
                 <p>{shop.display_phone}</p>
                 <p>{shop.address1}</p>
                 <p>{shop.city}, {shop.state} {shop.zip_code}</p>
+                <button onClick={ () => this.deleteShopping(index) }>Delete</button>
               </div>
-            </a>
+            </div>
           )
         })
 
@@ -66,4 +87,14 @@ function mapS2P(state) {
   }
 }
 
-export default withRouter(connect(mapS2P, null)(ShoppingDetails));
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    fixTrip: function (trip) {
+      dispatch(updateTrip(trip))
+    }
+  }
+}
+
+export default withRouter(connect(mapS2P, mapD2P)(ShoppingDetails));
