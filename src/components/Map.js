@@ -91,6 +91,44 @@ class Map extends Component {
     });
   }
 
+  /* Wait until the component mounts, otherwise #map won't exist in the DOM yet */
+  componentDidMount() {
+    this.initMap();
+  }
+
+  render() {
+    const destination = this.props.currentTrip.destination;
+    console.log("Destination:", destination);
+
+    // const hotels = this.state.businesses;
+    // console.log("MapHotels", this.state.businesses);
+    return (
+      <div className="map pb-4">
+        <div id="map"></div>
+      </div>
+    );
+  }
+}
+
+function mapS2P(state) {
+  return {
+    currentTrip: state.currentTrip,
+    trips: state.trips,
+    places: state.places, // so we can render all of the markers
+  };
+}
+
+function mapD2P(dispatch) {
+  return {
+    newPlace: function (place) {
+      dispatch(addPlace(place));  // import addPlace @ the top
+    }
+  };
+}
+
+export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux
+
+
 
 /*=============================================
 =            Test Map Marker            =
@@ -154,44 +192,3 @@ class Map extends Component {
  //    });
  //  }
   /*=====  End of Test Map Marker  ======*/
-
-
-  // event.addDomListener(window, "load", initMap);
- //  // window.onorientationchange = function(){window.location.reload();}
-
-  /* Wait until the component mounts, otherwise #map won't exist in the DOM yet */
-  componentDidMount() {
-    this.initMap();
-  }
-
-  render() {
-    const destination = this.props.currentTrip.destination;
-    console.log("Destination:", destination);
-
-    // const hotels = this.state.businesses;
-    // console.log("MapHotels", this.state.businesses);
-    return (
-      <div className="map pb-4">
-        <div id="map"></div>
-      </div>
-    );
-  }
-}
-
-function mapS2P(state) {
-  return {
-    currentTrip: state.currentTrip,
-    trips: state.trips,
-    places: state.places, // so we can render all of the markers
-  };
-}
-
-function mapD2P(dispatch) {
-  return {
-    newPlace: function (place) {
-      dispatch(addPlace(place));  // import addPlace @ the top
-    }
-  };
-}
-
-export default connect(mapS2P, mapD2P)(Map); // import connect from react-redux
