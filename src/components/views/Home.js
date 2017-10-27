@@ -7,18 +7,25 @@ import HomeForm from '../HomeForm';
 class Home extends Component {
   render() {
     return (
-      <div className="container">
 
-        <div className="tagline mb-4">
-          <div className="col-sm-9 mx-auto text-center mb-4">
-            <img src={logo}  width="100" height="100" className="logo-lg mx-auto" alt="logo" />
-            <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem enim aperiam laborum eos hic a ipsam libero neque</p>
-          </div>
+        <div className="page-wrapper bg-image-cover">
+          <div class="overlay"></div>
+          <section className="section section-lg">
+            <div className="container">
+              <div className="tagline">
+                <div className="col-sm-9 mx-auto text-center mb-4">
+                  <i className="ion-android-pin logo-icon-font"></i>
+                  <h1>Plan Your Perfect Vacation</h1>
+                  <h2>Its just a few clicks away</h2>
+                </div>
+              </div>
+              <div>
+                <HomeForm />
+              </div>
+            </div>
+          </section>
         </div>
-        <div>
-          <HomeForm />
-        </div>
-      </div>
+
     );
   }
 }

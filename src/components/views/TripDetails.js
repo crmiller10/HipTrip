@@ -21,6 +21,8 @@ class TripDetails extends Component {
   render() {
     console.log(this.props.currentTrip)
     return (
+      <div className="page-content">
+
       <div className="container">
         <div className="top-bar">
           <div className="row">
@@ -45,6 +47,7 @@ class TripDetails extends Component {
           <SpaDetails />
         </div>
 
+      </div>
       </div>
     );
   }

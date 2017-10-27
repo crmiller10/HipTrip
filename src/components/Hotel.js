@@ -54,40 +54,58 @@ class Hotel extends Component {
     const hotel = this.props.hotel
 
      let cardMargin = {
-      marginBottom: "30px",
+      // marginBottom: "30px",
     }
     return(
-      <div className="col-md-6 col-lg-4">
+      <div className="container">
+
+      <div className="row">
+
+      <div className="col-md-4 col-lg-4">
         <div className="card" style={cardMargin}>
-          <a href={hotel.url} className="">
+          <a href={hotel.url}>
             <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={hotel.image_url} alt="" />
-              </div>
-            </a>
+            </div>
+          </a>
           <div className="card-body">
-            <p className="card-text">{hotel.price}</p>
-            <p className="card-text">{hotel.rating} Stars</p>
-            <p className="card-text">{hotel.name}</p>
-            <p className="card-text">{hotel.display_phone}</p>
+            <p className="price">{hotel.price}</p>
+            <p className="rating">{hotel.rating} Stars</p>
+            <p className="name">{hotel.name}</p>
+            <p className="phone">{hotel.display_phone}</p>
             <div>
-              <p className="card-text">{hotel.location.address1}</p>
-              <p className="card-text">{hotel.location.city}, {hotel.location.state} {hotel.location.zip_code}</p>
+              <p className="address1">{hotel.location.address1}</p>
+              <p className="address2">{hotel.location.city}, {hotel.location.state} {hotel.location.zip_code}</p>
             </div>
           </div>
           <div className="card-footer clearfix">
             <a href={hotel.url} className="btn btn-secondary btn-block">Visit Site</a>
             <button className="btn btn-secondary" onClick={ () => this.handleHotelAdd() }>Add</button>
-            <div>
-              {/*<button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
-                Modal
-              </button>*/}
-
-              <Modal show={this.state.isOpen}
-                onClose={this.toggleModal}>
-                Text
-              </Modal>
-            </div>
           </div>
+        </div>
+      </div>
+
+      <div className="col-md-4">
+        <div className="post-module">
+          <div className="thumbnail">
+            <div className="date">
+
+            </div>
+            <img src={hotel.image_url} />
+          </div>
+         <div className="post-content">
+           <h5 className="category">{hotel.price}</h5>
+           <h1 className="title">{hotel.name}</h1>
+           <h2 className="sub_title">The city that never sleeps.</h2>
+           <p className="sub_title">The city that never sleeps.</p>
+           <p className="description">{hotel.location.address1}</p>
+           <p className="description">{hotel.location.city}, {hotel.location.state} {hotel.location.zip_code}</p>
+           <div className="post-meta"><span className="timestamp"><i className="fa fa-clock-"></i>{hotel.display_phone}</span><span className="comments"><i className="fa fa-comments"></i><a href="#"> 39 comments</a></span></div>
+         </div>
+        </div>
+      </div>
+
+
         </div>
       </div>
     )

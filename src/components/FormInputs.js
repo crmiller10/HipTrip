@@ -60,13 +60,16 @@ class FormInputs extends Component{
   render(){
     return(
       <div className="row justify-content-lg-center">
-        <div className="col-md-12 col-lg-9 card card-body">
+        <div className="col-md-12 col-lg-12 panel">
 
         <div className="row justify-content-sm-center">
           <div className="col-md-6 col-lg-6">
-            <div className="form-group">
-              <input className="form-control" type="text" placeholder="Destination" value={this.state.Destination}
-              onChange={event => this.handleDestination(event)}/>
+            <div class="form-group has-feedback has-feedback-left">
+              <input type="text" class="form-control rounded" placeholder="Destination" value={this.state.Destination}
+              onChange={event => this.handleDestination(event)}></input>
+              <div class="form-control-feedback">
+                <i class="ion-search"></i>
+              </div>
             </div>
           </div>
 
@@ -84,7 +87,7 @@ class FormInputs extends Component{
           </div>
 
           <div className="col-md-2 col-lg-2">
-            <button className="btn btn-primary w-100 mr-2" onClick={() => this.handleAddItem()} to="/trip-details">Submit</button>
+            <button className="btn btn-success rounded w-100" onClick={() => this.handleAddItem()} to="/trip-details">Search</button>
           </div>
 
         </div>
