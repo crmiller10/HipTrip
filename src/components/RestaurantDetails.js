@@ -1,3 +1,5 @@
+/* COMPONENT TO VIEW RESTAURANTS THAT HAVE BEEN FAVORITED */
+
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -7,6 +9,7 @@ import { createTrip, updateTrip } from '../actions';
 
 class RestaurantDetails extends Component {
 
+  // get request to bring in the trip id
   handleRestaurantSearch() {
     console.log(this.props.currentTrip)
 
@@ -19,11 +22,10 @@ class RestaurantDetails extends Component {
 
   render() {
 
-    // might need to talk to Chris about this?
-    if (this.props.currentTrip.restaurants === null) {
+    if (this.props.currentTrip.restaurants === null || this.props.currentTrip.restaurants.length === 0) {
       return(
         <div>
-          <h3>Restaurant Details:</h3>
+          <h3>Restaurants:</h3>
           <button onClick={ () => this.handleRestaurantSearch() } >Find Restaurants</button>
         </div>
       )
@@ -49,7 +51,7 @@ class RestaurantDetails extends Component {
 
       return (
         <div>
-          <h3>Restuarant Details:</h3>
+          <h3>Restaurant Details:</h3>
           {restaurants}
         </div>
       )

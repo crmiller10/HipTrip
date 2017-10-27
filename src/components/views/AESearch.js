@@ -1,17 +1,13 @@
+/* PAGE TO DISPLAY ARTS & ENTERTAINMENT SEARCH RESULTS */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TripDetails from "./TripDetails";
-import HotelList from "../HotelList";
+import AEList from "../AEList";
 import NavTabs from "../NavTabs";
-import Map from "../Map";
 
-
-// import { addPlace } from '../../actions';
-
-class HotelSearch extends Component {
+class AESearch extends Component {
   render() {
-    // console.log('getTrip', this.props.currentTrip)
-    return (
+    return(
       <div className="container">
         <div className="top-bar">
           <div className="row">
@@ -25,11 +21,24 @@ class HotelSearch extends Component {
         </div>
         <NavTabs />
         <div className="page-content">
-          <Map />
-          <HotelList />
+          <div>
+            <select>
+              <option value="1">$</option>
+              <option value="2">$$</option>
+              <option value="3">$$$</option>
+              <option value="4">$$$$</option>
+              <option selected>Select Budget</option>
+            </select>
+            <button>Art Galleries</button>
+            <button>Festivals</button>
+            <button>Museums</button>
+            <button>Performing Arts</button>
+            <button>Wineries</button>
+          </div>
+          <AEList />
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -41,4 +50,4 @@ function mapS2P(state) {
   }
 }
 
-export default connect(mapS2P, null)(HotelSearch);
+export default connect(mapS2P, null)(AESearch);

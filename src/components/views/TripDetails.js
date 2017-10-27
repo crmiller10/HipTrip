@@ -1,3 +1,5 @@
+/* PAGE TO VIEW THE SUMMARY OF THE TRIP */
+
 import React, { Component } from 'react';
 
 //import redux stuff
@@ -8,11 +10,13 @@ import TripDates from '../TripDates';
 import TripGuests from '../TripGuests';
 import HotelDetails from '../HotelDetails';
 import RestaurantDetails from '../RestaurantDetails';
-
+import AEDetails from '../AEDetails';
+import ShoppingDetails from '../ShoppingDetails';
+import AttractionDetails from '../AttractionDetails';
+import NightlifeDetails from '../NightlifeDetails';
+import SpaDetails from '../SpaDetails';
 
 class TripDetails extends Component {
-  // going to need to do component did mount with get request
-  // need to send the get request everytime the component is mounted
 
   render() {
     console.log(this.props.currentTrip)
@@ -34,6 +38,11 @@ class TripDetails extends Component {
           <TripGuests />
           <HotelDetails />
           <RestaurantDetails />
+          <AEDetails />
+          <ShoppingDetails />
+          <AttractionDetails />
+          <NightlifeDetails />
+          <SpaDetails />
         </div>
 
       </div>

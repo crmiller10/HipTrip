@@ -1,23 +1,22 @@
+/* COMPONENT TO DISPLAY ARTS & ENTERTAINMENT SEARCH RESULTS */
+
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 
-import Hotel from './Hotel';
+import AE from './AE';
 
-/*----------  Subsection comment block  ----------*/
-class HotelList extends Component {
+class AEList extends Component {
   constructor(props) {
       super(props);
       this.state = {
         businesses: []
       }
-      if(!this.state) {
-        return null;
-      }
     }
 
     componentDidMount() {
       console.log(this.props.currentTrip)
-      fetch('https://hip-trip.herokuapp.com/search/hotel', {
+      fetch('https://hip-trip.herokuapp.com/search/art', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -42,36 +41,31 @@ class HotelList extends Component {
 
     render() {
 
-      // console.log(this.state.businesses)
-    //   return('<div></div>')
-    // }
+      console.log(this.state.businesses)
 
-    console.log(this.props.currentTrip);
-
-      const hotels = this.state.businesses.map((hotel, index) => {
+      const arts = this.state.businesses.map((art, index) => {
         return(
-          <Hotel key={index} hotel={hotel}/>
+          <AE key={index}
+          art={art}
+          />
           );
         }
       );
 
-      console.log(this.props.currentTrip);
-      console.log("hotels", this.state.businesses);
       return (
-
         <div className="row">
-          {hotels}
+          {arts}
         </div>
-      );
-    }
+      )
   }
-  // import state
-  function mapS2P(state) {
-    return {
-      currentTrip: state.currentTrip,
-      trips: state.trips,
-    }
+}
+
+// import state
+function mapS2P(state) {
+  return {
+    currentTrip: state.currentTrip,
+    trips: state.trips,
   }
+}
 
-
-export default connect(mapS2P, null)(HotelList);
+export default connect(mapS2P, null)(AEList);

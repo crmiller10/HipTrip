@@ -1,7 +1,6 @@
-/* COMPONENT TO DISPLAY INDIVIDUAL RESTAURANT RESULT */
+/* COMPONENT TO DISPLAY INDIVIDUAL STORE RESULT */
 
-import React, {Component} from 'react';
-// import Map from "./Map";
+import React, { Component } from 'react';
 
 import Modal from './Modal';
 
@@ -9,25 +8,25 @@ import Modal from './Modal';
 import { connect } from 'react-redux';
 import { updateTrip } from '../actions';
 
-class Restaurant extends Component {
+class Store extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
-      restaurant: {},
+      shop: {},
     };
   }
 
-  handleRestaurantAdd() {
+  handleShopAdd() {
     this.setState({
-      restaurant: this.props.restaurant,
+      shop: this.props.shop,
     })
 
     // console.log(this.props.currentTrip)
-    let restaurant = this.props.restaurant
+    let shop = this.props.shop
 
     // put request to send hotel info to Chris
-    fetch('https://hip-trip.herokuapp.com/save/restaurant', {
+    fetch('https://hip-trip.herokuapp.com/save/shopping', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -36,13 +35,13 @@ class Restaurant extends Component {
       body: JSON.stringify({
         // yourinfo: 'your info goes here'
         trip: this.props.currentTrip,
-        businessDetails: this.props.restaurant,
+        businessDetails: this.props.shop,
       }),
     })
       .then( resp => resp.json())
       .then( resp => {
         console.log(resp)
-        this.props.addRestaurant(resp)
+        this.props.addShop(resp)
       })
   }
 
@@ -53,7 +52,7 @@ class Restaurant extends Component {
   }
 
   render(){
-    const restaurant = this.props.restaurant
+    const shop = this.props.shop
 
      let cardMargin = {
       marginBottom: "30px",
@@ -61,24 +60,24 @@ class Restaurant extends Component {
     return(
       <div className="col-md-6 col-lg-4">
         <div className="card" style={cardMargin}>
-            <a href={restaurant.url} className="">
+            <a href={shop.url} className="">
             <div className="card-img-wrap">
-              <img className="card-img-top img-fluid" src={restaurant.image_url} alt="" />
+              <img className="card-img-top img-fluid" src={shop.image_url} alt="" />
               </div>
             </a>
           <div className="card-body">
-            <p className="card-text">{restaurant.price}</p>
-            <p className="card-text">{restaurant.rating} Stars</p>
-            <p className="card-text">{restaurant.name}</p>
-            <p className="card-text">{restaurant.display_phone}</p>
+            <p className="card-text">{shop.price}</p>
+            <p className="card-text">{shop.rating} Stars</p>
+            <p className="card-text">{shop.name}</p>
+            <p className="card-text">{shop.display_phone}</p>
             <div>
-              <p className="card-text">{restaurant.location.address1}</p>
-              <p className="card-text">{restaurant.location.city}, {restaurant.location.state} {restaurant.location.zip_code}</p>
+              <p className="card-text">{shop.location.address1}</p>
+              <p className="card-text">{shop.location.city}, {shop.location.state} {shop.location.zip_code}</p>
             </div>
           </div>
           <div className="card-footer clearfix">
-            <a href={restaurant.url} className="btn btn-secondary btn-block">Visit Site</a>
-            <button className="btn btn-secondary btn-block" onClick={ () => this.handleRestaurantAdd() }>Add</button>
+            <a href={shop.url} className="btn btn-secondary btn-block">Visit Site</a>
+            <button className="btn btn-secondary btn-block" onClick={ () => this.handleShopAdd() }>Add</button>
             <div>
               <button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
                 Modal
@@ -107,11 +106,11 @@ function mapS2P(state) {
 // do all of the API/updating stuff here
 function mapD2P(dispatch) {
   return {
-    addRestaurant: function (trip) {
+    addShop: function (trip) {
       dispatch(updateTrip(trip))
     }
   }
 }
 
 
-export default connect(mapS2P, mapD2P)(Restaurant);
+export default connect(mapS2P, mapD2P)(Store);
