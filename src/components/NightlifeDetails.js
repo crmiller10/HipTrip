@@ -19,6 +19,26 @@ class NightlifeDetails extends Component {
       .then( resp => this.props.history.push('/nightlife-search/' + resp.id) )
     }
 
+    deleteNightlife(id) {
+      console.log(id);
+
+      fetch('https://hip-trip.herokuapp.com/nightlife/' + id, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.props.currentTrip),
+      })
+        .then( resp => resp.json())
+        .then( resp => {
+          console.log('success')
+          console.log(resp)
+          this.props.fixTrip(resp)
+        })
+        .catch( () => console.log('error'))
+    }
+
     render() {
 
       if (this.props.currentTrip.nightlife === null || this.props.currentTrip.nightlife.length === 0) {
@@ -32,7 +52,7 @@ class NightlifeDetails extends Component {
 
         const nightlives = this.props.currentTrip.nightlife.map( (nightlife, index) => {
           return(
-            <a href={nightlife.url}>
+            <div>
               <div>
                 <img src={nightlife.image_url} alt="" />
                 <p>{nightlife.price}</p>
@@ -43,8 +63,9 @@ class NightlifeDetails extends Component {
                 <p>{nightlife.display_phone}</p>
                 <p>{nightlife.address1}</p>
                 <p>{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
+                <button onClick={ () => this.deleteNightlife(index) }>Delete</button>
               </div>
-            </a>
+            </div>
           )
         })
 
@@ -66,4 +87,14 @@ function mapS2P(state) {
   }
 }
 
-export default withRouter(connect(mapS2P, null)(NightlifeDetails));
+// do all of the API/updating stuff here
+function mapD2P(dispatch) {
+  return {
+    // need to do the get request here
+    fixTrip: function (trip) {
+      dispatch(updateTrip(trip))
+    }
+  }
+}
+
+export default withRouter(connect(mapS2P, mapD2P)(NightlifeDetails));
