@@ -5,12 +5,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Nightlife from './Nightlife';
+import SearchCard from './SearchCard';
 
 class NightlifeList extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        businesses: []
+        businesses: [],
+        businessType: 'nightlife',
       }
     }
 
@@ -45,8 +47,8 @@ class NightlifeList extends Component {
 
       const nightlives = this.state.businesses.map((nightlife, index) => {
         return(
-          <Nightlife key={index}
-          nightlife={nightlife}
+          <SearchCard key={index}
+          business={nightlife} businessType={this.state.businessType}
           />
           );
         }

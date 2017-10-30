@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createTrip, updateTrip } from '../actions';
 
+import { symbolsDisplay } from '../utilities';
+
 class SpaDetails extends Component {
   // get request to bring in the trip id
   handleSpaSearch() {
@@ -51,6 +53,8 @@ class SpaDetails extends Component {
       } else {
 
         const spas = this.props.currentTrip.spas.map( (spa, index) => {
+          let stars = symbolsDisplay(spa.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+
           return(
             <div className="tripdetails-biz">
               <img className="img-fluid col-lg-6" src={spa.image_url} alt="" />
@@ -63,7 +67,7 @@ class SpaDetails extends Component {
               <div className="tripdetails-biz-info col-lg-2">
                 <i class="fa fa-heart" onClick={ () => this.deleteSpa(index) }></i>
                 <p className="tripdetails-biz-price">{spa.price}</p>
-                <p className="tripdetails-biz-rating">{spa.rating}</p>
+                <p className="tripdetails-biz-rating">{stars}</p>
               </div>
             </div>
           )

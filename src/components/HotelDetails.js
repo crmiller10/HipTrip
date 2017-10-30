@@ -5,6 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createTrip, updateTrip } from '../actions';
 
+import { symbolsDisplay } from '../utilities';
+
 class HotelDetails extends Component {
 
   handleHotelSearch() {
@@ -49,6 +51,8 @@ class HotelDetails extends Component {
     } else {
 
       const hotels = this.props.currentTrip.hotels.map( (hotel, index) => {
+        let stars = symbolsDisplay(hotel.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+
         return(
           <div className="tripdetails-biz">
             <img className="img-fluid col-lg-6" src={hotel.image_url} alt="" />
@@ -60,7 +64,7 @@ class HotelDetails extends Component {
             </div>
             <div className="tripdetails-biz-info col-lg-2">
               <p className="tripdetails-biz-price">{hotel.price}</p>
-              <p className="tripdetails-biz-rating">{hotel.rating}</p>
+              <p className="tripdetails-biz-rating">{stars}</p>
               <i className="fa fa-trash" onClick={ () => this.deleteHotel(index) }></i>
             </div>
           </div>

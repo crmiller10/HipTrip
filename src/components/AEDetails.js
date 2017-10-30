@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createTrip, updateTrip } from '../actions';
 
+import { symbolsDisplay } from '../utilities';
+
 class AEDetails extends Component {
 
   // get request to bring in the trip id
@@ -56,6 +58,8 @@ class AEDetails extends Component {
       } else {
 
         const arts = this.props.currentTrip.arts.map( (art, index) => {
+          let stars = symbolsDisplay(art.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+
           return(
             <div className="tripdetails-biz">
               <img className="img-fluid col-lg-6" src={art.image_url} alt="" />
@@ -69,7 +73,7 @@ class AEDetails extends Component {
               <div className="tripdetails-biz-info col-lg-2">
                 <i class="fa fa-heart" onClick={ () => this.deleteArt(index) }></i>
                 <p className="tripdetails-biz-price">{art.price}</p>
-                <p className="tripdetails-biz-rating">{art.rating}</p>
+                <p className="tripdetails-biz-rating">{stars}</p>
               </div>
             </div>
           )

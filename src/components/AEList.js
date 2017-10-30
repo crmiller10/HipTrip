@@ -5,12 +5,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import AE from './AE';
+import SearchCard from './SearchCard';
 
 class AEList extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        businesses: []
+        businesses: [],
+        businessType: 'art'
       }
     }
 
@@ -45,8 +47,8 @@ class AEList extends Component {
 
       const arts = this.state.businesses.map((art, index) => {
         return(
-          <AE key={index}
-          art={art}
+          <SearchCard key={index}
+          business={art} businessType={this.state.businessType}
           />
           );
         }
