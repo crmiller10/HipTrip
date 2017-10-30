@@ -41,7 +41,7 @@ class HotelDetails extends Component {
 
     if (this.props.currentTrip.hotels.length === 0) {
       return(
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4">
           <h3>Hotels:</h3>
           <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleHotelSearch() } >Find Hotels</button>
         </div>
@@ -51,8 +51,8 @@ class HotelDetails extends Component {
       const hotels = this.props.currentTrip.hotels.map( (hotel, index) => {
         return(
           <div className="tripdetails-biz">
-            <img className="img-fluid col-lg-6" src={hotel.image_url} alt="" />
-            <div className="tripdetails-biz-info col-lg-4">
+            <img className="img-fluid col-sm-12 col-lg-6" src={hotel.image_url} alt="" />
+            <div className="tripdetails-biz-info col-sm-12 col-lg-4">
               <p className="tripdetails-biz-name">{hotel.name}</p>
               <p className="tripdetails-biz-phone">{hotel.display_phone}</p>
               <p className="tripdetails-biz-address">{hotel.address1}</p>
@@ -61,14 +61,17 @@ class HotelDetails extends Component {
             <div className="tripdetails-biz-info col-lg-2">
               <p className="tripdetails-biz-price">{hotel.price}</p>
               <p className="tripdetails-biz-rating">{hotel.rating}</p>
-              <i className="fa fa-trash" onClick={ () => this.deleteHotel(index) }></i>
+              <div className="btn btn-info">
+                <i className="fa fa-trash" onClick={ () => this.deleteHotel(index) }></i>
+              </div>
+
             </div>
           </div>
         )
       })
 
       return (
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4">
           <h3>Hotels:</h3>
           {hotels}
         </div>
