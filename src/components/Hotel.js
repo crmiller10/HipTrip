@@ -57,10 +57,6 @@ class Hotel extends Component {
       // marginBottom: "30px",
     }
     return(
-      <div className="container">
-
-      <div className="row">
-
       <div className="col-md-4 col-lg-4">
         <div className="card" style={cardMargin}>
           <a href={hotel.url}>
@@ -84,8 +80,6 @@ class Hotel extends Component {
           </div>
         </div>
       </div>
-        </div>
-      </div>
     )
   }
 }
@@ -106,7 +100,6 @@ function mapD2P(dispatch) {
     }
   }
 }
-
 
 export default connect(mapS2P, mapD2P)(Hotel);
 

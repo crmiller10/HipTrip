@@ -45,7 +45,7 @@ class NightlifeDetails extends Component {
         return(
           <div>
             <h3>Nightlife:</h3>
-            <button onClick={ () => this.handleNightlifeSearch() } >Discover Nightlife</button>
+            <button className="btn btn-info" onClick={ () => this.handleNightlifeSearch() } >Discover Nightlife</button>
           </div>
         )
       } else {
@@ -63,7 +63,7 @@ class NightlifeDetails extends Component {
                 <p>{nightlife.display_phone}</p>
                 <p>{nightlife.address1}</p>
                 <p>{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
-                <button onClick={ () => this.deleteNightlife(index) }>Delete</button>
+                <button className="btn btn-info" onClick={ () => this.deleteNightlife(index) }>Delete</button>
               </div>
             </div>
           )

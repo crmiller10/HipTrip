@@ -46,7 +46,7 @@ class RestaurantDetails extends Component {
       return(
         <div>
           <h3>Restaurants:</h3>
-          <button onClick={ () => this.handleRestaurantSearch() } >Find Restaurants</button>
+          <button className="btn btn-info" onClick={ () => this.handleRestaurantSearch() } >Find Restaurants</button>
         </div>
       )
     } else {
@@ -64,7 +64,7 @@ class RestaurantDetails extends Component {
               <p>{restaurant.display_phone}</p>
               <p>{restaurant.address1}</p>
               <p>{restaurant.city}, {restaurant.state} {restaurant.zip_code}</p>
-              <button onClick={ () => this.deleteRestaurant(index) }>Delete</button>
+              <button className="btn btn-info" onClick={ () => this.deleteRestaurant(index) }>Delete</button>
             </div>
           </div>
         )

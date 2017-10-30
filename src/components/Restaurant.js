@@ -59,9 +59,9 @@ class Restaurant extends Component {
       marginBottom: "30px",
     }
     return(
-      <div className="col-md-6 col-lg-4">
+      <div className="col-md-4 col-lg-4">
         <div className="card" style={cardMargin}>
-            <a href={restaurant.url} className="">
+            <a href={restaurant.url}>
             <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={restaurant.image_url} alt="" />
               </div>
@@ -77,17 +77,9 @@ class Restaurant extends Component {
             </div>
           </div>
           <div className="card-footer clearfix">
-            <a href={restaurant.url} className="btn btn-secondary btn-block">Visit Site</a>
-            <button className="btn btn-secondary btn-block" onClick={ () => this.handleRestaurantAdd() }>Add</button>
+            <a href={restaurant.url} className="btn btn-secondary">Visit Site</a>
+            <button className="btn btn-info" onClick={ () => this.handleRestaurantAdd() }>Add</button>
             <div>
-              <button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
-                Modal
-              </button>
-
-              <Modal show={this.state.isOpen}
-                onClose={this.toggleModal}>
-                Text
-              </Modal>
             </div>
           </div>
         </div>

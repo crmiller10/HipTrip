@@ -46,7 +46,7 @@ class AEDetails extends Component {
         return(
           <div>
             <h3>Arts & Entertainment:</h3>
-            <button onClick={ () => this.handleArtSearch() } >Discover Arts & Entertainment</button>
+            <button className="btn btn-info" onClick={ () => this.handleArtSearch() } >Discover Arts & Entertainment</button>
           </div>
         )
       } else {
@@ -64,7 +64,7 @@ class AEDetails extends Component {
                 <p>{art.display_phone}</p>
                 <p>{art.address1}</p>
                 <p>{art.city}, {art.state} {art.zip_code}</p>
-                <button onClick={ () => this.deleteArt(index) }>Delete</button>
+                <button className="btn btn-info" onClick={ () => this.deleteArt(index) }>Delete</button>
               </div>
             </div>
           )

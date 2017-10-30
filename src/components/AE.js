@@ -75,7 +75,7 @@ class AE extends Component {
           </div>
           <div className="card-footer clearfix">
             <a href={art.url} className="btn btn-secondary btn-block">Visit Site</a>
-            <button className="btn btn-secondary btn-block" onClick={ () => this.handleArtAdd() }>Add</button>
+            <button className="btn btn-info btn-block" onClick={ () => this.handleArtAdd() }>Add</button>
           </div>
         </div>
       </div>

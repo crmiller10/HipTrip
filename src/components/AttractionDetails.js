@@ -46,7 +46,7 @@ class AttractionDetails extends Component {
       return(
         <div>
           <h3>Attractions:</h3>
-          <button onClick={ () => this.handleAttractionSearch() } >Discover Attractions</button>
+          <button className="btn btn-info" onClick={ () => this.handleAttractionSearch() } >Discover Attractions</button>
         </div>
       )
     } else {
@@ -64,7 +64,7 @@ class AttractionDetails extends Component {
               <p>{attraction.display_phone}</p>
               <p>{attraction.address1}</p>
               <p>{attraction.city}, {attraction.state} {attraction.zip_code}</p>
-              <button onClick={ () => this.deleteAttraction(index) }>Delete</button>
+              <button className="btn btn-info" onClick={ () => this.deleteAttraction(index) }>Delete</button>
             </div>
           </div>
         )

@@ -45,7 +45,7 @@ class ShoppingDetails extends Component {
         return(
           <div>
             <h3>Shopping:</h3>
-            <button onClick={ () => this.handleShopSearch() } >Discover Shopping</button>
+            <button className="btn btn-info" onClick={ () => this.handleShopSearch() } >Discover Shopping</button>
           </div>
         )
       } else {
@@ -54,7 +54,7 @@ class ShoppingDetails extends Component {
           return(
             <div>
               <div>
-                <img src={shop.image_url} alt="" />
+                <img className="img-fluid" src={shop.image_url} alt="" />
                 <p>{shop.price}</p>
                 <p>{shop.rating}</p>
               </div>
@@ -63,7 +63,7 @@ class ShoppingDetails extends Component {
                 <p>{shop.display_phone}</p>
                 <p>{shop.address1}</p>
                 <p>{shop.city}, {shop.state} {shop.zip_code}</p>
-                <button onClick={ () => this.deleteShopping(index) }>Delete</button>
+                <button className="btn btn-info" onClick={ () => this.deleteShopping(index) }>Delete</button>
               </div>
             </div>
           )

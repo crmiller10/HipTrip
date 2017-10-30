@@ -79,7 +79,7 @@ class Store extends Component {
             <a href={shop.url} className="btn btn-secondary btn-block">Visit Site</a>
             <button className="btn btn-secondary btn-block" onClick={ () => this.handleShopAdd() }>Add</button>
             <div>
-              <button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
+              <button className="btn btn-primary btn-link btn-sm" onClick={this.toggleModal}>
                 Modal
               </button>
 

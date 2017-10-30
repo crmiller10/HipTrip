@@ -45,7 +45,7 @@ class SpaDetails extends Component {
         return(
           <div>
             <h3>Beauty & Spas:</h3>
-            <button onClick={ () => this.handleSpaSearch() } >Discover Beauty & Spas</button>
+            <button className="btn btn-info" onClick={ () => this.handleSpaSearch() } >Discover Beauty & Spas</button>
           </div>
         )
       } else {
@@ -54,7 +54,7 @@ class SpaDetails extends Component {
           return(
             <div>
               <div>
-                <img src={spa.image_url} alt="" />
+                <img className="img-fluid" src={spa.image_url} alt="" />
                 <p>{spa.price}</p>
                 <p>{spa.rating}</p>
               </div>
@@ -63,7 +63,7 @@ class SpaDetails extends Component {
                 <p>{spa.display_phone}</p>
                 <p>{spa.address1}</p>
                 <p>{spa.city}, {spa.state} {spa.zip_code}</p>
-                <button onClick={ () => this.deleteSpa(index) }>Delete</button>
+                <button className="btn btn-info" onClick={ () => this.deleteSpa(index) }>Delete</button>
               </div>
             </div>
           )

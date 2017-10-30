@@ -1,18 +1,4 @@
 @charset "UTF-8";
-.bg-transparent {
-  background: transparent; }
-
-.rounded {
-  border-radius: 30px !important; }
-
-/* Borders
-––––––––––––––––––––––––––––––––––– */
-.bl0 {
-  border-left: 0; }
-
-.br0 {
-  border-right: 0; }
-
 /* Custom Variables
 ––––––––––––––––––––––––––––––––––– */
 .text-green {
@@ -48,8 +34,7 @@ body {
   font-weight: 400;
   letter-spacing: 0px;
   text-transform: none;
-  font-family: "Proxima Nova",Helvetica,Arial,sans-serif;
-  font-family: "Montserrat",Helvetica,Arial,sans-serif; }
+  font-family: "Proxima Nova",Helvetica,Arial,sans-serif; }
 
 body {
   background: #f2f2f2;
@@ -76,7 +61,6 @@ main {
 .section.section-lg {
   padding: 80px 0; }
 
-/*----------  BG Corver Image  ----------*/
 .bg-image-cover {
   height: 100%;
   background-image: url(https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1350&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
@@ -366,9 +350,6 @@ select.form-control:not([size]):not([multiple]) {
   .form-group {
     margin-bottom: 0; } }
 
-.cards {
-  text-transform: capitalize; }
-
 /* Nav Tabs
 ––––––––––––––––––––––––––––––––––– */
 .nav-link {
@@ -402,17 +383,25 @@ select.form-control:not([size]):not([multiple]) {
 
 /* Cards
 ––––––––––––––––––––––––––––––––––– */
+.cards {
+  text-transform: capitalize; }
+
 .card .card-body {
   min-height: 130px; }
 
 p.card-text {
   margin-bottom: 0; }
   p.card-text.price {
-    font-size: 18px; }
+    font-size: 18px;
+    margin-bottom: 0; }
+  p.card-text.rating {
+    margin-bottom: 0; }
   p.card-text.phone {
-    font-size: 14px; }
+    font-size: 14px;
+    margin-bottom: 0; }
   p.card-text.title {
-    font-size: 16px; }
+    font-size: 16px;
+    margin-bottom: 0; }
 
 .card-footer {
   padding: .75rem 1.25rem;
@@ -428,7 +417,8 @@ p.card-text {
   .card-img-wrap img {
     width: 100%;
     height: auto;
-    min-height: 180px; }
+    min-height: 180px;
+    border-radius: 0; }
 
 .post-module {
   position: relative;
@@ -475,7 +465,7 @@ p.card-text {
   padding: 12.5px 0;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
-  border-radius: 100%;
+  border-radius: 0;
   color: #FFFFFF;
   font-weight: 700;
   text-align: center;
@@ -719,6 +709,9 @@ p.card-text {
     background-color: rgba(0, 0, 0, 0.03);
     border-top: 0;
     background-color: #fff; }
+
+.cards {
+  text-transform: capitalize; }
 
 /* Panel
 ––––––––––––––––––––––––––––––––––– */

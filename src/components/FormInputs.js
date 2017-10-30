@@ -87,7 +87,7 @@ class FormInputs extends Component{
           </div>
 
           <div className="col-md-2 col-lg-2">
-            <button className="btn btn-success rounded w-100" onClick={() => this.handleAddItem()} to="/trip-details">Search</button>
+            <button className="btn btn-success w-100" onClick={() => this.handleAddItem()} to="/trip-details">Search</button>
           </div>
 
         </div>
