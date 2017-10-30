@@ -22,24 +22,24 @@ class TripDetails extends Component {
   render() {
     console.log(this.props.currentTrip)
     return (
-      <div className="page-content">
-
-      <div className="container">
+      <div className="wrapper">
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          <TripDates />
-          <TripGuests />
-          <HotelDetails />
-          <RestaurantDetails />
-          <AEDetails />
-          <ShoppingDetails />
-          <AttractionDetails />
-          <NightlifeDetails />
-          <SpaDetails />
+          <section className="section">
+            <div className="container">
+              <TripDates />
+              <TripGuests />
+              <HotelDetails />
+              <RestaurantDetails />
+              <AEDetails />
+              <ShoppingDetails />
+              <AttractionDetails />
+              <NightlifeDetails />
+              <SpaDetails />
+            </div>
+          </section>
         </div>
-
-      </div>
       </div>
     );
   }

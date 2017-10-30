@@ -53,9 +53,13 @@ class AttractionList extends Component {
       );
 
       return (
-        <div className="row">
-          {attractions}
-        </div>
+        <section className="section">
+          <div className="container">
+            <div className="row">
+              {attractions}
+            </div>
+          </div>
+        </section>
       )
   }
 }

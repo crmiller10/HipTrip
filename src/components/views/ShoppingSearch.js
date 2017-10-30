@@ -9,7 +9,7 @@ import NavTabs from "../NavTabs";
 class ShoppingSearch extends Component {
   render() {
     return(
-      <div className="container">
+      <div className="wrapper">
         <TopBar />
         <NavTabs />
         <div className="page-content">

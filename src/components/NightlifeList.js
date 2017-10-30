@@ -53,9 +53,13 @@ class NightlifeList extends Component {
       );
 
       return (
-        <div className="row">
-          {nightlives}
-        </div>
+        <section className="section">
+          <div className="container">
+            <div className="row">
+              {nightlives}
+            </div>
+          </div>
+        </section>
       )
   }
 }

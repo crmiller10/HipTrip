@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import { Link, withRouter, NavLink } from 'react-router-dom';
-// import { NavLink } from 'react-router-dom';
-
 //import redux stuff
 import { connect } from 'react-redux';
 import { createTrip, updateTrip } from '../actions';
@@ -28,7 +26,8 @@ class NavTabs extends Component {
 
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
       .then( resp => resp.json())
-      .then( resp => this.props.history.push('/trip-details/' + resp.id) )
+
+      // .then( resp => this.props.history.push('/trip-details/' + resp.id) )
   }
 
   handleHotelSearch() {
@@ -37,7 +36,8 @@ class NavTabs extends Component {
 
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
       .then( resp => resp.json())
-      .then( resp => this.props.history.push('/hotel-search/' + resp.id) )
+
+      // .then( resp => this.props.history.push('/hotel-search/' + resp.id) )
   }
 
   handleRestaurantSearch() {
@@ -46,7 +46,8 @@ class NavTabs extends Component {
 
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
       .then( resp => resp.json())
-      .then( resp => this.props.history.push('/restaurant-search/' + resp.id) )
+
+      // .then( resp => this.props.history.push('/restaurant-search/' + resp.id) )
   }
 
   handleAESearch() {
@@ -55,7 +56,8 @@ class NavTabs extends Component {
 
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
       .then( resp => resp.json())
-      .then( resp => this.props.history.push('/art-search/' + resp.id) )
+
+      // .then( resp => this.props.history.push('/art-search/' + resp.id) )
     // this.props.history.push('/art-search/' + id)
   }
 
@@ -66,7 +68,8 @@ class NavTabs extends Component {
     // fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
-    this.props.history.push('/shopping-search/' + id)
+
+    // this.props.history.push('/shopping-search/' + id)
   }
 
   handleAttractionSearch() {
@@ -76,7 +79,8 @@ class NavTabs extends Component {
     // fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
-    this.props.history.push('/attraction-search/' + id)
+
+    // this.props.history.push('/attraction-search/' + id)
   }
 
   handleNightlifeSearch() {
@@ -86,7 +90,8 @@ class NavTabs extends Component {
     // fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
-    this.props.history.push('/nightlife-search/' + id)
+
+    // this.props.history.push('/nightlife-search/' + id)
   }
 
   handleSpaSearch() {
@@ -97,57 +102,54 @@ class NavTabs extends Component {
     // fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
-    this.props.history.push('/spa-search/' + id);
+
+    // this.props.history.push('/spa-search/' + id);
   }
-
-
-
   render(){
-    //  let TabStyles = {
-
-    // }
     return(
       <section className="section pt-4">
-        <nav className="nav-tabs navbar-light">
-          <ul className="nav nav-tabs">
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleDetailsRoute() } className="nav-link" to="/trip-details/:id">
-                Trip Details
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleHotelSearch() } className="nav-link" to="/hotel-search/:id">
-                Hotels
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search/:id">Restaurants
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleAESearch() } className="nav-link" to="/art-search/:id">
-                Arts & Entertainment
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleShoppingSearch() } className="nav-link" to="/shopping-search/:id">Shopping
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleAttractionSearch() } className="nav-link" to="/attraction-search/:id">Attractions
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleNightlifeSearch() } className="nav-link" to="/nightlife-search/:id">Nightlife
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink onClick={ () => this.handleSpaSearch() } className="nav-link" to="/spa-search/:id">
-                Beauty & Spas
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+        <div className="container">
+          <nav className="nav-tabs navbar-light">
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleDetailsRoute() } className="nav-link" to={"/trip-details/" + this.props.currentTrip.id}>
+                  Trip Details
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleHotelSearch() } className="nav-link" to={"/hotel-search/" + this.props.currentTrip.id}>
+                  Hotels
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleRestaurantSearch() } className="nav-link" to={"/restaurant-search/" + this.props.currentTrip.id}>Restaurants
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleAESearch() } className="nav-link" to={"/art-search/" + this.props.currentTrip.id}>
+                  Arts & Entertainment
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleShoppingSearch() } className="nav-link" to={"/shopping-search/" + this.props.currentTrip.id}>Shopping
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleAttractionSearch() } className="nav-link" to={"/attraction-search/" + this.props.currentTrip.id}>Attractions
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleNightlifeSearch() } className="nav-link" to={"/nightlife-search/" + this.props.currentTrip.id}>Nightlife
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={ () => this.handleSpaSearch() } className="nav-link" to={"/spa-search/" + this.props.currentTrip.id}>
+                  Beauty & Spas
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </section>
     );
   }
@@ -162,33 +164,3 @@ function mapS2P(state) {
 }
 
 export default withRouter(connect(mapS2P, null)(NavTabs));
-
-
-// <nav className="nav-tabs navbar-light">
-//   <ul className="nav nav-tabs">
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleDetailsRoute() } className="nav-link" to="/trip-details">Trip Details</button>
-//     </li>
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleHotelSearch() } className="nav-link" to="/hotel-search">Hotels</button>
-//     </li>
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleRestaurantSearch() } className="nav-link" to="/restaurant-search">Restaurants</button>
-//     </li>
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleAESearch() } className="nav-link" to="/art-search">Arts & Entertainment</button>
-//     </li>
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleShoppingSearch() } className="nav-link" to="/shopping-search">Shopping</button>
-//     </li>
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleAttractionSearch() } className="nav-link" to="/attraction-search">Attractions</button>
-//     </li>
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleNightlifeSearch() } className="nav-link" to="/nightlife-search">Nightlife</button>
-//     </li>
-//     <li className="nav-item">
-//       <button onClick={ () => this.handleSpaSearch() } className="nav-link" to="/spa-search">Beauty & Spas</button>
-//     </li>
-//   </ul>
-// </nav>

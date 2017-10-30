@@ -1,9 +1,7 @@
 /* COMPONENT TO DISPLAY ARTS & ENTERTAINMENT SEARCH RESULTS */
 
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
-
 import Spa from './Spa';
 
 class SpaList extends Component {
@@ -53,9 +51,13 @@ class SpaList extends Component {
       );
 
       return (
-        <div className="row">
-          {spas}
-        </div>
+        <section className="section">
+          <div className="container">
+            <div className="row">
+              {spas}
+            </div>
+          </div>
+        </section>
       )
   }
 }

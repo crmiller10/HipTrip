@@ -15,7 +15,6 @@ class TripDates extends Component {
       edit: false,
     }
   }
-
   // function to update the checkInDate
   updateCheckIn(date){
     this.setState({
@@ -74,7 +73,7 @@ class TripDates extends Component {
     // if (this.state.checkInDate === null || this.state.checkOutDate === null || this.state.datesSubmitted === false) {
     if (this.state.edit === true || this.props.currentTrip.tripStartDate === null || this.props.currentTrip.tripEndDate === null) {
       return(
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4">
           <h4>Dates:</h4>
           <div className='row'>
             <div className='col-md-5 col-lg-4'>
@@ -160,9 +159,6 @@ function mapD2P(dispatch) {
           dispatch(updateTrip(trip))
     }
   }
-  // thinking I need to update redux with the new info here??
 }
 
 export default connect(mapS2P, mapD2P)(TripDates);
-
-// export default TripDates;

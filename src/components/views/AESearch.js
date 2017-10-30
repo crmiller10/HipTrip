@@ -9,7 +9,7 @@ import TopBar from "../TopBar";
 class AESearch extends Component {
   render() {
     return(
-      <div className="container">
+      <div className="wrapper">
 
         <TopBar />
         <NavTabs />

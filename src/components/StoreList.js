@@ -1,9 +1,6 @@
 /* COMPONENT TO DISPLAY SHOPPING SEARCH RESULTS */
-
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
-
 import Store from './Store';
 
 class StoreList extends Component {
@@ -53,9 +50,13 @@ class StoreList extends Component {
       );
 
       return (
-        <div className="row">
-          {shops}
-        </div>
+        <section className="section">
+          <div className="container">
+            <div className="row">
+              {shops}
+            </div>
+          </div>
+        </section>
       )
   }
 }

@@ -15,17 +15,11 @@ class HotelSearch extends Component {
     return (
     <div className="wrapper">
       <TopBar />
-      <div className="container">
-        <NavTabs />
+      <NavTabs />
+      <div className="page-content">
+        <Map />
+        <HotelList />
       </div>
-        <div className="page-content">
-          <div className="container">
-            <Map />
-          </div>
-          <div className="container">
-            <HotelList />
-          </div>
-        </div>
     </div>
     );
   }

@@ -114,10 +114,8 @@ function mapS2P(state) {
   }
 }
 
-// do all of the API/updating stuff here
 function mapD2P(dispatch) {
   return {
-    // need to do the get request here
     fixTrip: function (trip) {
       dispatch(updateTrip(trip))
     }
@@ -126,4 +124,3 @@ function mapD2P(dispatch) {
 
 export default connect(mapS2P, mapD2P)(TripGuests);
 
-// export default TripGuests;

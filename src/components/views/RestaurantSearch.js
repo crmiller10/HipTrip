@@ -10,13 +10,11 @@ import TopBar from "../TopBar";
 class RestaurantSearch extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="wrapper">
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          <div className="map-container py-4">
-            <Map />
-          </div>
+          <Map />
           <RestaurantList />
         </div>
       </div>
