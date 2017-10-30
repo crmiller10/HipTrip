@@ -44,34 +44,34 @@ class AttractionDetails extends Component {
 
     if (this.props.currentTrip.attractions === null || this.props.currentTrip.attractions.length === 0) {
       return(
-        <div>
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h3>Attractions:</h3>
-          <button onClick={ () => this.handleAttractionSearch() } >Discover Attractions</button>
+          <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleAttractionSearch() } >Discover Attractions</button>
         </div>
       )
     } else {
 
       const attractions = this.props.currentTrip.attractions.map( (attraction, index) => {
         return(
-          <div>
-            <div>
-              <img src={attraction.image_url} alt="" />
-              <p>{attraction.price}</p>
-              <p>{attraction.rating}</p>
+          <div className="tripdetails-biz">
+            <img className="img-fluid col-lg-6" src={attraction.image_url} alt="" />
+            <div className="tripdetails-biz-info col-lg-4">
+              <p className="tripdetails-biz-name">{attraction.name}</p>
+              <p className="tripdetails-biz-phone">{attraction.display_phone}</p>
+              <p className="tripdetails-biz-address">{attraction.address1}</p>
+              <p className="tripdetails-biz-address">{attraction.city}, {attraction.state} {attraction.zip_code}</p>
             </div>
-            <div>
-              <p>{attraction.name}</p>
-              <p>{attraction.display_phone}</p>
-              <p>{attraction.address1}</p>
-              <p>{attraction.city}, {attraction.state} {attraction.zip_code}</p>
-              <button onClick={ () => this.deleteAttraction(index) }>Delete</button>
+            <div className="tripdetails-biz-info col-lg-2">
+              <i class="fa fa-heart" onClick={ () => this.deleteAttraction(index) }></i>
+              <p className="tripdetails-biz-price">{attraction.price}</p>
+              <p className="tripdetails-biz-rating">{attraction.rating}</p>
             </div>
           </div>
         )
       })
 
     return (
-      <div>
+      <div className="details-section col-lg-8 mb-4 mt-4">
         <h3>Attractions:</h3>
         {attractions}
       </div>

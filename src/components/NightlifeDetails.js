@@ -43,34 +43,34 @@ class NightlifeDetails extends Component {
 
       if (this.props.currentTrip.nightlife === null || this.props.currentTrip.nightlife.length === 0) {
         return(
-          <div>
+          <div className="details-section col-lg-8 mb-4 mt-4">
             <h3>Nightlife:</h3>
-            <button onClick={ () => this.handleNightlifeSearch() } >Discover Nightlife</button>
+            <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleNightlifeSearch() } >Discover Nightlife</button>
           </div>
         )
       } else {
 
         const nightlives = this.props.currentTrip.nightlife.map( (nightlife, index) => {
           return(
-            <div>
-              <div>
-                <img src={nightlife.image_url} alt="" />
-                <p>{nightlife.price}</p>
-                <p>{nightlife.rating}</p>
+            <div className="tripdetails-biz">
+              <img className="img-fluid col-lg-6" src={nightlife.image_url} alt="" />
+              <div className="tripdetails-biz-info col-lg-4">
+                <p className="tripdetails-biz-name">{nightlife.name}</p>
+                <p className="tripdetails-biz-phone">{nightlife.display_phone}</p>
+                <p className="tripdetails-biz-address">{nightlife.address1}</p>
+                <p className="tripdetails-biz-address">{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
               </div>
-              <div>
-                <p>{nightlife.name}</p>
-                <p>{nightlife.display_phone}</p>
-                <p>{nightlife.address1}</p>
-                <p>{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
-                <button onClick={ () => this.deleteNightlife(index) }>Delete</button>
+              <div className="tripdetails-biz-info col-lg-2">
+                <i class="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
+                <p className="tripdetails-biz-price">{nightlife.price}</p>
+                <p className="tripdetails-biz-rating">{nightlife.rating}</p>
               </div>
             </div>
           )
         })
 
       return (
-        <div>
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h3>Nightlife:</h3>
           {nightlives}
         </div>

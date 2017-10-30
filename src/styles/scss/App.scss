@@ -317,6 +317,35 @@ p.card-text {
     height: 100px;
   }
 }
+
+.details-section{
+  .tripdetails-biz {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border: 1px solid black;
+    margin: 1% 0;
+    padding: 1% 0;
+    img{
+      height: 100%;
+    }
+    .tripdetails-biz-info{
+      p {
+        margin: 0.5%;
+      }
+      .tripdetails-biz-name{
+        font-weight: bold;
+      }
+      .tripdetails-biz-phone{
+        color: #376996;
+      }
+      .tripdetails-biz-price{
+        font-weight: bold;
+        font-size: 25px;
+      }
+    }
+  }
+}
 /*=============================================
 =            React Date Picker                =
 =============================================*/

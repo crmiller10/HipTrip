@@ -44,34 +44,34 @@ class AEDetails extends Component {
 
       if (this.props.currentTrip.arts === null || this.props.currentTrip.arts.length === 0) {
         return(
-          <div>
+          <div className="details-section col-lg-8 mb-4 mt-4">
             <h3>Arts & Entertainment:</h3>
-            <button onClick={ () => this.handleArtSearch() } >Discover Arts & Entertainment</button>
+            <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleArtSearch() } >Discover Arts & Entertainment</button>
           </div>
         )
       } else {
 
         const arts = this.props.currentTrip.arts.map( (art, index) => {
           return(
-            <div>
-              <div>
-                <img src={art.image_url} alt="" />
-                <p>{art.price}</p>
-                <p>{art.rating}</p>
+            <div className="tripdetails-biz">
+              <img className="img-fluid col-lg-6" src={art.image_url} alt="" />
+              <div className="tripdetails-biz-info col-lg-4">
+                <p className="tripdetails-biz-name">{art.name}</p>
+                <p className="tripdetails-biz-phone">{art.display_phone}</p>
+                <p className="tripdetails-biz-address">{art.address1}</p>
+                <p className="tripdetails-biz-address">{art.city}, {art.state} {art.zip_code}</p>
               </div>
-              <div>
-                <p>{art.name}</p>
-                <p>{art.display_phone}</p>
-                <p>{art.address1}</p>
-                <p>{art.city}, {art.state} {art.zip_code}</p>
-                <button onClick={ () => this.deleteArt(index) }>Delete</button>
+              <div className="tripdetails-biz-info col-lg-2">
+                <i class="fa fa-heart" onClick={ () => this.deleteArt(index) }></i>
+                <p className="tripdetails-biz-price">{art.price}</p>
+                <p className="tripdetails-biz-rating">{art.rating}</p>
               </div>
             </div>
           )
         })
 
       return (
-        <div>
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h3>Arts & Entertainment:</h3>
           {arts}
         </div>

@@ -228,6 +228,25 @@ p.card-text {
   width: 100%;
   height: 100px; }
 
+.details-section .tripdetails-biz {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border: 1px solid black;
+  margin: 1% 0;
+  padding: 1% 0; }
+  .details-section .tripdetails-biz img {
+    height: 100%; }
+  .details-section .tripdetails-biz .tripdetails-biz-info p {
+    margin: 0.5%; }
+  .details-section .tripdetails-biz .tripdetails-biz-info .tripdetails-biz-name {
+    font-weight: bold; }
+  .details-section .tripdetails-biz .tripdetails-biz-info .tripdetails-biz-phone {
+    color: #376996; }
+  .details-section .tripdetails-biz .tripdetails-biz-info .tripdetails-biz-price {
+    font-weight: bold;
+    font-size: 25px; }
+
 /*=============================================
 =            React Date Picker                =
 =============================================*/

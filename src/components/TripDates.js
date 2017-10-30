@@ -74,7 +74,7 @@ class TripDates extends Component {
     // if (this.state.checkInDate === null || this.state.checkOutDate === null || this.state.datesSubmitted === false) {
     if (this.state.edit === true || this.props.currentTrip.tripStartDate === null || this.props.currentTrip.tripEndDate === null) {
       return(
-        <div className="mb-4">
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h4>Dates:</h4>
           <div className='row'>
             <div className='col-md-4'>
@@ -107,7 +107,7 @@ class TripDates extends Component {
         let checkOut = this.props.currentTrip.tripEndDate.split(' ', 4).join(' ');
 
         return(
-          <div className="div">
+          <div className="ddetails-section col-lg-8 mb-4 mt-4">
           <h4>Dates:</h4>
           <div className="">
             <p>Check In: <span>{checkIn}</span> <br></br> Check Out: <span>{checkOut}</span></p>
@@ -118,8 +118,8 @@ class TripDates extends Component {
         )
       } else {
         return(
-        <div className="mb-4">
-          <h4>Dates</h4>
+        <div className="details-section col-lg-8 mb-4 mt-4">
+          <h4>Dates:</h4>
           <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Error:</strong> Check Out Date must come after Check In Date
           </div>

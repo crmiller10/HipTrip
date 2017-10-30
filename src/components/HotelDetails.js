@@ -41,35 +41,35 @@ class HotelDetails extends Component {
 
     if (this.props.currentTrip.hotels.length === 0) {
       return(
-        <div>
-          <h3>Hotel Details:</h3>
-          <button onClick={ () => this.handleHotelSearch() } >Find Hotels</button>
+        <div className="details-section col-lg-8 mb-4 mt-4">
+          <h3>Hotels:</h3>
+          <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleHotelSearch() } >Find Hotels</button>
         </div>
       )
     } else {
 
       const hotels = this.props.currentTrip.hotels.map( (hotel, index) => {
         return(
-          <div>
-            <div>
-              <img className="img-fluid" src={hotel.image_url} alt="" />
-              <p>{hotel.price}</p>
-              <p>{hotel.rating}</p>
+          <div className="tripdetails-biz">
+            <img className="img-fluid col-lg-6" src={hotel.image_url} alt="" />
+            <div className="tripdetails-biz-info col-lg-4">
+              <p className="tripdetails-biz-name">{hotel.name}</p>
+              <p className="tripdetails-biz-phone">{hotel.display_phone}</p>
+              <p className="tripdetails-biz-address">{hotel.address1}</p>
+              <p className="tripdetails-biz-address">{hotel.city}, {hotel.state} {hotel.zip_code}</p>
             </div>
-            <div>
-              <p>{hotel.name}</p>
-              <p>{hotel.display_phone}</p>
-              <p>{hotel.address1}</p>
-              <p>{hotel.city}, {hotel.state} {hotel.zip_code}</p>
-              <button onClick={ () => this.deleteHotel(index) }>Delete</button>
+            <div className="tripdetails-biz-info col-lg-2">
+              <p className="tripdetails-biz-price">{hotel.price}</p>
+              <p className="tripdetails-biz-rating">{hotel.rating}</p>
+              <i className="fa fa-trash" onClick={ () => this.deleteHotel(index) }></i>
             </div>
           </div>
         )
       })
 
       return (
-        <div>
-          <h3>Hotel Details:</h3>
+        <div className="details-section col-lg-8 mb-4 mt-4">
+          <h3>Hotels:</h3>
           {hotels}
         </div>
       )

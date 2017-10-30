@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 
 import Modal from './Modal';
 
+import { Link, withRouter, NavLink } from 'react-router-dom';
+
 //import redux stuff
 import { connect } from 'react-redux';
 import { updateTrip } from '../actions';
@@ -41,6 +43,7 @@ class Hotel extends Component {
       .then( resp => {
         console.log(resp)
         this.props.addHotel(resp)
+        this.props.history.push('/trip-details/' + resp.id)
       })
   }
 
@@ -56,6 +59,7 @@ class Hotel extends Component {
      let cardMargin = {
       marginBottom: "30px",
     }
+
     return(
       <div className="col-md-6 col-lg-4">
         <div className="card" style={cardMargin}>
@@ -77,16 +81,6 @@ class Hotel extends Component {
           <div className="card-footer clearfix">
             <a href={hotel.url} className="btn btn-secondary btn-block">Visit Site</a>
             <button className="btn btn-secondary" onClick={ () => this.handleHotelAdd() }>Add</button>
-            <div>
-              {/*<button className="btn btn-primary btn-cirlce btn-link btn-sm" onClick={this.toggleModal}>
-                Modal
-              </button>*/}
-
-              <Modal show={this.state.isOpen}
-                onClose={this.toggleModal}>
-                Text
-              </Modal>
-            </div>
           </div>
         </div>
       </div>
@@ -112,4 +106,4 @@ function mapD2P(dispatch) {
 }
 
 
-export default connect(mapS2P, mapD2P)(Hotel);
+export default withRouter(connect(mapS2P, mapD2P)(Hotel));
