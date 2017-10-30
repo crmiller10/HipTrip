@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-
-
 import Modal from './Modal';
 
 //import redux stuff
@@ -54,7 +52,7 @@ class Hotel extends Component {
     const hotel = this.props.hotel
 
      let cardMargin = {
-      // marginBottom: "30px",
+      marginBottom: "30px",
     }
     return(
       <div className="col-md-4 col-lg-4">
@@ -65,17 +63,17 @@ class Hotel extends Component {
             </div>
           </a>
           <div className="card-body">
-            <p className="price">{hotel.price}</p>
-            <p className="rating">{hotel.rating} Stars</p>
-            <p className="name">{hotel.name}</p>
-            <p className="phone">{hotel.display_phone}</p>
+            <p className="card-text price">{hotel.price}</p>
+            <p className="card-text rating">{hotel.rating} Stars</p>
+            <p className="card-text name">{hotel.name}</p>
+            <p className="card-text phone">{hotel.display_phone}</p>
             <div>
-              <p className="address1">{hotel.location.address1}</p>
-              <p className="address2">{hotel.location.city}, {hotel.location.state} {hotel.location.zip_code}</p>
+              <p className="card-text address1">{hotel.location.address1}</p>
+              <p className="card-text address2">{hotel.location.city}, {hotel.location.state} {hotel.location.zip_code}</p>
             </div>
           </div>
           <div className="card-footer clearfix">
-            <a href={hotel.url} className="btn btn-secondary btn-block">Visit Site</a>
+            <a href={hotel.url} className="btn btn-secondary">Visit Site</a>
             <button className="btn btn-secondary" onClick={ () => this.handleHotelAdd() }>Add</button>
           </div>
         </div>

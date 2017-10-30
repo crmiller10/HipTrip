@@ -103,7 +103,7 @@ class Map extends Component {
     // const hotels = this.state.businesses;
     // console.log("MapHotels", this.state.businesses);
     return (
-      <div className="map pb-4">
+      <div className="map">
         <div id="map"></div>
       </div>
     );

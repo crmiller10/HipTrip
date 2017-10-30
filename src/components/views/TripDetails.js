@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 //import redux stuff
 import { connect } from 'react-redux';
 
+import TopBar from "../TopBar";
 import NavTabs from "../NavTabs";
 import TripDates from '../TripDates';
 import TripGuests from '../TripGuests';
@@ -24,7 +25,7 @@ class TripDetails extends Component {
       <div className="page-content">
 
       <div className="container">
-        <div className="top-bar">
+        {/*<div className="top-bar">
           <div className="row">
             <div className="col-sm-6">
               <h3 className="title">{this.props.currentTrip.destination}</h3>
@@ -33,7 +34,8 @@ class TripDetails extends Component {
              <div className="text-right"><h2>{this.props.currentTrip.budget}</h2></div>
             </div>
           </div>
-        </div>
+        </div>*/}
+        <TopBar />
         <NavTabs />
         <div className="page-content">
           <TripDates />

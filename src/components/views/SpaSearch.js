@@ -4,12 +4,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SpaList from "../SpaList";
 import NavTabs from "../NavTabs";
+import TopBar from "../TopBar";
 
 class SpaSearch extends Component {
   render() {
     return(
       <div className="container">
-        <div className="top-bar">
+        {/*<div className="top-bar">
           <div className="row">
             <div className="col-sm-6">
               <h3 className="title">{this.props.currentTrip.destination}</h3>
@@ -18,7 +19,8 @@ class SpaSearch extends Component {
              <div className="text-right"><h2>{this.props.currentTrip.budget}</h2></div>
             </div>
           </div>
-        </div>
+        </div>*/}
+        <TopBar />
         <NavTabs />
         <div className="page-content">
           <div>

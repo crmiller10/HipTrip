@@ -21,7 +21,7 @@ class Navbar extends Component {
                 <NavLink className="nav-link" to="/home">Home</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">Plan Trip</NavLink>
+                <NavLink className="nav-link" to="/trip-details/:id">Plan Trip</NavLink>
               </li>
             </ul>
             <ul className="navbar-nav ml-auto">

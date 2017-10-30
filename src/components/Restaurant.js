@@ -2,7 +2,6 @@
 
 import React, {Component} from 'react';
 // import Map from "./Map";
-
 import Modal from './Modal';
 
 //import redux stuff
@@ -61,23 +60,28 @@ class Restaurant extends Component {
     return(
       <div className="col-md-4 col-lg-4">
         <div className="card" style={cardMargin}>
+          <div className="card-img-wrap">
+            <div className="card-img-overlay">
+              <p className="badge badge-bottom-left card-text price">{restaurant.price}</p>
+              <p className="badge badge-bottom-right card-text rating">{restaurant.rating} Stars</p>
+            </div>
             <a href={restaurant.url}>
-            <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={restaurant.image_url} alt="" />
-              </div>
             </a>
+          </div>
           <div className="card-body">
-            <p className="card-text">{restaurant.price}</p>
-            <p className="card-text">{restaurant.rating} Stars</p>
-            <p className="card-text">{restaurant.name}</p>
-            <p className="card-text">{restaurant.display_phone}</p>
+            <p className="card-text name">{restaurant.name}</p>
             <div>
-              <p className="card-text">{restaurant.location.address1}</p>
-              <p className="card-text">{restaurant.location.city}, {restaurant.location.state} {restaurant.location.zip_code}</p>
+              <p className="card-text address1">
+                {restaurant.location.address1},
+              </p>
+              <p className="card-text address2">
+                {restaurant.location.city}, {restaurant.location.state} {restaurant.location.zip_code}</p>
+              <p className="card-text display_phone">{restaurant.display_phone}</p>
             </div>
           </div>
           <div className="card-footer clearfix">
-            <a href={restaurant.url} className="btn btn-secondary">Visit Site</a>
+            <a href={restaurant.url} className="btn btn-link">Visit Site</a>
             <button className="btn btn-info" onClick={ () => this.handleRestaurantAdd() }>Add</button>
             <div>
             </div>
@@ -107,3 +111,5 @@ function mapD2P(dispatch) {
 
 
 export default connect(mapS2P, mapD2P)(Restaurant);
+
+

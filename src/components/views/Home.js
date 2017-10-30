@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../images/logo.svg';
 import HomeForm from '../HomeForm';
 // import Hotel from '../Hotel';
 // import Card from '../Card';
