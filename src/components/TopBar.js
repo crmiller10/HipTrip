@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import TripDetails from "./TripDetails";
-// import HotelList from "../HotelList";
-// import NavTabs from "../NavTabs";
-// import Map from "../Map";
-
-// import { addPlace } from '../../actions';
 
 class TopBar extends Component {
   render() {
     console.log('getTrip', this.props.currentTrip)
     return (
       <section className="section py-4 top-bar">
-      <div className="panel">
-        <div className="container">
+        <div className="panel">
+          <div className="container">
             <div className="row">
               <div className="col-sm-6">
                 <h6>Destination</h6>
@@ -26,7 +20,7 @@ class TopBar extends Component {
                 </div>
               </div>
             </div>
-        </div>
+          </div>
         </div>
       </section>
     );

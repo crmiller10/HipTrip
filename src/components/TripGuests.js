@@ -72,7 +72,7 @@ class TripGuests extends Component {
 
     if (this.state.guestsSubmitted === false) {
       return(
-        <div className="mt-4 mb-4">
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h4>Guests:</h4>
           <div className="row">
             <div className="col-md-4">
@@ -96,9 +96,9 @@ class TripGuests extends Component {
       )
     } else {
       return(
-        <div className="mt-4 mb-4">
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h4>Guests:</h4>
-          <div><p>Children: <span>{this.state.childGuests}</span>, Adults: <span>{this.state.adultGuests}</span></p></div>
+          <div><p>Adults: <span>{this.state.adultGuests}</span>, Children: <span>{this.state.childGuests}</span></p></div>
           <button className="btn btn-info align-self-end" onClick={ () => this.editGuests() }>Edit</button>
         </div>
       )

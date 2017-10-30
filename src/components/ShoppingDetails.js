@@ -43,34 +43,34 @@ class ShoppingDetails extends Component {
 
       if (this.props.currentTrip.shopping === null || this.props.currentTrip.shopping.length === 0) {
         return(
-          <div>
+          <div className="details-section col-lg-8 mb-4 mt-4">
             <h3>Shopping:</h3>
-            <button className="btn btn-info" onClick={ () => this.handleShopSearch() } >Discover Shopping</button>
+            <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleShopSearch() } >Discover Shopping</button>
           </div>
         )
       } else {
 
         const shops = this.props.currentTrip.shopping.map( (shop, index) => {
           return(
-            <div>
-              <div>
-                <img className="img-fluid" src={shop.image_url} alt="" />
-                <p>{shop.price}</p>
-                <p>{shop.rating}</p>
+            <div className="tripdetails-biz">
+              <img className="img-fluid col-lg-6" src={shop.image_url} alt="" />
+              <div className="tripdetails-biz-info col-lg-4">
+                <p className="tripdetails-biz-name">{shop.name}</p>
+                <p className="tripdetails-biz-phone">{shop.display_phone}</p>
+                <p className="tripdetails-biz-address">{shop.address1}</p>
+                <p className="tripdetails-biz-address">{shop.city}, {shop.state} {shop.zip_code}</p>
               </div>
-              <div>
-                <p>{shop.name}</p>
-                <p>{shop.display_phone}</p>
-                <p>{shop.address1}</p>
-                <p>{shop.city}, {shop.state} {shop.zip_code}</p>
-                <button className="btn btn-info" onClick={ () => this.deleteShopping(index) }>Delete</button>
+              <div className="tripdetails-biz-info col-lg-2">
+                <i class="fa fa-heart" onClick={ () => this.deleteShopping(index) }></i>
+                <p className="tripdetails-biz-price">{shop.price}</p>
+                <p className="tripdetails-biz-rating">{shop.rating}</p>
               </div>
             </div>
           )
         })
 
       return (
-        <div>
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h3>Shopping:</h3>
           {shops}
         </div>

@@ -14,19 +14,6 @@ class HotelSearch extends Component {
     console.log('getTrip', this.props.currentTrip)
     return (
       <div>
-        {/*<div className="container">
-          <div className="top-bar">
-            <div className="row">
-              <div className="col-sm-6">
-                <h3 className="title">{this.props.currentTrip.destination}</h3>
-              </div>
-              <div className="col-sm-6">
-               <div className="text-right"><h2>{this.props.currentTrip.budget}</h2></div>
-              </div>
-            </div>
-          </div>
-        </div>*/}
-
         <TopBar />
         <div className="container">
           <NavTabs />

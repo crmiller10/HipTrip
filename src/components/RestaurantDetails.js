@@ -44,34 +44,35 @@ class RestaurantDetails extends Component {
 
     if (this.props.currentTrip.restaurants === null || this.props.currentTrip.restaurants.length === 0) {
       return(
-        <div>
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h3>Restaurants:</h3>
-          <button className="btn btn-info" onClick={ () => this.handleRestaurantSearch() } >Find Restaurants</button>
+          <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleRestaurantSearch() } >Find Restaurants</button>
         </div>
       )
     } else {
 
       const restaurants = this.props.currentTrip.restaurants.map( (restaurant, index) => {
         return(
-          <div>
-            <div>
-              <img className="img-fluid" src={restaurant.image_url} alt="" />
-              <p>{restaurant.price}</p>
-              <p>{restaurant.rating}</p>
-            </div>
-            <div>
-              <p>{restaurant.name}</p>
-              <p>{restaurant.display_phone}</p>
-              <p>{restaurant.address1}</p>
-              <p>{restaurant.city}, {restaurant.state} {restaurant.zip_code}</p>
-              <button className="btn btn-info" onClick={ () => this.deleteRestaurant(index) }>Delete</button>
-            </div>
+
+          <div className="tripdetails-biz">
+              <img className="img-fluid col-lg-6" src={restaurant.image_url} alt="" />
+              <div className="tripdetails-biz-info col-lg-4">
+                <p className="tripdetails-biz-name">{restaurant.name}</p>
+                <p className="tripdetails-biz-phone">{restaurant.display_phone}</p>
+                <p className="tripdetails-biz-address">{restaurant.address1}</p>
+                <p className="tripdetails-biz-address">{restaurant.city}, {restaurant.state} {restaurant.zip_code}</p>
+              </div>
+              <div className="tripdetails-biz-info col-lg-2">
+                <i class="fa fa-heart" onClick={ () => this.deleteRestaurant(index) }></i>
+                <p className="tripdetails-biz-price">{restaurant.price}</p>
+                <p className="tripdetails-biz-rating">{restaurant.rating}</p>
+              </div>
           </div>
         )
       })
 
       return (
-        <div>
+        <div className="details-section col-lg-8 mb-4 mt-4">
           <h3>Restaurant Details:</h3>
           {restaurants}
         </div>
