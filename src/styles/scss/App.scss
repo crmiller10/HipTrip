@@ -9,15 +9,15 @@ $base-height: 38px;
 =======================================*/
 
 $transparent: transparent !important;
-$green: #2AA541 !important;
-$green2: #1A9184 !important;
+$green: #157A6E !important;
+$green2: #7FC6A4 !important;
 $green3: #28A745 !important;
-$blue: #42BEEE !important;
-$blue2: #0082CA !important;
+$blue: #376996 !important;
+$blue2: #B1D4D8 !important;
 $steel: #D5E4E8 !important;
 $dark-steel: #88A8AE !important;
 $dark-blue: #14212F !important;
-$light-gray: #A2A2A2 !important;
+$light-gray: #BFC1BB !important;
 $yellow: #FFE100 !important;
 
 /*=====  End of Color Variables  ======*/
@@ -332,6 +332,7 @@ button:focus {
   // border-radius: .25rem;
   border-radius: 2px;
   transition: all .15s ease-in-out;
+  background-color: #009B40;
 
   &:focus,
   &:hover {
@@ -717,11 +718,13 @@ select.form-control:not([size]):not([multiple]) {
     height: 100px;
   }
 }
+
 .details-section .tripdetails-biz {
   border: 1px solid #efefef;
   margin-bottom: 20px;
   overflow: hidden;
 }
+
 .details-section{
 
   .tripdetails-biz {
@@ -1059,3 +1062,115 @@ footer{
 
 
 /*=====  End of Section comment block  ======*/
+
+
+/* ===========================================
+EMERGENCY STYLING
+=========================================== */
+
+/* VARIABLES */
+
+/* COLORS */
+$av-green: #157A6E;
+$av-green2: #00935B;
+$av-green3: #7FC6A4;
+$av-blue: #376996;
+$av-blue2: #93D1D8;
+
+/* GENERAL STYLING */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+/* HOME PAGE */
+.home-wrapper {
+  img {
+    height: 100%;
+  }
+  .home-form-container {
+    .home-form-btn {
+      background-color: $av-green2;
+    }
+    .home-form-btn:hover {
+      background-color: $av-green;
+    }
+  }
+}
+
+/* TRIP DETAILS PAGE */
+.trip-details-wrapper {
+  background-color: $av-blue2;
+}
+
+.dest-container {
+
+  .panel {
+    background-color: inherit;
+  }
+}
+
+.trip-details-container {
+  background-color: white;
+  padding: 1% 3%;
+  .trip-details-btn {
+    background-color: $av-green2;
+  }
+  .trip-details-btn:hover{
+    background-color: $av-green;
+  }
+
+  .trip-details-label {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .trip-details-info {
+    font-weight: bold;
+    font-size: 18px;
+    span {
+      font-weight: normal;
+    }
+  }
+
+  .details-find-btn {
+    background-color: $av-green2;
+    padding: 2% 5%;
+    width: 350px;
+    height: 60px;
+  }
+  .details-find-btn:hover{
+    background-color: $av-green;
+  }
+
+  .tripdetails-biz {
+    padding: 1%;
+    border: 1px solid $av-blue;
+    display: flex;
+    img {
+      height: 100%;
+    }
+    div {
+      font-size: 16px;
+      padding: 2% 3%;
+      margin: 2% 2%;
+      display: flex;
+      flex-direction: column;
+      .tripdetails-biz-name{
+        font-size: 17px;
+      }
+      .star-container{
+        margin: 0.5% 0;
+        padding: 1% 0;
+        display: flex;
+        flex-direction: row;
+        font-size: 20px;
+        .fa-star {
+          color: khaki;
+        }
+        .fa-star-half-o{
+          color: khaki;
+        }
+      }
+    }
+
+  }
+}

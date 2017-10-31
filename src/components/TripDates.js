@@ -73,23 +73,23 @@ class TripDates extends Component {
     // if (this.state.checkInDate === null || this.state.checkOutDate === null || this.state.datesSubmitted === false) {
     if (this.state.edit === true || this.props.currentTrip.tripStartDate === null || this.props.currentTrip.tripEndDate === null) {
       return(
-        <div className="details-section col-lg-12 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4 trip-dates-container">
           <h4>Dates:</h4>
           <div className='row'>
             <div className='col-md-5 col-lg-4'>
               <div className="form-group">
-                <label>Check In:</label>
+                <label className="trip-details-label">Check In:</label>
                 <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
               </div>
             </div>
             <div className='col-md-5 col-lg-4'>
               <div className="form-group">
-                <label>Check Out:</label>
+                <label className="trip-details-label">Check Out:</label>
                 <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
               </div>
             </div>
             <div className='col-md-2 d-flex'>
-              <button className="btn btn-info align-self-end" onClick={() => this.updateTripDates()}>Submit</button>
+              <button className="btn btn-info align-self-end trip-details-btn" onClick={() => this.updateTripDates()}><i className="fa fa-plus" aria-hidden="true"></i> Submit</button>
             </div>
           </div>
         </div>
@@ -106,34 +106,34 @@ class TripDates extends Component {
         let checkOut = this.props.currentTrip.tripEndDate.split(' ', 4).join(' ');
 
         return(
-          <div className="ddetails-section col-lg-8 mb-4 mt-4">
+          <div className="ddetails-section col-lg-8 mb-4 mt-4 trip-dates-container">
           <h4>Dates:</h4>
           <div className="">
-            <p>Check In: <span>{checkIn}</span> <br></br> Check Out: <span>{checkOut}</span></p>
-            <button className="btn btn-info align-self-end" onClick={() => this.editDates()}>Edit</button>
+            <p className="trip-details-info">Check In: <span>{checkIn}</span> <br></br> Check Out: <span>{checkOut}</span></p>
+            <button className="btn btn-info align-self-end trip-details-btn" onClick={() => this.editDates()}><i className="fa fa-pencil" aria-hidden="true"></i> Edit</button>
 
         </div>
         </div>
         )
       } else {
         return(
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-8 mb-4 mt-4 trip-dates-container">
           <h4>Dates:</h4>
           <div className="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Error:</strong> Check Out Date must come after Check In Date
           </div>
             <div className='row'>
               <div className='col-md-5'>
-                <label>Check In</label>
+                <label className="trip-details-label">Check In</label>
                 <DatePicker onChange={(date) => this.updateCheckIn(date)} value={this.state.checkInDate}/>
               </div>
               <div className='col-md-5'>
-                <label>Check Out</label>
+                <label className="trip-details-label">Check Out</label>
                 <DatePicker onChange={(date) => this.updateCheckOut(date)} value={this.state.checkOutDate}/>
               </div>
 
             <div className="col-md-2 d-flex">
-              <button className='btn btn-info align-self-end' onClick={() => this.updateTripDates()}>Submit</button>
+              <button className='btn btn-info align-self-end trip-details-btn' onClick={() => this.updateTripDates()}><i className="fa fa-plus" aria-hidden="true"></i> Submit</button>
             </div>
           </div>
         </div>

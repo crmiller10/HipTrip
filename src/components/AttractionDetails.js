@@ -46,38 +46,38 @@ class AttractionDetails extends Component {
 
     if (this.props.currentTrip.attractions === null || this.props.currentTrip.attractions.length === 0) {
       return(
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4">
           <h3>Attractions:</h3>
-          <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleAttractionSearch() } >Discover Attractions</button>
+          <button className="details-find-btn btn btn-info" onClick={ () => this.handleAttractionSearch() } ><i className="fa fa-search" aria-hidden="true"></i> Discover Attractions</button>
         </div>
       )
     } else {
 
-      const attractions = this.props.currentTrip.attractions.map( (attraction, index) => {
-        let stars = symbolsDisplay(attraction.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
+      const attractions = this.props.currentTrip.attractions.map( (business, index) => {
+        let stars = symbolsDisplay(business.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
         return(
           <div className="tripdetails-biz">
-            <img className="img-fluid col-lg-6" src={attraction.image_url} alt="" />
-            <div className="tripdetails-biz-info col-lg-4">
-              <p className="tripdetails-biz-name">{attraction.name}</p>
-              <p className="tripdetails-biz-phone">{attraction.display_phone}</p>
-              <p className="tripdetails-biz-address">{attraction.address1}</p>
-              <p className="tripdetails-biz-address">{attraction.city}, {attraction.state} {attraction.zip_code}</p>
+            <img className="img-fluid col-sm-12 col-lg-4" src={business.image_url} alt="" />
+            <div className="tripdetails-biz-info col-sm-12 col-lg-4">
+              <p className="tripdetails-biz-name">{business.name}</p>
+              <p className="tripdetails-biz-phone">{business.display_phone}</p>
+              <p className="tripdetails-biz-address">{business.address1}</p>
+              <p className="tripdetails-biz-address">{business.city}, {business.state} {business.zip_code}</p>
             </div>
-
             <div className="tripdetails-biz-info col-lg-2">
-              <i className="fa fa-heart" onClick={ () => this.deleteAttraction(index) }></i>
-              <p className="tripdetails-biz-price">{attraction.price}</p>
-              <p className="tripdetails-biz-rating">{stars}</p>
-
+              <p className="tripdetails-biz-price">{business.price}</p>
+              <div className="star-container">
+              {stars}
+              </div>
+              <button className="delete-btn btn btn-info" onClick={ () => this.deleteHotel(index) }><i className="fa fa-trash"></i> Delete</button>
             </div>
           </div>
         )
       })
 
     return (
-      <div className="details-section col-lg-8 mb-4 mt-4">
+      <div className="details-section col-lg-12 mb-4 mt-4">
         <h3>Attractions:</h3>
         {attractions}
       </div>

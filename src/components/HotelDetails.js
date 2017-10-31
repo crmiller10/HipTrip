@@ -45,27 +45,29 @@ class HotelDetails extends Component {
       return(
         <div className="details-section col-lg-12 mb-4 mt-4">
           <h3>Hotels:</h3>
-          <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleHotelSearch() } >Find Hotels</button>
+          <button className="details-find-btn btn btn-info" onClick={ () => this.handleHotelSearch() } ><i className="fa fa-search" aria-hidden="true"></i> Discover Hotels</button>
         </div>
       )
     } else {
 
-      const hotels = this.props.currentTrip.hotels.map( (hotel, index) => {
-        let stars = symbolsDisplay(hotel.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+      const hotels = this.props.currentTrip.hotels.map( (business, index) => {
+        let stars = symbolsDisplay(business.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
 
         return(
           <div className="tripdetails-biz">
-            <img className="img-fluid col-sm-12 col-lg-6" src={hotel.image_url} alt="" />
+            <img className="img-fluid col-sm-12 col-lg-4" src={business.image_url} alt="" />
             <div className="tripdetails-biz-info col-sm-12 col-lg-4">
-              <p className="tripdetails-biz-name">{hotel.name}</p>
-              <p className="tripdetails-biz-phone">{hotel.display_phone}</p>
-              <p className="tripdetails-biz-address">{hotel.address1}</p>
-              <p className="tripdetails-biz-address">{hotel.city}, {hotel.state} {hotel.zip_code}</p>
+              <p className="tripdetails-biz-name">{business.name}</p>
+              <p className="tripdetails-biz-phone">{business.display_phone}</p>
+              <p className="tripdetails-biz-address">{business.address1}</p>
+              <p className="tripdetails-biz-address">{business.city}, {business.state} {business.zip_code}</p>
             </div>
             <div className="tripdetails-biz-info col-lg-2">
-              <p className="tripdetails-biz-price">{hotel.price}</p>
-              <p className="tripdetails-biz-rating">{stars}</p>
-              <i className="fa fa-trash" onClick={ () => this.deleteHotel(index) }></i>
+              <p className="tripdetails-biz-price">{business.price}</p>
+              <div className="star-container">
+              {stars}
+              </div>
+              <button className="delete-btn btn btn-info" onClick={ () => this.deleteHotel(index) }><i className="fa fa-trash"></i> Delete</button>
             </div>
           </div>
         )

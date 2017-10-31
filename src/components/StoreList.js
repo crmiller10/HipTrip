@@ -1,7 +1,6 @@
 /* COMPONENT TO DISPLAY SHOPPING SEARCH RESULTS */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Store from './Store';
 import SearchCard from './SearchCard';
 
 class StoreList extends Component {

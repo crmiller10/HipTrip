@@ -72,34 +72,34 @@ class TripGuests extends Component {
 
     if (this.state.guestsSubmitted === false) {
       return(
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-8 mb-4 mt-4 .trip-guests-container">
           <h4>Guests:</h4>
           <div className="row">
             <div className="col-md-4">
               <div className="form-group">
-                <p>Adults</p>
+                <p className="trip-details-label">Adults</p>
                 <input className="form-control" type="text" placeholder={this.state.adultGuests} onChange={ (adults) => this.updateAdults(adults)}/>
               </div>
             </div>
 
             <div className="col-md-4">
               <div className="form-group">
-                <p>Children</p>
+                <p className="trip-details-label">Children</p>
                 <input className="form-control" type="text" placeholder="0" onChange={ (kids) => this.updateKids(kids)}/>
               </div>
             </div>
             <div className="col-md-2 d-flex">
-              <button className="btn btn-info align-self-end" onClick={ () => this.updateGuests() }>Submit</button>
+              <button className="btn btn-info align-self-end trip-details-btn" onClick={ () => this.updateGuests() }><i className="fa fa-plus" aria-hidden="true"></i> Submit</button>
             </div>
           </div>
         </div>
       )
     } else {
       return(
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-8 mb-4 mt-4 .trip-guests-container">
           <h4>Guests:</h4>
-          <div><p>Adults: <span>{this.state.adultGuests}</span>, Children: <span>{this.state.childGuests}</span></p></div>
-          <button className="btn btn-info align-self-end" onClick={ () => this.editGuests() }>Edit</button>
+          <div><p className="trip-details-info">Adults: <span>{this.state.adultGuests}</span> Children: <span>{this.state.childGuests}</span></p></div>
+          <button className="btn btn-info align-self-end trip-details-btn" onClick={ () => this.editGuests() }><i className="fa fa-pencil" aria-hidden="true"></i> Edit</button>
         </div>
       )
     }
@@ -123,4 +123,3 @@ function mapD2P(dispatch) {
 }
 
 export default connect(mapS2P, mapD2P)(TripGuests);
-

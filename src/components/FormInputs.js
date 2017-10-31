@@ -60,12 +60,12 @@ class FormInputs extends Component{
   render(){
     return(
       <div className="row justify-content-lg-center">
-        <div className="col-md-12 col-lg-12 panel">
+        <div className="col-md-12 col-lg-12 panel home-wrapper">
 
-        <div className="row justify-content-sm-center">
+        <div className="row justify-content-sm-center home-form-container">
           <div className="col-md-6 col-lg-6">
             <div className="form-group has-feedback has-feedback-left">
-              <input type="text" className="form-control" placeholder="Destination" value={this.state.Destination}
+              <input type="text" className="form-control home-form" placeholder="Destination" value={this.state.Destination}
               onChange={event => this.handleDestination(event)}></input>
               <div className="form-control-feedback">
                 <i className="ion-search"></i>
@@ -75,7 +75,7 @@ class FormInputs extends Component{
 
           <div className="col-md-4 col-lg-4">
             <div className="form-group">
-              <select className="form-control" onChange={event => this.handleSelectBudget(event)}>
+              <select className="form-control home-form" onChange={event => this.handleSelectBudget(event)}>
                 <option value="" disabled selected>Select Budget</option>
                 <option value="1" >$</option>
                 <option value="2" >$$</option>
@@ -86,7 +86,7 @@ class FormInputs extends Component{
           </div>
 
           <div className="col-md-2 col-lg-2">
-            <button className="btn btn-success w-100" onClick={() => this.handleAddItem()} to="/trip-details">Search</button>
+            <button className="btn btn-success w-100 home-form-btn" onClick={() => this.handleAddItem()} to="/trip-details">Search</button>
           </div>
 
         </div>

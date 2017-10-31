@@ -11,10 +11,8 @@ class Home extends Component {
           <section className="section section-lg">
             <div className="container">
               <div className="tagline">
-                <div className="col-sm-9 mx-auto text-center mb-4">
-                  <i className="ion-android-pin logo-icon-font"></i>
-                  <h1>Plan Your Perfect Vacation</h1>
-                  <h2>Its just a few clicks away</h2>
+                <div className="col-sm-9 mx-auto text-center mb-4 home-wrapper">
+                  <img className="col-lg-10" src={require('../../images/HipTrip-logo.png')} />
                 </div>
               </div>
               <div>

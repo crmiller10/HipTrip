@@ -8,7 +8,7 @@ class TopBar extends Component {
     let budget = symbolsDisplay(this.props.currentTrip.budget, <i className="fa fa-usd"></i>)
     console.log('getTrip', this.props.currentTrip)
     return (
-      <section className="section py-4 top-bar">
+      <section className="section py-4 top-bar dest-container">
         <div className="panel">
           <div className="container">
             <div className="row">

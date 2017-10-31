@@ -46,37 +46,38 @@ class RestaurantDetails extends Component {
 
     if (this.props.currentTrip.restaurants === null || this.props.currentTrip.restaurants.length === 0) {
       return(
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4">
           <h3>Restaurants:</h3>
-          <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleRestaurantSearch() } >Find Restaurants</button>
+          <button className="details-find-btn btn btn-info" onClick={ () => this.handleRestaurantSearch() } ><i className="fa fa-search" aria-hidden="true"></i> Discover Restaurants</button>
         </div>
       )
     } else {
 
-      const restaurants = this.props.currentTrip.restaurants.map( (restaurant, index) => {
-        let stars = symbolsDisplay(restaurant.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
+      const restaurants = this.props.currentTrip.restaurants.map( (business, index) => {
+        let stars = symbolsDisplay(business.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
         return(
-
           <div className="tripdetails-biz">
-              <img className="img-fluid col-lg-6" src={restaurant.image_url} alt="" />
-              <div className="tripdetails-biz-info col-lg-4">
-                <p className="tripdetails-biz-name">{restaurant.name}</p>
-                <p className="tripdetails-biz-phone">{restaurant.display_phone}</p>
-                <p className="tripdetails-biz-address">{restaurant.address1}</p>
-                <p className="tripdetails-biz-address">{restaurant.city}, {restaurant.state} {restaurant.zip_code}</p>
+            <img className="img-fluid col-sm-12 col-lg-4" src={business.image_url} alt="" />
+            <div className="tripdetails-biz-info col-sm-12 col-lg-4">
+              <p className="tripdetails-biz-name">{business.name}</p>
+              <p className="tripdetails-biz-phone">{business.display_phone}</p>
+              <p className="tripdetails-biz-address">{business.address1}</p>
+              <p className="tripdetails-biz-address">{business.city}, {business.state} {business.zip_code}</p>
+            </div>
+            <div className="tripdetails-biz-info col-lg-2">
+              <p className="tripdetails-biz-price">{business.price}</p>
+              <div className="star-container">
+              {stars}
               </div>
-              <div className="tripdetails-biz-info col-lg-2">
-                <i className="fa fa-heart" onClick={ () => this.deleteRestaurant(index) }></i>
-                <p className="tripdetails-biz-price">{restaurant.price}</p>
-                <p className="tripdetails-biz-rating">{stars}</p>
-              </div>
+              <button className="delete-btn btn btn-info" onClick={ () => this.deleteHotel(index) }><i className="fa fa-trash"></i> Delete</button>
+            </div>
           </div>
         )
       })
 
       return (
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4">
           <h3>Restaurant Details:</h3>
           {restaurants}
         </div>

@@ -47,45 +47,36 @@ class NightlifeDetails extends Component {
         return(
           <div className="details-section col-lg-12 mb-4 mt-4">
             <h3>Nightlife:</h3>
-            <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleNightlifeSearch() } >Discover Nightlife</button>
+            <button className="details-find-btn btn btn-info" onClick={ () => this.handleNightlifeSearch() } ><i className="fa fa-search" aria-hidden="true"></i> Discover Nightlife</button>
           </div>
         )
       } else {
 
-        const nightlives = this.props.currentTrip.nightlife.map( (nightlife, index) => {
-          let stars = symbolsDisplay(nightlife.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
+        const nightlives = this.props.currentTrip.nightlife.map( (business, index) => {
+          let stars = symbolsDisplay(business.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
           return(
             <div className="tripdetails-biz">
-              <div className="row">
-                <div className="col-md-4">
-                  <div className="img-wrap">
-                    <div className="img-overlay">
-                      <span className="tripdetails-biz-rating">{stars}</span>
-                    </div>
-                    <img className="img-fluid" src={nightlife.image_url} alt="" />
-                  </div>
-
+              <img className="img-fluid col-sm-12 col-lg-4" src={business.image_url} alt="" />
+              <div className="tripdetails-biz-info col-sm-12 col-lg-4">
+                <p className="tripdetails-biz-name">{business.name}</p>
+                <p className="tripdetails-biz-phone">{business.display_phone}</p>
+                <p className="tripdetails-biz-address">{business.address1}</p>
+                <p className="tripdetails-biz-address">{business.city}, {business.state} {business.zip_code}</p>
+              </div>
+              <div className="tripdetails-biz-info col-lg-2">
+                <p className="tripdetails-biz-price">{business.price}</p>
+                <div className="star-container">
+                {stars}
                 </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h4 className="tripdetails-biz-name">{nightlife.name}</h4>
-
-                    <p className="tripdetails-biz-address1">{nightlife.address1}</p>
-                    <p className="tripdetails-biz-address2">{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
-                    <p className="">{nightlife.display_phone}</p>
-                    <i className="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
-                    <span className="tripdetails-biz-price">{nightlife.price}</span>
-
-                  </div>
-                </div>
+                <button className="delete-btn btn btn-info" onClick={ () => this.deleteHotel(index) }><i className="fa fa-trash"></i> Delete</button>
               </div>
             </div>
           )
         })
 
       return (
-        <div className="details-section col-lg-10 mb-4 mt-4">
+        <div className="details-section col-lg-12 mb-4 mt-4">
           <h3>Nightlife:</h3>
           {nightlives}
         </div>
