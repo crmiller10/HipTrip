@@ -275,6 +275,52 @@ select {
   Cards
 =============================================*/
 .card {
+  text-transform: capitalize; }
+
+.card .card-body {
+  min-height: 130px; }
+
+.card p.card-text {
+  margin-bottom: 0; }
+.card p.price, .card p.rating, .card p.phone, .card p.name, .card p.address1, .card p.address2 {
+  margin-bottom: 0; }
+.card p.price {
+  font-size: 18px;
+  display: block;
+  position: absolute;
+  top: 0;
+  background-color: #fff; }
+.card p.rating {
+  font-weight: 600; }
+.card p.phone {
+  font-size: 14px; }
+.card p.name {
+  font-size: 16px;
+  font-weight: 600; }
+
+.card-footer {
+  padding: .75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #fff; }
+
+.card-img-wrap {
+  height: 180px;
+  overflow: hidden;
+  border-radius: 1px;
+  min-height: 180px;
+  display: block;
+  position: relative; }
+  .card-img-wrap img {
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+    border-radius: 0; }
+
+/*=============================================
+  Cards
+=============================================*/
+.card {
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -298,7 +344,7 @@ select {
   overflow: hidden;
   border-radius: 1px;
   min-height: 180px;
-  display: flex;
+  display: block;
   position: relative; }
   .card-img-wrap img {
     width: 100%;
@@ -313,7 +359,7 @@ select {
     bottom: 0;
     left: 0;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: #000;
     transition: ease all .3s; }
     .card-img-wrap .card-img-overlay:hover {
       background-color: transparent;
@@ -486,9 +532,6 @@ select.form-control:not([size]):not([multiple]) {
 .page-content {
   padding: 0; }
 
-/*=============================================
-  Cards
-=============================================*/
 .demo-title {
   margin: 0 0 15px;
   color: #666666;

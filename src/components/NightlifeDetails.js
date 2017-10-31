@@ -53,7 +53,7 @@ class NightlifeDetails extends Component {
       } else {
 
         const nightlives = this.props.currentTrip.nightlife.map( (nightlife, index) => {
-          let stars = symbolsDisplay(nightlife.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+          let stars = symbolsDisplay(nightlife.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
           return(
             <div className="tripdetails-biz">
@@ -65,7 +65,7 @@ class NightlifeDetails extends Component {
                 <p className="tripdetails-biz-address">{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
               </div>
               <div className="tripdetails-biz-info col-lg-2">
-                <i class="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
+                <i className="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
                 <p className="tripdetails-biz-price">{nightlife.price}</p>
                 <p className="tripdetails-biz-rating">{stars}</p>
               </div>

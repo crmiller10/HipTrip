@@ -27,7 +27,7 @@ class NavTabs extends Component {
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
       .then( resp => resp.json())
 
-      // .then( resp => this.props.history.push('/trip-details/' + resp.id) )
+      .then( resp => this.props.history.push('/trip-details/' + resp.id) )
   }
 
   handleHotelSearch() {
@@ -37,7 +37,7 @@ class NavTabs extends Component {
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
       .then( resp => resp.json())
 
-      // .then( resp => this.props.history.push('/hotel-search/' + resp.id) )
+      .then( resp => this.props.history.push('/hotel-search/' + resp.id) )
   }
 
   handleRestaurantSearch() {
@@ -47,7 +47,7 @@ class NavTabs extends Component {
     fetch('https://hip-trip.herokuapp.com/trip/details/' + id)
       .then( resp => resp.json())
 
-      // .then( resp => this.props.history.push('/restaurant-search/' + resp.id) )
+      .then( resp => this.props.history.push('/restaurant-search/' + resp.id) )
   }
 
   handleAESearch() {
@@ -58,7 +58,7 @@ class NavTabs extends Component {
       .then( resp => resp.json())
 
       // .then( resp => this.props.history.push('/art-search/' + resp.id) )
-    // this.props.history.push('/art-search/' + id)
+    this.props.history.push('/art-search/' + id)
   }
 
   handleShoppingSearch() {
@@ -69,7 +69,7 @@ class NavTabs extends Component {
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
 
-    // this.props.history.push('/shopping-search/' + id)
+    this.props.history.push('/shopping-search/' + id)
   }
 
   handleAttractionSearch() {
@@ -80,7 +80,7 @@ class NavTabs extends Component {
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
 
-    // this.props.history.push('/attraction-search/' + id)
+    this.props.history.push('/attraction-search/' + id)
   }
 
   handleNightlifeSearch() {
@@ -91,7 +91,7 @@ class NavTabs extends Component {
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
 
-    // this.props.history.push('/nightlife-search/' + id)
+    this.props.history.push('/nightlife-search/' + id)
   }
 
   handleSpaSearch() {
@@ -103,7 +103,7 @@ class NavTabs extends Component {
     //   .then( resp => resp.json())
     //   .then( resp => this.props.history.push('/ae-search/' + resp.id) )
 
-    // this.props.history.push('/spa-search/' + id);
+    this.props.history.push('/spa-search/' + id);
   }
   render(){
     return(

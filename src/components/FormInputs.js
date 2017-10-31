@@ -64,11 +64,11 @@ class FormInputs extends Component{
 
         <div className="row justify-content-sm-center">
           <div className="col-md-6 col-lg-6">
-            <div class="form-group has-feedback has-feedback-left">
-              <input type="text" class="form-control" placeholder="Destination" value={this.state.Destination}
+            <div className="form-group has-feedback has-feedback-left">
+              <input type="text" className="form-control" placeholder="Destination" value={this.state.Destination}
               onChange={event => this.handleDestination(event)}></input>
-              <div class="form-control-feedback">
-                <i class="ion-search"></i>
+              <div className="form-control-feedback">
+                <i className="ion-search"></i>
               </div>
             </div>
           </div>

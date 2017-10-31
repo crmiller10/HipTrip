@@ -52,7 +52,7 @@ class SearchCard extends Component {
       marginBottom: "30px",
     }
 
-    let stars = symbolsDisplay(business.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+    let stars = symbolsDisplay(business.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
     return(
       <div className="col-md-6 col-lg-4">

@@ -54,7 +54,7 @@ class AttractionDetails extends Component {
     } else {
 
       const attractions = this.props.currentTrip.attractions.map( (attraction, index) => {
-        let stars = symbolsDisplay(attraction.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+        let stars = symbolsDisplay(attraction.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
         return(
           <div className="tripdetails-biz">
@@ -67,7 +67,7 @@ class AttractionDetails extends Component {
             </div>
 
             <div className="tripdetails-biz-info col-lg-2">
-              <i class="fa fa-heart" onClick={ () => this.deleteAttraction(index) }></i>
+              <i className="fa fa-heart" onClick={ () => this.deleteAttraction(index) }></i>
               <p className="tripdetails-biz-price">{attraction.price}</p>
               <p className="tripdetails-biz-rating">{stars}</p>
 

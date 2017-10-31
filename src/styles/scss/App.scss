@@ -366,6 +366,72 @@ select {
   cursor: pointer;
 }
 
+/*=============================================
+  Cards
+=============================================*/
+
+.card {
+  text-transform: capitalize;
+}
+.card {
+  .card-body {
+    min-height: 130px;
+  }
+}
+.card {
+  p.card-text {
+    margin-bottom: 0;
+  }
+  p {
+    &.price,
+    &.rating,
+    &.phone,
+    &.name,
+    &.address1,
+    &.address2 {
+      margin-bottom: 0;
+    }
+    &.price {
+      font-size: 18px;
+      display: block;
+      position: absolute;
+      top: 0;
+      background-color: #fff;
+    }
+    &.rating {
+      font-weight: 600;
+    }
+    &.phone {
+      font-size: 14px;
+    }
+    &.name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+.card-footer {
+  padding: .75rem 1.25rem;
+  background-color: rgba(0,0,0,.03);
+  border-top: 1px solid rgba(0,0,0,.125);
+  background-color: #fff;
+}
+
+.card-img-wrap {
+  height: 180px;
+  overflow: hidden;
+  border-radius: 1px;
+  min-height: 180px;
+  display: block;
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+    border-radius: 0;
+  }
+}
 
 /*=============================================
   Cards
@@ -404,8 +470,8 @@ select {
   overflow: hidden;
   border-radius: 1px;
   min-height: 180px;
-  // display: block;
-  display: flex;
+  display: block;
+  // display: flex;
   position: relative;
   img {
     width: 100%;
@@ -421,8 +487,8 @@ select {
     bottom: 0;
     left: 0;
     cursor: pointer;
-    // background-color: #000;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: #000;
+    // background-color: rgba(0, 0, 0, 0.25);
     transition: ease all .3s;
     &:hover {
       background-color: transparent;
@@ -670,73 +736,6 @@ select.form-control:not([size]):not([multiple]) {
 .tab-content {
   // box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
-
-/*=============================================
-  Cards
-=============================================*/
-
-// .card {
-//   text-transform: capitalize;
-// }
-// .card {
-//   .card-body {
-//     min-height: 130px;
-//   }
-// }
-// .card {
-//   p.card-text {
-//     margin-bottom: 0;
-//   }
-//   p {
-//     &.price,
-//     &.rating,
-//     &.phone,
-//     &.name,
-//     &.address1,
-//     &.address2 {
-//       margin-bottom: 0;
-//     }
-//     &.price {
-//       font-size: 18px;
-//       display: block;
-//       position: absolute;
-//       top: 0;
-//       background-color: #fff;
-//     }
-//     &.rating {
-//       font-weight: 600;
-//     }
-//     &.phone {
-//       font-size: 14px;
-//     }
-//     &.name {
-//       font-size: 16px;
-//       font-weight: 600;
-//     }
-//   }
-// }
-
-// .card-footer {
-//   padding: .75rem 1.25rem;
-//   background-color: rgba(0,0,0,.03);
-//   border-top: 1px solid rgba(0,0,0,.125);
-//   background-color: #fff;
-// }
-
-// .card-img-wrap {
-//   height: 180px;
-//   overflow: hidden;
-//   border-radius: 1px;
-//   min-height: 180px;
-//   display: block;
-//   position: relative;
-//   img {
-//     width: 100%;
-//     height: auto;
-//     min-height: 180px;
-//     border-radius: 0;
-//   }
-// }
 
 .demo-title {
   margin: 0 0 15px;

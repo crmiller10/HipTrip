@@ -56,7 +56,7 @@ class Hotel extends Component {
   render(){
     const hotel = this.props.hotel
 
-    let stars = symbolsDisplay(hotel.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+    let stars = symbolsDisplay(hotel.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
      let cardMargin = {
       marginBottom: "30px",
