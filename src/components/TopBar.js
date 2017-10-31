@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { symbolsDisplay } from '../utilities';
+
 class TopBar extends Component {
   render() {
+    let budget = symbolsDisplay(this.props.currentTrip.budget, <i class="fa fa-usd"></i>)
     console.log('getTrip', this.props.currentTrip)
     return (
       <section className="section py-4 top-bar">
@@ -16,7 +19,7 @@ class TopBar extends Component {
               <div className="col-sm-6">
                 <div className="text-right">
                   <h6>Budget</h6>
-                  <h2>{this.props.currentTrip.budget}</h2>
+                  <h2>{budget}</h2>
                 </div>
               </div>
             </div>

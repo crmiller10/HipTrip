@@ -3,12 +3,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Spa from './Spa';
+import SearchCard from './SearchCard';
 
 class SpaList extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        businesses: []
+        businesses: [],
+        businessType: 'spa',
       }
     }
 
@@ -43,8 +45,8 @@ class SpaList extends Component {
 
       const spas = this.state.businesses.map((spa, index) => {
         return(
-          <Spa key={index}
-          spa={spa}
+          <SearchCard key={index}
+          business={spa} businessType={this.state.businessType}
           />
           );
         }

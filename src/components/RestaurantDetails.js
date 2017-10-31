@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createTrip, updateTrip } from '../actions';
 
+import { symbolsDisplay } from '../utilities';
+
 class RestaurantDetails extends Component {
 
   // get request to bring in the trip id
@@ -52,6 +54,8 @@ class RestaurantDetails extends Component {
     } else {
 
       const restaurants = this.props.currentTrip.restaurants.map( (restaurant, index) => {
+        let stars = symbolsDisplay(restaurant.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+
         return(
 
           <div className="tripdetails-biz">
@@ -65,7 +69,7 @@ class RestaurantDetails extends Component {
               <div className="tripdetails-biz-info col-lg-2">
                 <i class="fa fa-heart" onClick={ () => this.deleteRestaurant(index) }></i>
                 <p className="tripdetails-biz-price">{restaurant.price}</p>
-                <p className="tripdetails-biz-rating">{restaurant.rating}</p>
+                <p className="tripdetails-biz-rating">{stars}</p>
               </div>
           </div>
         )

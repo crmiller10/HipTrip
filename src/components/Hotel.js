@@ -7,6 +7,8 @@ import { Link, withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateTrip } from '../actions';
 
+import { symbolsDisplay } from '../utilities';
+
 class Hotel extends Component {
   constructor(props) {
     super(props);
@@ -54,6 +56,8 @@ class Hotel extends Component {
   render(){
     const hotel = this.props.hotel
 
+    let stars = symbolsDisplay(hotel.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+
      let cardMargin = {
       marginBottom: "30px",
     }
@@ -68,7 +72,7 @@ class Hotel extends Component {
           </a>
           <div className="card-body">
             <p className="card-text price">{hotel.price}</p>
-            <p className="card-text rating">{hotel.rating} Stars</p>
+            <p className="card-text rating">{stars}</p>
             <p className="card-text name">{hotel.name}</p>
             <p className="card-text phone">{hotel.display_phone}</p>
             <div>
@@ -104,4 +108,3 @@ function mapD2P(dispatch) {
 }
 
 export default withRouter(connect(mapS2P, mapD2P)(Hotel));
-

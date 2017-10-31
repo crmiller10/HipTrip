@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createTrip, updateTrip } from '../actions';
 
+import { symbolsDisplay } from '../utilities';
+
 class NightlifeDetails extends Component {
   // get request to bring in the trip id
   handleNightlifeSearch() {
@@ -51,6 +53,8 @@ class NightlifeDetails extends Component {
       } else {
 
         const nightlives = this.props.currentTrip.nightlife.map( (nightlife, index) => {
+          let stars = symbolsDisplay(nightlife.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+
           return(
             <div className="tripdetails-biz">
               <img className="img-fluid col-lg-6" src={nightlife.image_url} alt="" />
@@ -63,7 +67,7 @@ class NightlifeDetails extends Component {
               <div className="tripdetails-biz-info col-lg-2">
                 <i class="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
                 <p className="tripdetails-biz-price">{nightlife.price}</p>
-                <p className="tripdetails-biz-rating">{nightlife.rating}</p>
+                <p className="tripdetails-biz-rating">{stars}</p>
               </div>
             </div>
           )
