@@ -9,17 +9,7 @@ import TopBar from "../TopBar";
 class NightlifeSearch extends Component {
   render() {
     return(
-      <div className="container">
-        {/*<div className="top-bar">
-          <div className="row">
-            <div className="col-sm-6">
-              <h3 className="title">{this.props.currentTrip.destination}</h3>
-            </div>
-            <div className="col-sm-6">
-             <div className="text-right"><h2>{this.props.currentTrip.budget}</h2></div>
-            </div>
-          </div>
-        </div>*/}
+      <div className="wrapper">
         <TopBar />
         <NavTabs />
         <div className="page-content">

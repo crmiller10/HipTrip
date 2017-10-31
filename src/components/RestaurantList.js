@@ -56,9 +56,13 @@ class RestaurantList extends Component {
 
       console.log("restaurants", this.state.businesses);
       return (
-        <div className="row">
-          {restaurants}
-        </div>
+        <section className="section">
+          <div className="container">
+            <div className="row">
+              {restaurants}
+            </div>
+          </div>
+        </section>
       )
     }
   }

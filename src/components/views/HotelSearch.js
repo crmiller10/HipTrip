@@ -13,20 +13,14 @@ class HotelSearch extends Component {
   render() {
     console.log('getTrip', this.props.currentTrip)
     return (
-      <div>
-        <TopBar />
-        <div className="container">
-          <NavTabs />
-        </div>
-        <div className="page-content">
-          <div className="container">
-            <Map />
-          </div>
-          <div className="container">
-            <HotelList />
-          </div>
+    <div className="wrapper">
+      <TopBar />
+      <NavTabs />
+      <div className="page-content">
+        <Map />
+        <HotelList />
       </div>
-      </div>
+    </div>
     );
   }
 }

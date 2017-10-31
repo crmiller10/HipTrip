@@ -55,9 +55,13 @@ class AEList extends Component {
       );
 
       return (
-        <div className="row">
-          {arts}
-        </div>
+        <section className="section">
+          <div className="container">
+            <div className="row">
+              {arts}
+            </div>
+          </div>
+        </section>
       )
   }
 }

@@ -1,7 +1,5 @@
 /* COMPONENT TO DISPLAY INDIVIDUAL STORE RESULT */
-
 import React, { Component } from 'react';
-
 import Modal from './Modal';
 
 //import redux stuff
@@ -111,6 +109,4 @@ function mapD2P(dispatch) {
     }
   }
 }
-
-
 export default connect(mapS2P, mapD2P)(Store);

@@ -17,6 +17,9 @@
 .text-dark-steel {
   color: #88A8AE !important; }
 
+.text-light-gray {
+  color: #A2A2A2 !important; }
+
 .bg-green {
   background-color: #43a047 !important;
   border-color: #43a047 !important; }
@@ -48,7 +51,8 @@
   box-sizing: border-box; }
 
 html {
-  height: 100%; }
+  height: 100%;
+  min-height: 100%; }
 
 body {
   margin: 0;
@@ -63,14 +67,22 @@ body {
 
 #root,
 .App {
-  height: 100%; }
+  height: 100%;
+  min-height: 100%;
+  position: relative; }
 
 main {
-  height: 100%;
-  padding-top: 50px; }
+  height: auto;
+  position: relative;
+  min-height: 100vh; }
 
 /* Page Layouts
 ––––––––––––––––––––––––––––––––––– */
+.wrapper {
+  height: 100%;
+  min-height: 100%;
+  padding-top: 50px; }
+
 .page-wrapper {
   height: 100%; }
 
@@ -80,7 +92,7 @@ main {
   padding: 80px 0; }
 
 .bg-image-cover {
-  height: 100%;
+  height: 100vh;
   background-image: url(https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1350&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -366,8 +378,6 @@ select {
     top: 10px;
     left: 10px; }
 
-/* Model
-––––––––––––––––––––––––––––––––––– */
 /* Forms
 ––––––––––––––––––––––––––––––––––– */
 form {
@@ -389,7 +399,7 @@ form {
   .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #353B3B;
+    border-color: #0082CA;
     border-width: 1px;
     outline: 0; }
 
@@ -619,12 +629,41 @@ select.form-control:not([size]):not([multiple]) {
   display: block; }
 
 .react-date-picker__calendar .react-calendar {
-  border: 1px solid #efefef;
+  border: 1px solid #fff;
   z-index: 3000;
   position: absolute;
   width: 100%;
   background: #fff;
-  transition: .25s; }
+  transition: .25s;
+  box-shadow: rgba(0, 0, 0, 0.247059) 0px 14px 45px, rgba(0, 0, 0, 0.219608) 0px 10px 18px; }
+.react-date-picker__calendar .react-calendar button {
+  border: 0;
+  outline: none;
+  border-radius: 2px; }
+.react-date-picker__calendar .react-calendar__tile {
+  max-width: 100%;
+  text-align: center;
+  padding: .75em .5em;
+  background: none; }
+.react-date-picker__calendar .react-calendar__tile--active {
+  background: #006edc;
+  color: white; }
+.react-date-picker__calendar .react-date-picker__calendar--closed {
+  display: block; }
+.react-date-picker__calendar .react-calendar__tile--active {
+  background: #28A745;
+  color: white; }
+.react-date-picker__calendar button.react-calendar__tile--active:not([disabled]):hover {
+  background: #28A745; }
+.react-date-picker__calendar .react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  font-size: 16px;
+  font-weight: 400; }
+.react-date-picker__calendar button.react-calendar__tile:not([disabled]):hover {
+  background-color: #e6e6e6; }
+.react-date-picker__calendar .react-calendar__month-view__days__day--weekend {
+  color: red; }
 
 /*----------  Subsection comment block  ----------*/
 @media (min-width: 768px) {
@@ -644,5 +683,26 @@ select.form-control:not([size]):not([multiple]) {
   background-color: transparent !important; }
 
 /*=====  End of Color Helper Classes  ======*/
+/*=============================================
+=            Section comment block            =
+=============================================*/
+footer {
+  position: absolute;
+  height: 30px; }
+
+.footer {
+  position: absolute;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-color: #14212F; }
+  .footer a {
+    color: #fff; }
+  .footer .nav-link {
+    padding: 0;
+    line-height: 40px; }
+
+/*=====  End of Section comment block  ======*/
 
 /*# sourceMappingURL=index.css.map */

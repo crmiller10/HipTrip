@@ -14,6 +14,7 @@ import SpaSearch from './components/views/SpaSearch';
 
 // Components
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor(props){
@@ -50,6 +51,7 @@ class App extends Component {
             <Route path="/" component={Home} />
           </Switch>
         </main>
+        {/*<Footer />*/}
       </div>
     );
   }

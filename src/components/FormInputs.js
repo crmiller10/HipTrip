@@ -65,7 +65,7 @@ class FormInputs extends Component{
         <div className="row justify-content-sm-center">
           <div className="col-md-6 col-lg-6">
             <div class="form-group has-feedback has-feedback-left">
-              <input type="text" class="form-control rounded" placeholder="Destination" value={this.state.Destination}
+              <input type="text" class="form-control" placeholder="Destination" value={this.state.Destination}
               onChange={event => this.handleDestination(event)}></input>
               <div class="form-control-feedback">
                 <i class="ion-search"></i>
@@ -75,9 +75,8 @@ class FormInputs extends Component{
 
           <div className="col-md-4 col-lg-4">
             <div className="form-group">
-              <select className="form-control"
-                onChange={event => this.handleSelectBudget(event)}>
-                <option value="">Budget</option>
+              <select className="form-control" onChange={event => this.handleSelectBudget(event)}>
+                <option value="" disabled selected>Select Budget</option>
                 <option value="1" >$</option>
                 <option value="2" >$$</option>
                 <option value="3" >$$$</option>
