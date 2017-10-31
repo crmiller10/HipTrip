@@ -13,7 +13,7 @@ class ShoppingSearch extends Component {
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          <div>
+          {/*<div>
             <select>
               <option value="1">$</option>
               <option value="2">$$</option>
@@ -26,7 +26,7 @@ class ShoppingSearch extends Component {
             <button>Jewelry</button>
             <button>Outlet Stores</button>
             <button>Pop-up Shops</button>
-          </div>
+          </div>*/}
           <StoreList />
         </div>
       </div>

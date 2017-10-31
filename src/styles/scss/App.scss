@@ -18,6 +18,7 @@ $steel: #D5E4E8 !important;
 $dark-steel: #88A8AE !important;
 $dark-blue: #14212F !important;
 $light-gray: #A2A2A2 !important;
+$yellow: #FFE100 !important;
 
 /*=====  End of Color Variables  ======*/
 
@@ -26,6 +27,7 @@ $light-gray: #A2A2A2 !important;
 .text-steel { color: $steel; }
 .text-dark-steel { color: $dark-steel; }
 .text-light-gray { color: $light-gray; }
+.text-yellow { color: $yellow; }
 .bg-green {
   background-color: #43a047 !important;
   border-color: #43a047 !important;
@@ -371,73 +373,6 @@ select {
 =============================================*/
 
 .card {
-  text-transform: capitalize;
-}
-.card {
-  .card-body {
-    min-height: 130px;
-  }
-}
-.card {
-  p.card-text {
-    margin-bottom: 0;
-  }
-  p {
-    &.price,
-    &.rating,
-    &.phone,
-    &.name,
-    &.address1,
-    &.address2 {
-      margin-bottom: 0;
-    }
-    &.price {
-      font-size: 18px;
-      display: block;
-      position: absolute;
-      top: 0;
-      background-color: #fff;
-    }
-    &.rating {
-      font-weight: 600;
-    }
-    &.phone {
-      font-size: 14px;
-    }
-    &.name {
-      font-size: 16px;
-      font-weight: 600;
-    }
-  }
-}
-
-.card-footer {
-  padding: .75rem 1.25rem;
-  background-color: rgba(0,0,0,.03);
-  border-top: 1px solid rgba(0,0,0,.125);
-  background-color: #fff;
-}
-
-.card-img-wrap {
-  height: 180px;
-  overflow: hidden;
-  border-radius: 1px;
-  min-height: 180px;
-  display: block;
-  position: relative;
-  img {
-    width: 100%;
-    height: auto;
-    min-height: 180px;
-    border-radius: 0;
-  }
-}
-
-/*=============================================
-  Cards
-=============================================*/
-
-.card {
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -487,8 +422,8 @@ select {
     bottom: 0;
     left: 0;
     cursor: pointer;
-    background-color: #000;
-    // background-color: rgba(0, 0, 0, 0.25);
+    // background-color: #000;
+    background-color: rgba(0, 0, 0, 0.25);
     transition: ease all .3s;
     &:hover {
       background-color: transparent;
@@ -504,8 +439,8 @@ select {
 
 .card {
   i {
-    font-size: 18px;
-    margin-right: 5px;
+    // font-size: 18px;
+    // margin-right: 5px;
   }
   p.card-text {
     margin-bottom: 0;
@@ -530,17 +465,10 @@ select {
     }
     &.price {
       letter-spacing: 1px;
-     // font-size: 18px;
-     // display: flex;
-     // font-weight: 300;
-     // position: absolute;
-     // background: $green;
-     // bottom: 10px;
-     // background-color: #fff;
-     // align-items: flex-end;
+      font-size: 18px;
     }
     &.rating {
-      font-weight: 600;
+      font-size: 18px;
     }
     &.phone {
       font-size: 14px;
@@ -564,7 +492,7 @@ select {
 
   // font-size: 75%;
   font-size: 100%;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
   color: #fff;
   text-align: center;
@@ -573,8 +501,6 @@ select {
   // border-radius: .25rem;
   border-radius: 2px;
   position: absolute;
-  background-color: $green2;
-  background-color: $green;
 
   &.badge-top-right {
     top: 10px;
@@ -791,35 +717,122 @@ select.form-control:not([size]):not([multiple]) {
     height: 100px;
   }
 }
-
+.details-section .tripdetails-biz {
+  border: 1px solid #efefef;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
 .details-section{
+
   .tripdetails-biz {
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    border: 1px solid black;
-    margin: 1% 0;
-    padding: 1% 0;
-    img{
-      height: 100%;
+    border: 1px solid #efefef;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+
+   @media (min-width: 768px) {
+     .col-md-8,
+     .col-md-4 {
+       // padding-left: 0;
+       // padding-right: 0;
+     }
+   }
+    .card-img-top {
+      // width: 200px;
+      // position: relative;
+      height: 160px;
+      display: block;
+      overflow: hidden;
+      padding: 10px;
+      // float: left;
     }
-    .tripdetails-biz-info{
-      p {
-        margin: 0.5%;
-      }
+    .card-body {
+      padding: 15px 0;
+      // display: block;
+      // float: right;
+      position: relative;
+    }
+
+    p { margin-bottom: 0;}
+
+    .img-wrap {
+      height: 180px;
+      overflow: hidden;
+      border-radius: 1px;
+      min-height: 180px;
+      // width: 200px;
+      display: block;
+      position: relative;
+
+    }
+    .img-overlay {
+      position: absolute;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.15);
+      z-index: 2;
+      width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
       .tripdetails-biz-name{
         font-weight: bold;
+        font-size: 24px;
+      }
+      .tripdetails-biz-address1 {
+        font-size: 16px;
+      }
+      .tripdetails-biz-address2 {
+
       }
       .tripdetails-biz-phone{
         color: #376996;
       }
       .tripdetails-biz-price{
-        font-weight: bold;
-        font-size: 25px;
       }
-    }
+      .tripdetails-biz-rating {
+        // font-weight: bold;
+        font-size: 18px;
+        position: absolute;
+        color: #fff;
+        top: 15px;
+        left: 15px;
+      }
   }
 }
+
+// .tripdetails-biz {
+//   border: 1px solid #efefef;
+//   margin-bottom: 20px;
+//   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+//     img {
+//       width: 100%;
+//       height: auto;
+//       min-height: 180px;
+//       border-radius: 0;
+//     }
+//     .tripdetails-biz-info{
+//         padding: 10px;
+
+//       p {
+//         margin-bottom: 0;
+//       }
+//       .tripdetails-biz-name {
+//         font-size: 24px;
+//       }
+//       .tripdetails-biz-phone {
+
+//       }
+
+//       .tripdetails-biz-price {
+
+//       }
+//       .address1 {}
+//       .address2 {}
+//     }
+// }
 
 /*=============================================
 =            React Date Picker                =

@@ -13,7 +13,7 @@ class SpaSearch extends Component {
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          <div>
+          {/*<div>
             <select>
               <option value="1">$</option>
               <option value="2">$$</option>
@@ -26,7 +26,7 @@ class SpaSearch extends Component {
             <button>Hair Salon</button>
             <button>Massage</button>
             <button>Nail Salon</button>
-          </div>
+          </div>*/}
           <SpaList />
         </div>
       </div>

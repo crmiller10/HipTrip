@@ -57,24 +57,26 @@ class SearchCard extends Component {
     return(
       <div className="col-md-6 col-lg-4">
         <div className="card" style={cardMargin}>
+          <div className="card-img-wrap">
+          <div className="card-img-overlay">
+          <p className="badge badge-bottom-left card-text price">{business.price}</p>
+          <p className="badge badge-bottom-right card-text rating">{stars}</p>
+          </div>
             <a href={business.url} className="">
-            <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={business.image_url} alt="" />
-              </div>
             </a>
+          </div>
           <div className="card-body">
-            <p className="card-text">{business.price}</p>
-            <p className="card-text">{stars}</p>
-            <p className="card-text">{business.name}</p>
-            <p className="card-text">{business.display_phone}</p>
+            <p className="card-text name">{business.name}</p>
             <div>
-              <p className="card-text">{business.location.address1}</p>
-              <p className="card-text">{business.location.city}, {business.location.state} {business.location.zip_code}</p>
+              <p className="card-text address1">{business.location.address1}</p>
+              <p className="card-text address2">{business.location.city}, {business.location.state} {business.location.zip_code}</p>
             </div>
+            <p className="card-text phone">{business.display_phone}</p>
           </div>
           <div className="card-footer clearfix">
-            <a href={business.url} className="btn btn-secondary btn-block">Visit Site</a>
-            <button className="btn btn-info btn-block" onClick={ () => this.handleBusinessAdd() }>Add</button>
+            <a href={business.url} className="btn btn-secondary">Visit Site</a>
+            <button className="btn btn-info" onClick={ () => this.handleBusinessAdd() }>Add</button>
           </div>
         </div>
       </div>
