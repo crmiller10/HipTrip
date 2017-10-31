@@ -53,7 +53,7 @@ class SpaDetails extends Component {
       } else {
 
         const spas = this.props.currentTrip.spas.map( (spa, index) => {
-          let stars = symbolsDisplay(spa.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+          let stars = symbolsDisplay(spa.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
           return(
             <div className="tripdetails-biz">
@@ -65,7 +65,7 @@ class SpaDetails extends Component {
                 <p className="tripdetails-biz-address">{spa.city}, {spa.state} {spa.zip_code}</p>
               </div>
               <div className="tripdetails-biz-info col-lg-2">
-                <i class="fa fa-heart" onClick={ () => this.deleteSpa(index) }></i>
+                <i className="fa fa-heart" onClick={ () => this.deleteSpa(index) }></i>
                 <p className="tripdetails-biz-price">{spa.price}</p>
                 <p className="tripdetails-biz-rating">{stars}</p>
               </div>

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 //import redux stuff
 import { connect } from 'react-redux';
-import { createTrip, updateTrip, addPlace } from '../actions';
+// import { createTrip, updateTrip, addPlace } from '../actions';
 
-import Hotel from './Hotel'
-import HotelList from './HotelList'
+// import Hotel from './Hotel'
+// import HotelList from './HotelList'
 
 
 class Map extends Component {
@@ -47,6 +47,8 @@ class Map extends Component {
         zoom: 11,
         center: new window.google.maps.LatLng(hotels[0].coordinates.latitude, hotels[0].coordinates.longitude)
       });
+      // let image = 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/48/map-marker-icon.png';
+      // let image = 'http://realhomes-modern.inspirythemes.biz/wp-content/themes/realhomes/assets/modern/images/map/single-family-home-map-icon.png';
 
       for (let i = 0; i < hotels.length ; i++) {
         var marker = new window.google.maps.Marker({
@@ -55,6 +57,8 @@ class Map extends Component {
             lng: hotels[i].coordinates.longitude,
           },
           map: map, // map object we created in initMap
+          // icon: image,
+
 
         });
         // var marker, i;
@@ -116,14 +120,14 @@ function mapS2P(state) {
   return {
     currentTrip: state.currentTrip,
     trips: state.trips,
-    places: state.places, // so we can render all of the markers
+    // places: state.places, // so we can render all of the markers
   };
 }
 
 function mapD2P(dispatch) {
   return {
     newPlace: function (place) {
-      dispatch(addPlace(place));  // import addPlace @ the top
+      // dispatch(addPlace(place));  // import addPlace @ the top
     }
   };
 }

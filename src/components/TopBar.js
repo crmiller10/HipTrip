@@ -5,7 +5,7 @@ import { symbolsDisplay } from '../utilities';
 
 class TopBar extends Component {
   render() {
-    let budget = symbolsDisplay(this.props.currentTrip.budget, <i class="fa fa-usd"></i>)
+    let budget = symbolsDisplay(this.props.currentTrip.budget, <i className="fa fa-usd"></i>)
     console.log('getTrip', this.props.currentTrip)
     return (
       <section className="section py-4 top-bar">

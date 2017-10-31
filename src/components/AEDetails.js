@@ -58,7 +58,7 @@ class AEDetails extends Component {
       } else {
 
         const arts = this.props.currentTrip.arts.map( (art, index) => {
-          let stars = symbolsDisplay(art.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+          let stars = symbolsDisplay(art.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
           return(
             <div className="tripdetails-biz">
@@ -71,7 +71,7 @@ class AEDetails extends Component {
               </div>
 
               <div className="tripdetails-biz-info col-lg-2">
-                <i class="fa fa-heart" onClick={ () => this.deleteArt(index) }></i>
+                <i className="fa fa-heart" onClick={ () => this.deleteArt(index) }></i>
                 <p className="tripdetails-biz-price">{art.price}</p>
                 <p className="tripdetails-biz-rating">{stars}</p>
               </div>

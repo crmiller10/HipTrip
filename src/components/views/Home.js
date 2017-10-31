@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
         <div className="page-wrapper bg-image-cover">
-          <div class="overlay"></div>
+          <div className="overlay"></div>
           <section className="section section-lg">
             <div className="container">
               <div className="tagline">

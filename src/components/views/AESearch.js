@@ -14,7 +14,7 @@ class AESearch extends Component {
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          <div>
+          {/*<div>
             <select>
               <option value="1">$</option>
               <option value="2">$$</option>
@@ -27,7 +27,7 @@ class AESearch extends Component {
             <button>Museums</button>
             <button>Performing Arts</button>
             <button>Wineries</button>
-          </div>
+          </div>*/}
           <AEList />
         </div>
       </div>

@@ -54,7 +54,7 @@ class RestaurantDetails extends Component {
     } else {
 
       const restaurants = this.props.currentTrip.restaurants.map( (restaurant, index) => {
-        let stars = symbolsDisplay(restaurant.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+        let stars = symbolsDisplay(restaurant.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
         return(
 
@@ -67,7 +67,7 @@ class RestaurantDetails extends Component {
                 <p className="tripdetails-biz-address">{restaurant.city}, {restaurant.state} {restaurant.zip_code}</p>
               </div>
               <div className="tripdetails-biz-info col-lg-2">
-                <i class="fa fa-heart" onClick={ () => this.deleteRestaurant(index) }></i>
+                <i className="fa fa-heart" onClick={ () => this.deleteRestaurant(index) }></i>
                 <p className="tripdetails-biz-price">{restaurant.price}</p>
                 <p className="tripdetails-biz-rating">{stars}</p>
               </div>

@@ -58,13 +58,17 @@ class AE extends Component {
     return(
       <div className="col-md-6 col-lg-4">
         <div className="card" style={cardMargin}>
+
+          <div className="card-img-wrap">
+            <div className="card-img-overlay">
+              <p className="badge badge-bottom-left card-text price">{art.price}</p>
+            </div>
             <a href={art.url} className="">
-            <div className="card-img-wrap">
               <img className="card-img-top img-fluid" src={art.image_url} alt="" />
-              </div>
             </a>
+          </div>
+
           <div className="card-body">
-            <p className="card-text">{art.price}</p>
             <p className="card-text">{art.rating} Stars</p>
             <p className="card-text">{art.name}</p>
             <p className="card-text">{art.display_phone}</p>

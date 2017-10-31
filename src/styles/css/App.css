@@ -20,6 +20,9 @@
 .text-light-gray {
   color: #A2A2A2 !important; }
 
+.text-yellow {
+  color: #FFE100 !important; }
+
 .bg-green {
   background-color: #43a047 !important;
   border-color: #43a047 !important; }
@@ -298,7 +301,7 @@ select {
   overflow: hidden;
   border-radius: 1px;
   min-height: 180px;
-  display: flex;
+  display: block;
   position: relative; }
   .card-img-wrap img {
     width: 100%;
@@ -323,9 +326,6 @@ select {
   min-height: 130px;
   padding: 15px; }
 
-.card i {
-  font-size: 18px;
-  margin-right: 5px; }
 .card p.card-text {
   margin-bottom: 0; }
 .card p.price, .card p.rating, .card p.phone, .card p.name, .card p.address1, .card p.address2 {
@@ -338,9 +338,10 @@ select {
   font-weight: 600;
   margin-bottom: 10px; }
 .card p.price {
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-size: 18px; }
 .card p.rating {
-  font-weight: 600; }
+  font-size: 18px; }
 .card p.phone {
   font-size: 14px; }
 
@@ -355,16 +356,14 @@ select {
   display: inline-block;
   padding: 5px 10px;
   font-size: 100%;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
   color: #fff;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 2px;
-  position: absolute;
-  background-color: #1A9184 !important;
-  background-color: #2AA541 !important; }
+  position: absolute; }
   .badge.badge-top-right {
     top: 10px;
     right: 10px; }
@@ -486,9 +485,6 @@ select.form-control:not([size]):not([multiple]) {
 .page-content {
   padding: 0; }
 
-/*=============================================
-  Cards
-=============================================*/
 .demo-title {
   margin: 0 0 15px;
   color: #666666;
@@ -539,23 +535,55 @@ select.form-control:not([size]):not([multiple]) {
   height: 100px; }
 
 .details-section .tripdetails-biz {
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  border: 1px solid black;
-  margin: 1% 0;
-  padding: 1% 0; }
-  .details-section .tripdetails-biz img {
-    height: 100%; }
-  .details-section .tripdetails-biz .tripdetails-biz-info p {
-    margin: 0.5%; }
-  .details-section .tripdetails-biz .tripdetails-biz-info .tripdetails-biz-name {
-    font-weight: bold; }
-  .details-section .tripdetails-biz .tripdetails-biz-info .tripdetails-biz-phone {
-    color: #376996; }
-  .details-section .tripdetails-biz .tripdetails-biz-info .tripdetails-biz-price {
+  border: 1px solid #efefef;
+  margin-bottom: 20px;
+  overflow: hidden; }
+
+.details-section .tripdetails-biz {
+  border: 1px solid #efefef;
+  margin-bottom: 20px;
+  overflow: hidden; }
+  .details-section .tripdetails-biz .card-img-top {
+    height: 160px;
+    display: block;
+    overflow: hidden;
+    padding: 10px; }
+  .details-section .tripdetails-biz .card-body {
+    padding: 15px 0;
+    position: relative; }
+  .details-section .tripdetails-biz p {
+    margin-bottom: 0; }
+  .details-section .tripdetails-biz .img-wrap {
+    height: 180px;
+    overflow: hidden;
+    border-radius: 1px;
+    min-height: 180px;
+    display: block;
+    position: relative; }
+  .details-section .tripdetails-biz .img-overlay {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0; }
+  .details-section .tripdetails-biz .tripdetails-biz-name {
     font-weight: bold;
-    font-size: 25px; }
+    font-size: 24px; }
+  .details-section .tripdetails-biz .tripdetails-biz-address1 {
+    font-size: 16px; }
+  .details-section .tripdetails-biz .tripdetails-biz-phone {
+    color: #376996; }
+  .details-section .tripdetails-biz .tripdetails-biz-rating {
+    font-size: 18px;
+    position: absolute;
+    color: #fff;
+    top: 15px;
+    left: 15px; }
 
 /*=============================================
 =            React Date Picker                =

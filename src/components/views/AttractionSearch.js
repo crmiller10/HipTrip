@@ -13,7 +13,7 @@ class AttractionSearch extends Component {
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          <div>
+          {/*<div>
             <select>
               <option value="1">$</option>
               <option value="2">$$</option>
@@ -26,7 +26,7 @@ class AttractionSearch extends Component {
             <button>Bike Rentals</button>
             <button>Fitness</button>
             <button>Kids Activities</button>
-          </div>
+          </div>*/}
           <AttractionList />
         </div>
       </div>

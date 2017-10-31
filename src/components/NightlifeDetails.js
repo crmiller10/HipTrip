@@ -45,7 +45,7 @@ class NightlifeDetails extends Component {
 
       if (this.props.currentTrip.nightlife === null || this.props.currentTrip.nightlife.length === 0) {
         return(
-          <div className="details-section col-lg-8 mb-4 mt-4">
+          <div className="details-section col-lg-12 mb-4 mt-4">
             <h3>Nightlife:</h3>
             <button className="details-find-btn col-lg-4 col-lg-offset-4" onClick={ () => this.handleNightlifeSearch() } >Discover Nightlife</button>
           </div>
@@ -53,28 +53,39 @@ class NightlifeDetails extends Component {
       } else {
 
         const nightlives = this.props.currentTrip.nightlife.map( (nightlife, index) => {
-          let stars = symbolsDisplay(nightlife.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+          let stars = symbolsDisplay(nightlife.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
           return(
             <div className="tripdetails-biz">
-              <img className="img-fluid col-lg-6" src={nightlife.image_url} alt="" />
-              <div className="tripdetails-biz-info col-lg-4">
-                <p className="tripdetails-biz-name">{nightlife.name}</p>
-                <p className="tripdetails-biz-phone">{nightlife.display_phone}</p>
-                <p className="tripdetails-biz-address">{nightlife.address1}</p>
-                <p className="tripdetails-biz-address">{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
-              </div>
-              <div className="tripdetails-biz-info col-lg-2">
-                <i class="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
-                <p className="tripdetails-biz-price">{nightlife.price}</p>
-                <p className="tripdetails-biz-rating">{stars}</p>
+              <div className="row">
+                <div className="col-md-4">
+                  <div className="img-wrap">
+                    <div className="img-overlay">
+                      <span className="tripdetails-biz-rating">{stars}</span>
+                    </div>
+                    <img className="img-fluid" src={nightlife.image_url} alt="" />
+                  </div>
+
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h4 className="tripdetails-biz-name">{nightlife.name}</h4>
+
+                    <p className="tripdetails-biz-address1">{nightlife.address1}</p>
+                    <p className="tripdetails-biz-address2">{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
+                    <p className="">{nightlife.display_phone}</p>
+                    <i className="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
+                    <span className="tripdetails-biz-price">{nightlife.price}</span>
+
+                  </div>
+                </div>
               </div>
             </div>
           )
         })
 
       return (
-        <div className="details-section col-lg-8 mb-4 mt-4">
+        <div className="details-section col-lg-10 mb-4 mt-4">
           <h3>Nightlife:</h3>
           {nightlives}
         </div>
@@ -102,3 +113,25 @@ function mapD2P(dispatch) {
 }
 
 export default withRouter(connect(mapS2P, mapD2P)(NightlifeDetails));
+
+
+// <div className="div card tripdetails-biz">
+//   <div className="row">
+//     <div className="col-md-4">
+//       <div className="img-wrap">
+//         <img className="img-fluid" src={nightlife.image_url} alt="" />
+//       </div>
+//     </div>
+//     <div className="col-md-8">
+//       <div className="tripdetails-biz-info">
+//         <p className="tripdetails-biz-name">{nightlife.name}</p>
+//         <p className="tripdetails-biz-phone">{nightlife.display_phone}</p>
+//         <p className="address1">{nightlife.address1}</p>
+//         <p className="address2">{nightlife.city}, {nightlife.state} {nightlife.zip_code}</p>
+//         <i className="fa fa-heart" onClick={ () => this.deleteNightlife(index) }></i>
+//         <p className="tripdetails-biz-price">{nightlife.price}</p>
+//         <p className="tripdetails-biz-rating">{stars}</p>
+//       </div>
+//     </div>
+//   </div>
+// </div>

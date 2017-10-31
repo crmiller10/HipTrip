@@ -53,7 +53,7 @@ class ShoppingDetails extends Component {
       } else {
 
         const shops = this.props.currentTrip.shopping.map( (shop, index) => {
-          let stars = symbolsDisplay(shop.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
+          let stars = symbolsDisplay(shop.rating, <i className="fa fa-star"></i>, <i className="fa fa-star-half-o" aria-hidden="true"></i>)
 
           return(
             <div className="tripdetails-biz">
@@ -65,7 +65,7 @@ class ShoppingDetails extends Component {
                 <p className="tripdetails-biz-address">{shop.city}, {shop.state} {shop.zip_code}</p>
               </div>
               <div className="tripdetails-biz-info col-lg-2">
-                <i class="fa fa-heart" onClick={ () => this.deleteShopping(index) }></i>
+                <i className="fa fa-heart" onClick={ () => this.deleteShopping(index) }></i>
                 <p className="tripdetails-biz-price">{shop.price}</p>
                 <p className="tripdetails-biz-rating">{stars}</p>
               </div>

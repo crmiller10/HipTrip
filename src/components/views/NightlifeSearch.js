@@ -13,7 +13,7 @@ class NightlifeSearch extends Component {
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          <div>
+          {/*<div>
             <select>
               <option value="1">$</option>
               <option value="2">$$</option>
@@ -26,7 +26,7 @@ class NightlifeSearch extends Component {
             <button>Comedy Clubs</button>
             <button>Karaoke</button>
             <button>Music Venues</button>
-          </div>
+          </div>*/}
           <NightlifeList />
         </div>
       </div>
