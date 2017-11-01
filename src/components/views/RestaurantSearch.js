@@ -10,7 +10,7 @@ import TopBar from "../TopBar";
 class RestaurantSearch extends Component {
   render() {
     return (
-      <div className="wrapper">
+      <div className="wrapper search-wrapper">
         <TopBar />
         <NavTabs />
         <div className="page-content">

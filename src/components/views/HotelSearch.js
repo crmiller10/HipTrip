@@ -13,7 +13,7 @@ class HotelSearch extends Component {
   render() {
     console.log('getTrip', this.props.currentTrip)
     return (
-    <div className="wrapper">
+    <div className="wrapper search-wrapper">
       <TopBar />
       <NavTabs />
       <div className="page-content">

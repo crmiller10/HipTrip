@@ -9,24 +9,10 @@ import TopBar from "../TopBar";
 class SpaSearch extends Component {
   render() {
     return(
-      <div className="wrapper">
+      <div className="wrapper search-wrapper">
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          {/*<div>
-            <select>
-              <option value="1">$</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-              <option selected>Select Budget</option>
-            </select>
-            <button>Barber</button>
-            <button>Day Spas</button>
-            <button>Hair Salon</button>
-            <button>Massage</button>
-            <button>Nail Salon</button>
-          </div>*/}
           <SpaList />
         </div>
       </div>

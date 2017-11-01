@@ -3,14 +3,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Hotel from './Hotel';
+import SearchCard from './SearchCard';
 
 class HotelList extends Component {
 
   constructor(props) {
       super(props);
       this.state = {
-        businesses: []
+        businesses: [],
+        businessType: 'hotel',
       }
     }
 
@@ -45,8 +46,8 @@ class HotelList extends Component {
 
       const hotels = this.state.businesses.map((hotel, index) => {
         return(
-          <Hotel key={index}
-          hotel={hotel}
+          <SearchCard key={index}
+          business={hotel} businessType={this.state.businessType}
           />
           );
         }

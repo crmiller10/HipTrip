@@ -9,24 +9,10 @@ import NavTabs from "../NavTabs";
 class ShoppingSearch extends Component {
   render() {
     return(
-      <div className="wrapper">
+      <div className="wrapper search-wrapper">
         <TopBar />
         <NavTabs />
         <div className="page-content">
-          {/*<div>
-            <select>
-              <option value="1">$</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-              <option selected>Select Budget</option>
-            </select>
-            <button>Antiques</button>
-            <button>Fashion</button>
-            <button>Jewelry</button>
-            <button>Outlet Stores</button>
-            <button>Pop-up Shops</button>
-          </div>*/}
           <StoreList />
         </div>
       </div>

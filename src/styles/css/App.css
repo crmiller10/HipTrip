@@ -804,4 +804,40 @@ body {
         .trip-details-container .tripdetails-biz div .star-container .fa-star-half-o {
           color: khaki; }
 
+/* SEARCH PAGES */
+.search-wrapper {
+  background-color: #93D1D8; }
+
+.card-container {
+  margin-top: 1%; }
+  .card-container .card-rating-price {
+    display: flex;
+    justify-content: space-between; }
+    .card-container .card-rating-price p {
+      font-weight: bold; }
+    .card-container .card-rating-price .star-container {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      font-size: 20px; }
+      .card-container .card-rating-price .star-container .fa-star {
+        color: khaki; }
+      .card-container .card-rating-price .star-container .fa-star-half-o {
+        color: khaki; }
+  .card-container .card-name {
+    font-weight: bold; }
+  .card-container .card-phone {
+    color: #376996; }
+  .card-container .card-footer {
+    margin: 0 2%;
+    display: flex;
+    justify-content: space-between; }
+    .card-container .card-footer .card-btn {
+      width: 47%;
+      margin: 0;
+      background-color: #00935B; }
+    .card-container .card-footer .card-btn:hover {
+      background-color: #157A6E; }
+
 /*# sourceMappingURL=App.css.map */

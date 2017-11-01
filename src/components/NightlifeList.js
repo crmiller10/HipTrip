@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import Nightlife from './Nightlife';
 import SearchCard from './SearchCard';
 
 class NightlifeList extends Component {

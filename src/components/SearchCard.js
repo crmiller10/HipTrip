@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { updateTrip } from '../actions';
 
+import { withRouter } from 'react-router-dom';
+
 import { symbolsDisplay } from '../utilities';
 
 class SearchCard extends Component {
@@ -42,6 +44,7 @@ class SearchCard extends Component {
       .then( resp => {
         console.log(resp)
         this.props.addBusiness(resp)
+        this.props.history.push('/trip-details/' + resp.id)
       })
   }
 
@@ -55,7 +58,7 @@ class SearchCard extends Component {
     let stars = symbolsDisplay(business.rating, <i className="fa fa-star"></i>, <i class="fa fa-star-half-o" aria-hidden="true"></i>)
 
     return(
-      <div className="col-md-6 col-lg-4">
+      <div className="col-md-6 col-lg-4 card-container">
         <div className="card" style={cardMargin}>
             <a href={business.url} className="">
             <div className="card-img-wrap">
@@ -63,18 +66,20 @@ class SearchCard extends Component {
               </div>
             </a>
           <div className="card-body">
-            <p className="card-text">{business.price}</p>
-            <p className="card-text">{stars}</p>
-            <p className="card-text">{business.name}</p>
-            <p className="card-text">{business.display_phone}</p>
+            <div className="card-rating-price">
+              <p className="card-text">{business.price}</p>
+              <div className="star-container">{stars}</div>
+            </div>
+            <p className="card-text card-name">{business.name}</p>
+            <p className="card-text card-phone">{business.display_phone}</p>
             <div>
               <p className="card-text">{business.location.address1}</p>
               <p className="card-text">{business.location.city}, {business.location.state} {business.location.zip_code}</p>
             </div>
           </div>
           <div className="card-footer clearfix">
-            <a href={business.url} className="btn btn-secondary btn-block">Visit Site</a>
-            <button className="btn btn-info btn-block" onClick={ () => this.handleBusinessAdd() }>Add</button>
+            <button className="btn btn-info btn-block card-btn" onClick={ () => this.handleBusinessAdd() }><i className="fa fa-plus" aria-hidden="true"></i> Add to Trip</button>
+            <a href={business.url} className="btn btn-secondary btn-block card-btn" target="_blank">Visit Site</a>
           </div>
         </div>
       </div>
@@ -100,5 +105,5 @@ function mapD2P(dispatch) {
 }
 
 
-export default connect(mapS2P, mapD2P)(SearchCard);
+export default withRouter(connect(mapS2P, mapD2P)(SearchCard));
 // export default SearchCard;

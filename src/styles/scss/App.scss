@@ -1171,6 +1171,53 @@ body {
         }
       }
     }
+  }
+}
 
+/* SEARCH PAGES */
+.search-wrapper {
+  background-color: $av-blue2;
+}
+
+.card-container {
+  margin-top: 1%;
+  .card-rating-price{
+    display: flex;
+    justify-content: space-between;
+    p{
+      font-weight: bold;
+    }
+    .star-container{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      font-size: 20px;
+      .fa-star {
+        color: khaki;
+      }
+      .fa-star-half-o{
+        color: khaki;
+      }
+    }
+  }
+  .card-name{
+    font-weight: bold;
+  }
+  .card-phone{
+    color: $av-blue;
+  }
+  .card-footer{
+    margin: 0 2%;
+    display: flex;
+    justify-content: space-between;
+    .card-btn{
+      width: 47%;
+      margin: 0;
+      background-color: $av-green2;
+    }
+    .card-btn:hover{
+      background-color: $av-green;
+    }
   }
 }
